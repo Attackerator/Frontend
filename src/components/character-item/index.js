@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import AttackContainer from '../attack-container';
 import SaveContainer from '../save-container';
 import SpellContainer from '../spell-container';
+import SkillContainer from '../skill-container';
 
 class CharacterItem extends React.Component {
   constructor(props){
@@ -21,7 +22,9 @@ class CharacterItem extends React.Component {
             <AttackContainer/> :
             this.state.tab === 'saves' ?
               <SaveContainer/> :
-              <SpellContainter/>
+              this.state.tab === 'spells' ?
+                <SpellContainter/> :
+                <SkillContainer/>
         }
       </div>
     );
