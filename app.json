@@ -2,7 +2,6 @@
   "name": "attackerator2.0",
   "description": "Reactified Frontend for the Attackerator",
   "scripts": {
-    "postdeploy": "node server.js"
   },
   "env": {
   },
