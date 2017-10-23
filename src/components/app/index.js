@@ -3,6 +3,8 @@ import { BrowserRouter as Router,Route,Switch,Link } from 'react-router-dom';
 import createAppStore from '../../lib/store';
 import { Provider } from 'react-redux';
 
+import SignInForm from '../signin-form';
+
 const store = createAppStore();
 
 import DashboardContainer from '../dashboard';
@@ -14,13 +16,15 @@ export default class App extends React.Component {
         <Provider store={store}>
           <Router>
             <section>
-            <div>
-              <Route exact path='/dashboard' component={DashboardContainer} />
-            </div>
+              <div>
+                <Route exact path='/dashboard' component={DashboardContainer} />
+                <Route exact path='/home/signin' component={SignInForm}/>
+              </div>
               <nav>
                 <ul>
                   <li><Link to={'/'}>Home</Link></li>
                   <li><Link to={'/home/signin'}>Sign Up</Link></li>
+                  <li><Link to={'/dashboard'}>Dashboard</Link></li>
                 </ul>
               </nav>
               <div>
