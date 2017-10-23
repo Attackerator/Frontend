@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "postinstall": "webpack -p",
-    "dev": "webpack-dev-server -w",
+    "dev": "webpack-dev-server --inline --hot",
     "lint": "eslint .",
     "test": "jest",
     "test:watch": "jest --watchAll"
