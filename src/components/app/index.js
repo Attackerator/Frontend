@@ -25,7 +25,7 @@ export default class App extends React.Component {
                   <li><Link to={'/home/signin'}>Sign Up</Link></li>
                 </ul>
               </nav>
-              <SignInForm/>
+              <Route exact path='/home/signin' component={SignInForm}>
               <div>
                 <button>Random Button</button>
                 <button>Random Button</button>
