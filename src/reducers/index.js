@@ -12,6 +12,6 @@ const defaultState = {
   }
 };
 
-export default defaultState => {
-  return defaultState;
+export default (state = defaultState) => {
+  return state;
 };
