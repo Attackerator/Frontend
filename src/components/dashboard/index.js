@@ -2,7 +2,7 @@ import './_dashboard.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 
-class DashboardContainer extends React.Component {
+export default class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
   }

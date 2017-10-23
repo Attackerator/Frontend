@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 
 const store = createAppStore();
 
+import DashboardContainer from '../dashboard';
+
 export default class App extends React.Component {
   render(){
     return(
@@ -12,6 +14,9 @@ export default class App extends React.Component {
         <Provider store={store}>
           <Router>
             <section>
+            <div>
+              <Route exact path='/dashboard' component={DashboardContainer} />
+            </div>
               <nav>
                 <ul>
                   <li><Link to={'/'}>Home</Link></li>
