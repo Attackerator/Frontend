@@ -23,7 +23,7 @@ class AttackContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  //character: state.currentCharacter
+  character: state.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({});
