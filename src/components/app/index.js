@@ -16,16 +16,17 @@ export default class App extends React.Component {
         <Provider store={store}>
           <Router>
             <section>
-            <div>
-              <Route exact path='/dashboard' component={DashboardContainer} />
-            </div>
+              <div>
+                <Route exact path='/dashboard' component={DashboardContainer} />
+                <Route exact path='/home/signin' component={SignInForm}/>
+              </div>
               <nav>
                 <ul>
                   <li><Link to={'/'}>Home</Link></li>
                   <li><Link to={'/home/signin'}>Sign Up</Link></li>
+                  <li><Link to={'/dashboard'}>Dashboard</Link></li>
                 </ul>
               </nav>
-              <Route exact path='/home/signin' component={SignInForm}>
               <div>
                 <button>Random Button</button>
                 <button>Random Button</button>

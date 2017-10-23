@@ -9,7 +9,7 @@ class AttackContainer extends React.Component {
   render(){
     return(
       <div className="charcter">
-        <h1>{this.props.character.name}</h1>
+        <h2>Attacks</h2>
         {
           this.props.character.attacks.map(attack => {
             return(
@@ -23,7 +23,7 @@ class AttackContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  character: state.currentCharacter
+  //character: state.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({});
