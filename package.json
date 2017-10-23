@@ -2,7 +2,7 @@
   "name": "attackerator2.0",
   "version": "1.0.0",
   "description": "",
-  "main": "webapack.config.js",
+  "main": "./dist/app.bundle.js",
   "scripts": {
     "start": "webpack -p",
     "dev": "webpack-dev-server -w",
