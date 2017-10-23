@@ -3,6 +3,8 @@ import { BrowserRouter as Router,Route,Switch,Link } from 'react-router-dom';
 import createAppStore from '../../lib/store';
 import { Provider } from 'react-redux';
 
+import SignInForm from '../signin-form';
+
 const store = createAppStore();
 
 import DashboardContainer from '../dashboard';
@@ -23,6 +25,7 @@ export default class App extends React.Component {
                   <li><Link to={'/home/signin'}>Sign Up</Link></li>
                 </ul>
               </nav>
+              <SignInForm/>
               <div>
                 <button>Random Button</button>
                 <button>Random Button</button>
