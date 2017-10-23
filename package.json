@@ -4,6 +4,7 @@
   "description": "",
   "main": "./dist/app.bundle.js",
   "scripts": {
+    "start:server": "node server.js",
     "start": "webpack -p",
     "dev": "webpack-dev-server -w",
     "lint": "eslint .",
