@@ -26,7 +26,7 @@ class SpellContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  character: state.currentCharacter
+  character: state.defaultStateReducer.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({});

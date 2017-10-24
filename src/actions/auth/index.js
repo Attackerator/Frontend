@@ -1,5 +1,4 @@
 import * as character from '../character';
-console.log({API_URL})
 
 const request = require('superagent');
 

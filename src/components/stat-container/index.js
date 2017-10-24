@@ -1,3 +1,5 @@
+import './_stat-container.scss';
+
 import React from 'react';
 import { connect } from 'react-redux';
 import StatItem from '../stat-item';
@@ -26,7 +28,7 @@ class StatContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  character: state.currentCharacter
+  character: state.defaultStateReducer.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({});
