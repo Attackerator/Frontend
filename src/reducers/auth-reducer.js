@@ -16,5 +16,7 @@ export default (state = initialState,action = defaultAction) => {
         ...state,
         auth: null
       };
+    default:
+      return state;
   }
 };
