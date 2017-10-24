@@ -6,10 +6,7 @@ export default (state = defaultState,action = defaultAction) => {
 
   switch(type){
     case 'CHARACTER_LIST_SET':
-      return {
-        ...state,
-        characters: payload
-      };
+      return payload;
     default:
       return state;
   }

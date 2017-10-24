@@ -6,16 +6,10 @@ export default (state = initialState,action = defaultAction) => {
 
   switch(type){
     case 'TOKEN_SET':
-      return {
-        ...state,
-        auth: payload
-      };
+      return payload;
 
     case 'TOKEN_DELETE':
-      return {
-        ...state,
-        auth: null
-      };
+      return null;
     default:
       return state;
   }

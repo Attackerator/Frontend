@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import auth from './auth-reducer';
+import character from './character-reducer';
 
 console.log(auth);
 
@@ -21,4 +22,4 @@ const defaultStateReducer = (state = defaultState) => {
   return state;
 };
 
-export default combineReducers({ defaultStateReducer,auth });
+export default combineReducers({ defaultStateReducer,auth,character });
