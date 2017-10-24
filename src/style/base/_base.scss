@@ -1,0 +1,41 @@
+body{
+  background-color: $primary-color;
+}
+a{
+  text-decoration: none;
+  color: $black;
+  &:visited{
+    color: $black;
+  }
+}
+.fa{
+  font-size: $font-button;
+}
+button {
+  padding: $gutter-sm;
+  font-weight: bold;
+  font-size: $font-button;
+  cursor: pointer;
+  border: none;
+  background-color: $tertiary-color;
+  text-shadow: none;
+  border-radius: $border-radius;
+
+
+  &:hover {
+    color: $black;
+  }
+
+  &.delete {
+    color: $black;
+    &:hover{
+      color: $grey;
+    }
+  }
+  &.edit {
+    color: $black;
+    &:hover{
+      color: $grey;
+    }
+  }
+}
