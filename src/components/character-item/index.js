@@ -10,7 +10,7 @@ class CharacterItem extends React.Component {
     super(props);
 
     this.state = {
-      tab: 'attacks'
+      tab: 'stats'
     };
   }
 
@@ -24,7 +24,9 @@ class CharacterItem extends React.Component {
               <SaveContainer/> :
               this.state.tab === 'spells' ?
                 <SpellContainter/> :
-                <SkillContainer/>
+                this.state.tab === 'skills' ?
+                  <SkillContainer/> :
+                <StatsContainer />
         }
       </div>
     );
