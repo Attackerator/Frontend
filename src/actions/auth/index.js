@@ -1,4 +1,4 @@
-
+import * as character from '../character';
 console.log({API_URL})
 
 const request = require('superagent');
@@ -23,14 +23,6 @@ export const signInRequest = loginInfo =>
       .auth(username,password)
       .then(res => {
         dispatch(setToken(res.text));
-        return getCharactersRequest(res.text);
+        dispatch(character.getCharactersRequest(res.text));
       });
   };
-
-export const getCharactersRequest = token => dispatch => {
-  return request.get(`${API_URL}/api/characters`)
-    .set({ Authorization: `Bearer ${token}`})
-    .then(res => {
-      console.log(res.body);
-    });
-};
