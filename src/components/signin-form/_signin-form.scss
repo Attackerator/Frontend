@@ -1,0 +1,16 @@
+h1 { grid-area: h; }
+input[name = 'username']{ grid-area: u; }
+input[name = 'password']{ grid-area: p; }
+button{ grid-area: b; }
+.signin-form{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+		". . ."
+		"h h h"
+    "u u u"
+    "p p p"
+    ". b ."
+    ". . ."
+    ". . .";
+}
