@@ -1,5 +1,6 @@
 import deepFreeze from 'deep-freeze';
-import reducer from '../character-reducer';
+import charactersReducer from '../character-reducer';
+import currentCharacterReducer from '../currentCharacter-reducer';
 
 const defaultState = {};
 deepFreeze(defaultState);
@@ -16,7 +17,7 @@ test('Should set the character to state',() => {
 
   deepFreeze([state,action]);
 
-  let res = reducer(state,action);
+  let res = charactersReducer(state,action);
   expect(res).toEqual([
     { name: 'character1' },
     { name: 'character2' }
@@ -40,9 +41,9 @@ test('should set the current character',() => {
   };
   deepFreeze([state,action1,action2]);
 
-  let res = reducer(state,action1);
+  let res = currentCharacterReducer(state,action1);
   expect(res).toEqual({ name: 'bob' });
 
-  res = reducer(state,action2);
+  res = currentCharacterReducer(state,action2);
   expect(res).toEqual({ name: 'joe' });
 });
