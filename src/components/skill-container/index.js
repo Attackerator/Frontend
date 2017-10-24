@@ -1,5 +1,8 @@
+import './_skill-container.scss';
+
 import React from 'react';
 import { connect } from 'react-redux';
+import SkillItem from '../skill-item';
 
 class SkillContainer extends React.Component {
   constructor(props){
@@ -13,7 +16,7 @@ class SkillContainer extends React.Component {
         {
           this.props.character.skills.map(skill => {
             return(
-              <SKillItem skill={skill} character={this.props.character}/>
+              <SkillItem key={skill._id} skill={skill} character={this.props.character}/>
             );
           })
         }
@@ -23,7 +26,7 @@ class SkillContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  //character: state.currentCharacter
+  character: state.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({});

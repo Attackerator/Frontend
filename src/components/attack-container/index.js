@@ -1,3 +1,5 @@
+import './_attack-container.scss';
+
 import React from 'react';
 import { connect } from 'react-redux';
 import AttackItem from '../attack-item';
