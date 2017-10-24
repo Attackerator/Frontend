@@ -22,6 +22,7 @@ export const signInRequest = loginInfo =>
     return request.get(`${API_URL}/api/signin`)
       .auth(username,password)
       .then(res => {
+        document.cookie = `token=${res.text}`;
         dispatch(setToken(res.text));
         dispatch(character.getCharactersRequest(res.text));
       });

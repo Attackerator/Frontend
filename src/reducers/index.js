@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import auth from './auth-reducer';
 import characters from './character-reducer';
-import currentCharacter from './currentCharacter-reducer'
+import currentCharacter from './currentCharacter-reducer';
 
 const defaultState = {
   auth: null,
