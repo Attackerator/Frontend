@@ -14,7 +14,7 @@ test('Should save a token',() => {
   deepFreeze([state,action]);
 
   const res = reducer(state,action);
-  expect(res).toEqual({ auth: 'thisisatoken' });
+  expect(res).toEqual('thisisatoken');
 });
 
 test('Should delete the token',() => {
@@ -24,7 +24,7 @@ test('Should delete the token',() => {
   deepFreeze([state,action]);
 
   const res = reducer(state,action);
-  expect(res).toEqual({ auth: null })
+  expect(res).toEqual( null )
 });
 
 test('Unknown action shoud return state',() => {
@@ -36,5 +36,5 @@ test('Unknown action shoud return state',() => {
   deepFreeze([state,action]);
 
   let res = reducer(state,action);
-  expect(res).toEqual({ auth: 'thisisatoken' })
+  expect(res).toEqual({ auth: 'thisisatoken' });
 });
