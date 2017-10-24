@@ -1,6 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
+
+require('dotenv').config();
+console.log(process.env);
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -34,6 +38,10 @@ module.exports = {
     stats: 'errors-only'
   },
   plugins: [
+    new webpack.DefinePlugin({
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      API_URL: JSON.stringify(process.env.API_URL)
+    }),
     new HtmlWebpackPlugin({
       title: 'Attackerator',
       minify: {

@@ -2,7 +2,7 @@ import './_signin-form.scss';
 
 import React from 'react';
 import { connect } from 'react-redux';
-import authActions from '../../actions/auth';
+import * as authActions from '../../actions/auth';
 
 class SignInForm extends React.Component {
   constructor(props){
