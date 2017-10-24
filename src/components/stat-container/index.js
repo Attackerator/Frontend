@@ -10,18 +10,16 @@ class StatContainer extends React.Component {
   render(){
     return(
       <div className="stats">
-        <h2>Spells</h2>
-        <ul>
+        <h2>Stats</h2>
+        <div>
           {
-            Object.keys(this.props.character.stats).map(stat => {
-              if(stat != 'characterID' && stat != 'userId'){
-                return(
-                  <StatItem key={stat} statName={stat} value={this.props.character.stats[stat]}/>
-                );
-              }
+            this.props.character.stats.map(stat => {
+              return(
+                <StatItem key={stat._id} stat={stat} />
+              );
             })
           }
-        </ul>
+        </div>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import AttackItem from '../attack-item';
 
 class AttackContainer extends React.Component {
   constructor(props){
