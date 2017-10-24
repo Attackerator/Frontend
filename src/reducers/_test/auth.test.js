@@ -16,3 +16,13 @@ test('Should save a token',() => {
   const res = reducer(state,action);
   expect(res).toEqual({ auth: 'thisisatoken' });
 });
+
+test('Should delete the token',() => {
+  let state = { auth: 'thisisatoken' };
+  let action = { type: 'DELETE_TOKEN' };
+
+  deepFreeze([state,action]);
+
+  const res = reducer(state,action);
+  expect(res).toEqual({ auth: null })
+});
