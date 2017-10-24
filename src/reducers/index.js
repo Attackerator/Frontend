@@ -5,10 +5,12 @@ const defaultState = {
   user: {},
   characters: [],
   currentCharacter: {
+    name: '',
     attacks: [],
     saves: [],
     skills: [],
-    spells: []
+    spells: [],
+    stats: [],
   }
 };
 

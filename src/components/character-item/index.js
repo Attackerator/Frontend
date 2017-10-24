@@ -17,17 +17,34 @@ class CharacterItem extends React.Component {
   render(){
     return(
       <div className="charcter">
-        {
-          this.state.tab === 'attacks' ?
-            <AttackContainer/> :
-            this.state.tab === 'saves' ?
-              <SaveContainer/> :
-              this.state.tab === 'spells' ?
-                <SpellContainter/> :
-                this.state.tab === 'skills' ?
-                  <SkillContainer/> :
-                <StatsContainer />
-        }
+        <header>
+          <div className="logo">
+          </div>
+          <h1>{this.props.character.name}</h1>
+          <div className="profile">
+          </div>
+        </header>
+        <nav className="resourceNav">
+          <ul>
+            <li>Attacks</li>
+            <li>Saves</li>
+            <li>Skills</li>
+            <li>Spells</li>
+          </ul>
+        </nav>
+        <div className="resources">
+          {
+            this.state.tab === 'attacks' ?
+              <AttackContainer/> :
+              this.state.tab === 'saves' ?
+                <SaveContainer/> :
+                this.state.tab === 'spells' ?
+                  <SpellContainter/> :
+                  this.state.tab === 'skills' ?
+                    <SkillContainer/> :
+                  <StatsContainer />
+          }
+        </div>
       </div>
     );
   }
