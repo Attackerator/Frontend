@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const path = require('path');
 
 require('dotenv').config();
-console.log(process.env);
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
