@@ -14,13 +14,13 @@ export default class AttackItem extends React.Component {
         <h3>{this.props.attack.name}</h3>
         <div className="hideMe">
           <ul>
+          <ul>
             <li>{this.props.attack.description}</li>
-            <li>{this.props.attack.diceType}</li>
-            <li>{this.props.attack.diceCount}</li>
-            <li>{this.props.attack.damageType}</li>
-            <li>{this.props.attack.toHitBonus}</li>
-            <li>{this.props.attack.damageBonus}</li>
+            <li>Damage: {this.props.attack.diceCount}d{this.props.attack.diceType} + {this.props.attack.damageBonus}</li>
+            <li>Damage Type: {this.props.attack.damageType}</li>
+            <li>Hit Bonus: {this.props.attack.toHitBonus}</li>
             <li>{this.props.attack.stat}</li>
+          </ul>
           </ul>
           <button className="edit">edit</button>
           <button className="delete">delete</button>
