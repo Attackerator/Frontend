@@ -40,7 +40,7 @@ class CharacterItem extends React.Component {
               this.state.tab === 'saves' ?
                 <SaveContainer/> :
                 this.state.tab === 'spells' ?
-                  <SpellContainter/> :
+                  <SpellContainer/> :
                   this.state.tab === 'skills' ?
                     <SkillContainer/> :
                       <StatsContainer />

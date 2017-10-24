@@ -1,5 +1,8 @@
+import './_save-container.scss';
+
 import React from 'react';
 import { connect } from 'react-redux';
+import SaveItem from '../save-item';
 
 class SaveContainer extends React.Component {
   constructor(props){
@@ -13,7 +16,7 @@ class SaveContainer extends React.Component {
         {
           this.props.character.saves.map(save => {
             return(
-              <SaveItem save={save} character={this.props.character}/>
+              <SaveItem key={save._id} save={save} character={this.props.character}/>
             );
           })
         }
@@ -23,7 +26,7 @@ class SaveContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  //character: state.currentCharacter
+  character: state.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({});
