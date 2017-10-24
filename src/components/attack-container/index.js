@@ -8,7 +8,7 @@ class AttackContainer extends React.Component {
 
   render(){
     return(
-      <div className="charcter">
+      <div className="attack">
         <h2>Attacks</h2>
         {
           this.props.character.attacks.map(attack => {

@@ -8,7 +8,7 @@ class SpellContainer extends React.Component {
 
   render(){
     return(
-      <div className="charcter">
+      <div className="spells">
         <h2>Spells</h2>
         {
           this.props.character.spells.map(spell => {

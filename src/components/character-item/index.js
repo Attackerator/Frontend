@@ -4,6 +4,7 @@ import AttackContainer from '../attack-container';
 import SaveContainer from '../save-container';
 import SpellContainer from '../spell-container';
 import SkillContainer from '../skill-container';
+import StatsContainer from '../stat-container';
 
 class CharacterItem extends React.Component {
   constructor(props){
@@ -16,7 +17,7 @@ class CharacterItem extends React.Component {
 
   render(){
     return(
-      <div className="charcter">
+      <div className="character">
         <header>
           <div className="logo">
           </div>
@@ -42,7 +43,7 @@ class CharacterItem extends React.Component {
                   <SpellContainter/> :
                   this.state.tab === 'skills' ?
                     <SkillContainer/> :
-                  <StatsContainer />
+                      <StatsContainer />
           }
         </div>
       </div>
@@ -51,7 +52,7 @@ class CharacterItem extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  //character: state.currentCharacter
+  character: state.currentCharacter
 });
 const mapDispatchToProps = () => ({});
 

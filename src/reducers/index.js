@@ -10,7 +10,7 @@ const defaultState = {
     saves: [],
     skills: [],
     spells: [],
-    stats: [],
+    stats: {strength: 50, dexterity: 10, constitution: 3, intelligence: 14, wisdom: 32, charisma: 9001 },
   }
 };
 
