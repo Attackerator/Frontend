@@ -26,3 +26,15 @@ test('Should delete the token',() => {
   const res = reducer(state,action);
   expect(res).toEqual({ auth: null })
 });
+
+test('Unknown action shoud return state',() => {
+  let state = { auth: 'thisisatoken' };
+  let action = {
+    type: 'UNKNOWN'
+  };
+
+  deepFreeze([state,action]);
+
+  let res = reducer(state,action);
+  expect(res).toEqual({ auth: 'thisisatoken' })
+});
