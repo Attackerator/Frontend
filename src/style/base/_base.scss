@@ -22,12 +22,17 @@ button {
   border-radius: $border-radius;
 
 
-  &:hover {
-    color: $black;
+  &.new {
+    background-color: $secondary-color;
+
+    &:hover{
+      color:$white;
+    }
   }
 
   &.delete {
     color: $black;
+    background-color: $quaternary-color;
     &:hover{
       color: $grey;
     }
