@@ -11,7 +11,7 @@ class CharacterItem extends React.Component {
     super(props);
 
     this.state = {
-      tab: 'stats'
+      tab: 'attacks'
     };
   }
 

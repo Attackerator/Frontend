@@ -11,10 +11,11 @@ class AttackContainer extends React.Component {
     return(
       <div className="attack">
         <h2>Attacks</h2>
+        <button className="new">New</button>
         {
           this.props.character.attacks.map(attack => {
             return(
-              <AttackItem attack={attack} character={this.props.character}/>
+              <AttackItem key={attack._id} attack={attack} character={this.props.character}/>
             );
           })
         }
