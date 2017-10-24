@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "deep-freeze": "0.0.1",
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "redux-devtools-extension": "^2.13.2"
   }
 }
