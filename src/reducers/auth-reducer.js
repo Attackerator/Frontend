@@ -10,5 +10,11 @@ export default (state = initialState,action = defaultAction) => {
         ...state,
         auth: payload
       };
+
+    case 'TOKEN_DELETE':
+      return {
+        ...state,
+        auth: null
+      };
   }
 };

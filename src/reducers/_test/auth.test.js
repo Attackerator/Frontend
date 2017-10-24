@@ -19,7 +19,7 @@ test('Should save a token',() => {
 
 test('Should delete the token',() => {
   let state = { auth: 'thisisatoken' };
-  let action = { type: 'DELETE_TOKEN' };
+  let action = { type: 'TOKEN_DELETE' };
 
   deepFreeze([state,action]);
 
