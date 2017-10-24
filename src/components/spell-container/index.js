@@ -1,5 +1,8 @@
+import './_spell-container.scss';
+
 import React from 'react';
 import { connect } from 'react-redux';
+import SpellItem from '../spell-item';
 
 class SpellContainer extends React.Component {
   constructor(props){
@@ -13,7 +16,7 @@ class SpellContainer extends React.Component {
         {
           this.props.character.spells.map(spell => {
             return(
-              <SpellItem spell={spell} character={this.props.character}/>
+              <SpellItem key={spell._id} spell={spell} character={this.props.character}/>
             );
           })
         }
@@ -23,7 +26,7 @@ class SpellContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  //character: state.currentCharacter
+  character: state.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({});
