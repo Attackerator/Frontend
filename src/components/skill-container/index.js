@@ -8,7 +8,7 @@ class SkillContainer extends React.Component {
 
   render(){
     return(
-      <div className="charcter">
+      <div className="skills">
         <h2>Skills</h2>
         {
           this.props.character.skills.map(skill => {

@@ -19,14 +19,6 @@ export default class App extends React.Component {
             <li><Link to={'/dashboard'}>Dashboard</Link></li>
           </ul>
         </nav>
-        <div>
-          <button>Random Button</button>
-          <button>Random Button</button>
-          <button>Random Button</button>
-          <input placeholder="InputField"/>
-          <input placeholder="InputField"/>
-          <input placeholder="InputField"/>
-        </div>
       </div>
     );
   }
