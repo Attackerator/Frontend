@@ -1,0 +1,16 @@
+@import './../../style/lib/_vars.scss';
+
+.dash-head{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.dash-head .logo{
+  grid-column: 1 / 3;
+  //background-image: url("./../../images/attackeratorLogo.png");
+}
+.dash-head h1{
+  grid-column: 3 / 5;
+}
+.profile {
+  grid-column: 5 / 7;
+}

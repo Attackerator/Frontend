@@ -32,11 +32,11 @@ class DashboardContainer extends React.Component {
   render(){
     return (
       <div className='dashboard-container'>
-        <div>
-          <span>Icon?</span>
+        <div className='dash-head'>
+          <div className="logo"></div>
         </div>
-        <h2>I am a Dashboard</h2>
-        <nav>
+        <h2>Attackerator</h2>
+        <nav className="profile">
           <ul>
             <li>Profile</li>
             <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
@@ -50,6 +50,7 @@ class DashboardContainer extends React.Component {
             }
           </ul>
           </nav>
+        </div>
         <CharacterItem/>
       </div>
     );

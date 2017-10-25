@@ -43,13 +43,6 @@
    align-self: center;
    justify-self: start;
  }
-
-.content .edit{
-  grid-column: 2 / 3;
-}
-.content .delete{
-  grid-column: 4 / 6;
-}
 .footer{
   grid-area: f;
   border: 1px solid black;

@@ -26,8 +26,7 @@ export default class AttackItem extends React.Component {
             </ul>
           </ul>
           <button className="edit"><i className="fa fa-pencil" aria-hidden="true"></i></button>
-          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i>
-</button>
+          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
         </div>
         <div className="footer">
         </div>
