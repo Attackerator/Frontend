@@ -11,6 +11,10 @@ class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
 
+    this.state = {
+      thisCharacterId: ''
+    };
+
     this.logOut=this.logOut.bind(this);
   }
 
@@ -19,7 +23,8 @@ class DashboardContainer extends React.Component {
     this.props.getCharacterList()
       .then({
         if(lastChar){
-          this.props.getCharacter(lastChar);
+          this.props.getCharacter(lastChar)
+            .then(this.setState({thisCharacterId: lastChar}));
         }
       });
   }
@@ -39,7 +44,7 @@ class DashboardContainer extends React.Component {
         <h2>Attackerator</h2>
         <nav className="profile">
           <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-          <ul className="hideMe">
+          <ul className="no">
             <li>Profile</li>
             <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
             <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
@@ -52,14 +57,16 @@ class DashboardContainer extends React.Component {
             }
           </ul>
         </nav>
-        <CharacterItem/>
+        {
+          this.state.thisCharacterId ? <CharacterItem/> : <div className="hideMe"></div>
+        }
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  list: state.defaultStateReducer.characters
+  list: state.characters
 });
 const mapDispatchToProps = (dispatch) => ({
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),

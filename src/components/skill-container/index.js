@@ -23,11 +23,11 @@ class SkillContainer extends React.Component {
                 skill={skill}
                 character={this.props.character}
                 actions={
-                  {
-                    addSkill: this.props.addSkill,
-                    editSkill: this.props.putSkill,
-                    deleteSkill: this.props.deleteSkill
-                  }
+                {
+                  addSkill: this.props.addSkill,
+                  editSkill: this.props.putSkill,
+                  deleteSkill: this.props.deleteSkill
+                }
                 }
               />
             );
