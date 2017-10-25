@@ -23,6 +23,7 @@
   },
   "extends": "eslint:recommended",
   "globals": {
-    "API_URL": true
+    "API_URL": true,
+    "expect": true
   }
 }
