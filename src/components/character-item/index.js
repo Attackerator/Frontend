@@ -15,6 +15,7 @@ class CharacterItem extends React.Component {
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
 
     this.state = {
       tab: '',
@@ -31,9 +32,8 @@ class CharacterItem extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.putCharacterRequest('token',this.props.character._id)
-    .then(this.props.getCharacter('token',this.props.character._id))
-    .then(this.props.getCharacterListRequest('token'));
+    this.props.putCharacterRequest(this.props.character._id, {name: this.state.characterName})
+    .then(this.props.getCharacterListRequest());
     this.setState({
       editForm: false
     });
@@ -53,7 +53,7 @@ class CharacterItem extends React.Component {
   }
 
   handleDelete(){
-
+    this.props.putCharacterRequest(this.props.character._id);
   }
 
   render(){
@@ -109,11 +109,11 @@ const mapStateToProps = state => ({
   character: state.defaultStateReducer.currentCharacter
 });
 const mapDispatchToProps = dispatch => ({
-  getCharacter: (token,id) => dispatch(charActions.getCharacterRequest(token,id)),
-  getCharacterList: (token) => dispatch(charActions.getCharacterListRequest(token)),
-  putCharacter: (token,id,character) => dispatch(charActions.putCharacterRequest(token,id,character)),
-  postCharacterRequest: (token, character) => dispatch(charActions.postCharacterRequest(token,character)),
-  deleteCharacterRequest: (token, id) => dispatch(charActions.deleteCharacterRequests(token,id)),
+  getCharacter: (id) => dispatch(charActions.getCharacterRequest(id)),
+  getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
+  putCharacter: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
+  postCharacterRequest: (character) => dispatch(charActions.postCharacterRequest(character)),
+  deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequests(id)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(CharacterItem);
