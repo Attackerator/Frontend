@@ -26,3 +26,14 @@ export const signInRequest = loginInfo =>
         dispatch(character.getCharactersRequest(res.text));
       });
   };
+
+export const signUpRequest = signUpInfo =>
+  dispatch => {
+    return request.post(`${API_URL}/api/user`)
+      .send(signUpInfo)
+      .then(res => {
+        document.cookie = `token=${res.text}`;
+        dispatch(setToken(res.text));
+        //initialize Characters
+      });
+  };
