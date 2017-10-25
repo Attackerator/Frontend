@@ -1,0 +1,16 @@
+@import './../../style/lib/_vars.scss';
+
+.stats{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.stats h2{
+  font-family: $font-primary;
+  font-size: $font-mobile-lg;
+  grid-area: m;
+  grid-column: 2 / 4;
+  justify-self: start;
+}
+.statItem{
+  grid-area: c;
+}

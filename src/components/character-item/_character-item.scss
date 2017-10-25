@@ -1,0 +1,48 @@
+@import './../../style/lib/_vars.scss';
+
+.character header{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-area: h;
+}
+.character h1{
+  grid-column: 1 / 5;
+  font-family: $font-primary;
+  align-self: center;
+  justify-self: center;
+  font-size: $font-mobile-lg;
+
+}
+header .edit{
+  grid-column: 5 / 6;
+}
+header .delete{
+  grid-column: 6 / 7;
+}
+.characterForm{
+  display: grid;
+  grid-column: 1 / 7;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-top: $gutter-sm;
+  padding-bottom: $gutter-sm;
+}
+.characterForm input[name="characterName"]{
+  grid-column: 2 / 5;
+}
+.characterForm button[type=submit]{
+  grid-column: 5 / 6;
+}
+.resourceNav{
+  display: grid;
+  grid-column: 1 / 7;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-top: $gutter-lg;
+  padding-bottom: $gutter-lg;
+}
+.resourceNav ul{
+  grid-column: 6 / 7;
+
+}
+.hideMe{
+  display: none;
+}

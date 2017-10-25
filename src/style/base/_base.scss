@@ -1,0 +1,53 @@
+body{
+  background-color: white;
+}
+a{
+  text-decoration: none;
+  color: $black;
+  &:visited{
+    color: $black;
+  }
+}
+.fa{
+  font-size: $font-button;
+}
+button {
+  padding: $gutter-lg;
+  font-weight: bold;
+  font-size: $font-mobile-lg;
+  cursor: pointer;
+  border: none;
+  background-color: $tertiary-color;
+  text-shadow: none;
+  border-radius: $border-radius;
+  font-family: $font-secondary;
+
+
+  &.new {
+    background-color: $secondary-color;
+
+    &:hover{
+      color:$white;
+    }
+  }
+
+  &.delete {
+    color: $black;
+    background-color: $quaternary-color;
+    &:hover{
+      color: $grey;
+    }
+  }
+  &.edit {
+    color: $black;
+    &:hover{
+      color: $grey;
+    }
+  }
+  &.roll {
+    color: $black;
+    &:hover{
+      color: $grey;
+    }
+  }
+}

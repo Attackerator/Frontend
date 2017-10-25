@@ -1,4 +1,5 @@
 import './_dashboard.scss';
+import img from '../../images/attackeratorLogo.png';
 import React from 'react';
 import {connect} from 'react-redux';
 import CharacterItem from '../character-item';
@@ -32,12 +33,13 @@ class DashboardContainer extends React.Component {
   render(){
     return (
       <div className='dashboard-container'>
-        <div>
-          <span>Icon?</span>
+        <div className='dash-head'>
+          <div className="logo"></div>
         </div>
-        <h2>I am a Dashboard</h2>
-        <nav>
-          <ul>
+        <h2>Attackerator</h2>
+        <nav className="profile">
+          <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+          <ul className="hideMe">
             <li>Profile</li>
             <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
             <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
@@ -49,7 +51,7 @@ class DashboardContainer extends React.Component {
               })
             }
           </ul>
-          </nav>
+        </nav>
         <CharacterItem/>
       </div>
     );

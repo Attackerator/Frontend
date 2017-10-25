@@ -7,6 +7,9 @@ import SkillContainer from '../skill-container';
 import StatsContainer from '../stat-container';
 import * as charActions from '../../actions/character';
 
+import './_character-item.scss';
+
+
 class CharacterItem extends React.Component {
   constructor(props){
     super(props);
@@ -62,7 +65,8 @@ class CharacterItem extends React.Component {
       <div className="character">
         <header>
           <h1>{this.props.character.name}</h1>
-          <button className="edit" onClick={this.toggleEdit}>Edit</button>
+          <button className="edit" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
           {
             this.state.editForm ?
             <form className="characterForm">
@@ -75,12 +79,12 @@ class CharacterItem extends React.Component {
               />
               <button type="submit">Submit</button>
             </form>
-            : <div></div>
+            : <div className="hideMe"></div>
           }
-          <button className="delete">Delete</button>
         </header>
         <nav className="resourceNav">
           <ul>
+            <li><i className="fa fa-bars" aria-hidden="true"></i></li>
             <li><a id="Attacks" href="#" onClick={this.changeTab}>Attacks</a></li>
             <li><a id="Saves" href="#" onClick={this.changeTab}>Saves</a></li>
             <li><a id="Skills" href="#" onClick={this.changeTab}>Skills</a></li>

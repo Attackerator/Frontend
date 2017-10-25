@@ -10,20 +10,25 @@ export default class AttackItem extends React.Component {
   render(){
     return(
       <div className="attackItem">
-        <button className="roll">Roll</button>
-        <h3>{this.props.attack.name}</h3>
-        <div className="hideMe">
+        <div className="main">
+          <button className="roll"><i className="fa fa-bolt" aria-hidden="true"></i></button>
+          <h3>{this.props.attack.name}</h3>
+          <i className="fa fa-plus-square-o" aria-hidden="true"></i>
+        </div>
+        <div className="hideMe" className="content">
           <ul>
-          <ul>
-            <li>{this.props.attack.description}</li>
-            <li>Damage: {this.props.attack.diceCount}d{this.props.attack.diceType} + {this.props.attack.damageBonus}</li>
-            <li>Damage Type: {this.props.attack.damageType}</li>
-            <li>Hit Bonus: {this.props.attack.toHitBonus}</li>
-            <li>{this.props.attack.stat}</li>
+            <ul>
+              <li>{this.props.attack.description}</li>
+              <li>Damage: {this.props.attack.diceCount}d{this.props.attack.diceType} + {this.props.attack.damageBonus}</li>
+              <li>Damage Type: {this.props.attack.damageType}</li>
+              <li>Hit Bonus: {this.props.attack.toHitBonus}</li>
+              <li>{this.props.attack.stat}</li>
+            </ul>
           </ul>
-          </ul>
-          <button className="edit">edit</button>
-          <button className="delete">delete</button>
+          <button className="edit"><i className="fa fa-pencil" aria-hidden="true"></i></button>
+          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
+        </div>
+        <div className="footer">
         </div>
       </div>
     );

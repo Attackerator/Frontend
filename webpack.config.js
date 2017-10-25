@@ -18,14 +18,25 @@ module.exports = {
       {
         test: /\.scss$/, use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader','sass-loader'],
-          publicPath: '/dist'
+          use: ['css-loader','sass-loader']
         })
       },
       {
         test: /\.js$/,
         exclude:  /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/'
+            }
+          }
+        ]
       }
     ]
   },
