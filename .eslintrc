@@ -21,5 +21,8 @@
       "impliedStrict": true
     }
   },
-  "extends": "eslint:recommended"
+  "extends": "eslint:recommended",
+  "globals": {
+    "API_URL": true
+  }
 }
