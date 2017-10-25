@@ -18,7 +18,17 @@ class SkillContainer extends React.Component {
         {
           this.props.character.skills.map(skill => {
             return(
-              <SkillItem key={skill._id} skill={skill} character={this.props.character}/>
+              <SkillItem
+                key={skill._id}
+                skill={skill}
+                character={this.props.character}
+                actions={
+                  {
+                    addSkill: this.props.addSkill,
+                    editSkill: this.props.putSkill
+                  }
+                }
+              />
             );
           })
         }
@@ -31,6 +41,9 @@ const mapStateToProps = state => ({
   character: state.defaultStateReducer.currentCharacter
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  addSkill: skill => dispatch(skillActions.postSkillRequest(skill)),
+  putSkill: skill => dispatch(skillActions.putSkillRequest(skill)),
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(SkillContainer);

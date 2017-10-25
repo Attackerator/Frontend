@@ -1,18 +1,26 @@
 import * as character from '../character';
+import { get_cookie } from '../helper';
 
 const request = require('superagent');
 
-const get_cookie = (cookie_name) => {
-  var cookie_string = document.cookie ;
-  if (cookie_string.length != 0) {
-    var cookie_value = cookie_string.match ( '(^|;)[\s]*' + cookie_name + '=([^;]*)' );
-    return decodeURIComponent ( cookie_value[2] ) ;
-  }
-  return '' ;
+export const postSkillRequest = skill => {
+  let token = get_cookie('token');
+  console.log(token);
+  return request.post(`${API_URL}/api/skill`)
+    .set({Authorization: `Bearer ${token}`})
+    .send({ name: 'not medicine', stat: 'intelligence', bonus: 14 })
+    .then(res => {
+      console.log(res.body);
+    });
 };
 
-export const getToken = skill => {
+export const putSkillRequest = (oldSkill,newSkill) => {
   let token = get_cookie('token');
-  //return request.post(`${API_URL}/api/skill`)
-    //.set({Authorization: `Bearer `})
+  return request.put(`${API_URL}/api/skill/${oldSkill._id}`)
+    .set({Authorization: `Bearer ${token}`})
+    .send(newSkill)
+    .then(res => {
+      console.log(res.body);
+      return res.body;
+    });
 };
