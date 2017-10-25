@@ -1,8 +1,5 @@
-export const get_cookie = (cookie_name) => {
-  var cookie_string = document.cookie ;
-  if (cookie_string.length != 0) {
-    var cookie_value = cookie_string.match ( '(^|;)[\s]*' + cookie_name + '=([^;]*)' );
-    return decodeURIComponent ( cookie_value[2] ) ;
-  }
-  return '' ;
+export const get_cookie =(name) => {
+  var value = '; ' + document.cookie;
+  var parts = value.split('; ' + name + '=');
+  if (parts.length == 2) return parts.pop().split(';').shift();
 };
