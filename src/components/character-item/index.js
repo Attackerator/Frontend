@@ -19,11 +19,9 @@ class CharacterItem extends React.Component {
     return(
       <div className="character">
         <header>
-          <div className="logo">
-          </div>
           <h1>{this.props.character.name}</h1>
-          <div className="profile">
-          </div>
+          <button className="edit">Edit</button>
+          <button className="delete">Delete</button>
         </header>
         <nav className="resourceNav">
           <ul>
@@ -52,7 +50,7 @@ class CharacterItem extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  character: state.currentCharacter
+  character: state.defaultStateReducer.currentCharacter
 });
 const mapDispatchToProps = () => ({});
 
