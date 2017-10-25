@@ -1,5 +1,5 @@
 import * as character from '../character';
-import { get_cookie } from '../helper';
+import { get_cookie } from '../../lib/helper';
 
 const request = require('superagent');
 
