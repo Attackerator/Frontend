@@ -10,17 +10,54 @@ class CharacterItem extends React.Component {
   constructor(props){
     super(props);
 
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
     this.state = {
-      tab: 'attacks'
+      tab: 'attacks',
+      editForm: false,
+      characterName: ''
     };
   }
+
+  handleChange(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+  }
+
+  toggleEdit() {
+    this.setState({
+      editForm: !this.state.editForm
+    });
+  }
+
 
   render(){
     return(
       <div className="character">
         <header>
           <h1>{this.props.character.name}</h1>
-          <button className="edit">Edit</button>
+          <button className="edit" onClick={this.toggleEdit}>Edit</button>
+          {
+            this.state.editForm ?
+            <form className="characterForm">
+              <input
+                type="text"
+                name="characterName"
+                value={this.state.characterName}
+                placeholder={this.props.character.name}
+                onChange={this.handleChange}
+              />
+              <button type="submit">Submit</button>
+            </form>
+            : <div></div>
+          }
           <button className="delete">Delete</button>
         </header>
         <nav className="resourceNav">
