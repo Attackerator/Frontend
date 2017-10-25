@@ -7,7 +7,7 @@ import DashboardContainer from '../dashboard';
 import { get_cookie } from '../../lib/helper';
 
 function loggedIn() {
-  let token = get_cookie('toekn');
+  let token = get_cookie('token');
   if(token){
     return true;
   }
