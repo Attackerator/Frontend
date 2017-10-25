@@ -31,7 +31,7 @@ class DashboardContainer extends React.Component {
         <nav>
           <ul>
             <li>Profile</li>
-            <li><Link to={'/home/signin'} onClick={this.logOut}>Log Out</Link></li>
+            <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
             <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
             {
               this.props.list.map(character => {

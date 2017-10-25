@@ -11,14 +11,14 @@ export default class App extends React.Component {
       <div className="app">
         <div>
           <Route exact path='/dashboard' component={DashboardContainer} />
-          <Route exact path='/home/signin' component={SignInForm}/>
+          <Route exact path='/login' component={SignInForm}/>
           <Route exact path='/home/signup' component={SignUpForm}/>
         </div>
         <nav>
           <ul>
             <li><Link to={'/'}>Home</Link></li>
             <li><Link to={'/home/signup'}>Sign Up</Link></li>
-            <li><Link to={'/home/signin'}>Sign In</Link></li>
+            <li><Link to={'/login'}>Sign In</Link></li>
             <li><Link to={'/dashboard'}>Dashboard</Link></li>
           </ul>
         </nav>
