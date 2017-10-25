@@ -1,3 +1,5 @@
+import { get_cookie } from '../../lib/helper';
+
 const request = require('superagent');
 
 const setCharacters = characters => {
@@ -14,7 +16,8 @@ const setCurrentCharacter = character => {
   };
 };
 
-export const getCharacterListRequest = token => dispatch => {
+export const getCharacterListRequest = () => dispatch => {
+  let token = get_cookie('token');
   return request.get(`${API_URL}/api/characters`)
     .set({ Authorization: `Bearer ${token}`})
     .then(res => {
@@ -22,7 +25,8 @@ export const getCharacterListRequest = token => dispatch => {
     });
 };
 
-export const getCharacterRequest = (token,id) => dispatch => {
+export const getCharacterRequest = (id) => dispatch => {
+  let token = get_cookie('token');
   return request.get(`${API_URL}/api/character/${id}`)
     .set({ Authorization: `Bearer ${token}`})
     .then(res => {
@@ -30,7 +34,8 @@ export const getCharacterRequest = (token,id) => dispatch => {
     });
 };
 
-export const deleteCharacterRequest = (token,id) => dispatch => {
+export const deleteCharacterRequest = (id) => dispatch => {
+  let token = get_cookie('token');
   return request.delete(`${API_URL}/api/character/${id}`)
     .set({ Authorization: `Bearer ${token}`})
     .then(res => {
@@ -43,7 +48,8 @@ export const deleteCharacterRequest = (token,id) => dispatch => {
     });
 };
 
-export const postCharacterRequest = (token,character) => dispatch => {
+export const postCharacterRequest = (character) => dispatch => {
+  let token = get_cookie('token');
   return request.post(`${API_URL}/api/character`)
     .set({ Authorization: `Bearer ${token}`})
     .send(character)
@@ -52,7 +58,8 @@ export const postCharacterRequest = (token,character) => dispatch => {
     });
 };
 
-export const putCharacterRequest = (token, id, character) => dispatch => {
+export const putCharacterRequest = (id, character) => dispatch => {
+  let token = get_cookie('token');
   return request.put(`${API_URL}/api/character/${id}`)
     .set({ Authorization: `Bearer ${token}`})
     .send(character)

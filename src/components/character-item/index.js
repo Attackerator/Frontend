@@ -52,6 +52,9 @@ class CharacterItem extends React.Component {
     });
   }
 
+  handleDelete(){
+
+  }
 
   render(){
     return(
