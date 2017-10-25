@@ -1,8 +1,6 @@
-import './_signup-form.scss';
-
 import React from 'react';
 import { connect } from 'react-redux';
-import * as authActions from '../..actions/auth';
+import * as authActions from '../../actions/auth';
 
 class SignUpForm extends React.Component {
   constructor(props){
@@ -26,13 +24,18 @@ class SignUpForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.signUp(this.state);
+    //this.props.signUp(this.state);
+    this.setState({
+      username: '',
+      password: '',
+      email: 's'
+    });
   }
 
   render(){
     return(
-      <form className="signup" onSubmit={this.handleSubmit}>
-        <h1>Sign Up</h1>
+      <form onSubmit={this.handleSubmit}>
+        <h2>Sign Up</h2>
         <input
           type="text"
           name="username"
@@ -51,7 +54,7 @@ class SignUpForm extends React.Component {
           type="text"
           name="email"
           value={this.state.email}
-          placeholder="Email"
+          placeholder="john.doe@example.com"
           onChange={this.handleChange}
         />
         <button type="submit">Sign Up!</button>
