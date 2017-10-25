@@ -38,7 +38,8 @@ class DashboardContainer extends React.Component {
         </div>
         <h2>Attackerator</h2>
         <nav className="profile">
-          <ul>
+          <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+          <ul className="hideMe">
             <li>Profile</li>
             <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
             <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>

@@ -33,6 +33,14 @@ header .delete{
   grid-column: 5 / 6;
 }
 .resourceNav{
+  display: grid;
+  grid-column: 1 / 7;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-top: $gutter-lg;
+  padding-bottom: $gutter-lg;
+}
+.resourceNav ul{
+  grid-column: 6 / 7;
 
 }
 .hideMe{
