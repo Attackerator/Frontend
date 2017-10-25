@@ -1,0 +1,65 @@
+@import './../../style/lib/_vars.scss';
+
+.main {
+  grid-area: m;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-top: $gutter-sm;
+  padding-bottom: $gutter-sm;
+  background-color: $primary-color;
+}
+.main button.roll{
+  grid-column: 2 / 3;
+}
+.main h3{
+  font-family: $font-primary;
+  grid-column: 3 / 6;
+  align-self: center;
+  justify-self: center;
+  font-size: $font-mobile-lg;
+
+}
+.fa{
+  grid-column: 6 / 7;
+  align-self: center;
+  font-size: $font-mobile-lg;
+
+}
+.content {
+  grid-area: c;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  font-family: $font-secondary;
+  font-size: $font-mobile-sm;
+  padding-top: $gutter-sm;
+  padding-bottom: $gutter-sm;
+ }
+ .content ul{
+   grid-column: 2 / 5;
+   padding-top: $gutter-lg;
+   padding-bottom: $gutter-lg;
+   align-self: center;
+   justify-self: start;
+ }
+
+.content .edit{
+  grid-column: 2 / 3;
+}
+.content .delete{
+  grid-column: 4 / 6;
+}
+.footer{
+  grid-area: f;
+  border: 1px solid black;
+ }
+.attackItem{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+		"m m m m"
+    "c c c c"
+    "c c c c"
+    "f f f f";
+}

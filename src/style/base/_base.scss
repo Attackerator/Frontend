@@ -1,5 +1,5 @@
 body{
-  background-color: $primary-color;
+  background-color: white;
 }
 a{
   text-decoration: none;
@@ -12,14 +12,15 @@ a{
   font-size: $font-button;
 }
 button {
-  padding: $gutter-sm;
+  padding: $gutter-lg;
   font-weight: bold;
-  font-size: $font-button;
+  font-size: $font-mobile-lg;
   cursor: pointer;
   border: none;
   background-color: $tertiary-color;
   text-shadow: none;
   border-radius: $border-radius;
+  font-family: $font-secondary;
 
 
   &.new {
@@ -38,6 +39,12 @@ button {
     }
   }
   &.edit {
+    color: $black;
+    &:hover{
+      color: $grey;
+    }
+  }
+  &.roll {
     color: $black;
     &:hover{
       color: $grey;
