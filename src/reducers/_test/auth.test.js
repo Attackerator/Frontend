@@ -24,7 +24,7 @@ test('Should delete the token',() => {
   deepFreeze([state,action]);
 
   const res = reducer(state,action);
-  expect(res).toEqual( null )
+  expect(res).toEqual( null );
 });
 
 test('Unknown action shoud return state',() => {

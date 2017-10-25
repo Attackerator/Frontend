@@ -23,7 +23,7 @@ export const signInRequest = loginInfo =>
       .then(res => {
         document.cookie = `token=${res.text}`;
         dispatch(setToken(res.text));
-        dispatch(character.getCharactersRequest(res.text));
+        dispatch(character.getCharacterListRequest(res.text));
       });
   };
 
