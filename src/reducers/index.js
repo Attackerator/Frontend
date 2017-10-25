@@ -6,7 +6,7 @@ import currentCharacter from './currentCharacter-reducer';
 const defaultState = {
   auth: null,
   user: {},
-  characters: [],
+  characters: [{name: 'Horatio Hornblower', characterId: 41},{name: 'Donkey', characterId: 1},{name: 'Sarah', characterId: 12}],
   currentCharacter: {
     name: 'Horatio Hornblower',
     attacks: [{name:'bash', stat: 'strength', damageType: 'squishing', diceType: 6, diceCount: 2, description: 'smoosh', toHitBonus: 4, damageBonus: 1, characterId: 41, userId: 'abc', _id: 124}],
