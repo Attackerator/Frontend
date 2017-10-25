@@ -1,25 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router,Route,Link } from 'react-router-dom';
+import { BrowserRouter as Router,Route,Link,Redirect } from 'react-router-dom';
 
-import SignInForm from '../signin-form';
-import SignUpForm from '../signup-form';
+import LoginContainer from '../login-container';
 import DashboardContainer from '../dashboard';
+import { get_cookie } from '../../lib/helper';
+
+function isloggedIn() {
+  return get_cookie('token');
+}
 
 export default class App extends React.Component {
+
   render(){
     return(
       <div className="app">
-        <div>
-          <Route exact path='/dashboard' component={DashboardContainer} />
-          <Route exact path='/home/signin' component={SignInForm}/>
-          <Route exact path='/home/signup' component={SignUpForm}/>
-        </div>
+          <Route exact path='/login' component={LoginContainer}/>
+          <Route exact path='/' render={() => (isloggedIn() ?  (<DashboardContainer />) : (<Redirect to='/login'/>))}/>
         <nav>
           <ul>
             <li><Link to={'/'}>Home</Link></li>
-            <li><Link to={'/home/signup'}>Sign Up</Link></li>
-            <li><Link to={'/home/signin'}>Sign In</Link></li>
-            <li><Link to={'/dashboard'}>Dashboard</Link></li>
+            <li><Link to={'/login'}>Sign In</Link></li>
           </ul>
         </nav>
       </div>

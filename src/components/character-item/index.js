@@ -5,6 +5,7 @@ import SaveContainer from '../save-container';
 import SpellContainer from '../spell-container';
 import SkillContainer from '../skill-container';
 import StatsContainer from '../stat-container';
+import * as charActions from '../../actions/character';
 
 class CharacterItem extends React.Component {
   constructor(props){
@@ -14,6 +15,7 @@ class CharacterItem extends React.Component {
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
 
     this.state = {
       tab: '',
@@ -30,6 +32,11 @@ class CharacterItem extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.putCharacterRequest(this.props.character._id, {name: this.state.characterName})
+    .then(this.props.getCharacterListRequest());
+    this.setState({
+      editForm: false
+    });
   }
 
   toggleEdit() {
@@ -45,6 +52,10 @@ class CharacterItem extends React.Component {
     });
   }
 
+  handleDelete(){
+    this.props.deleteCharacterRequest(this.props.character._id)
+    .then(this.props.getCharacterListRequest());
+  }
 
   render(){
     return(
@@ -98,6 +109,10 @@ class CharacterItem extends React.Component {
 const mapStateToProps = state => ({
   character: state.defaultStateReducer.currentCharacter
 });
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = dispatch => ({
+  getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
+  putCharacter: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
+  deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequests(id)),
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(CharacterItem);
