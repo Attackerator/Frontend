@@ -39,6 +39,7 @@ export default class SkillItem extends React.Component {
         bonus: this.state.bonus,
         stat: this.state.stat
       });
+    this.setState({ edit: false });
   }
 
   render(){

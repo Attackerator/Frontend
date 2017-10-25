@@ -19,8 +19,18 @@ export const putSkillRequest = (oldSkill,newSkill) => {
   return request.put(`${API_URL}/api/skill/${oldSkill._id}`)
     .set({Authorization: `Bearer ${token}`})
     .send(newSkill)
-    .then(res => {
+    .then(res => dispatch => {
       console.log(res.body);
-      return res.body;
+      dispatch(character.getCharacterListRequest(token));
+    });
+};
+
+export const deleteSkillRequest = (oldSkill,newSkill) => {
+  let token = get_cookie('token');
+  return request.delete(`${API_URL}/api/skill/${oldSkill._id}`)
+    .set({Authorization: `Bearer ${token}`})
+    .then(res => dispatch => {
+      console.log(res.body);
+      dispatch(character.getCharacterListRequest(token));
     });
 };
