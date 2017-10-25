@@ -4,6 +4,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SkillItem from '../skill-item';
 
+import * as skillActions from '../../actions/skill';
+
 class SkillContainer extends React.Component {
   constructor(props){
     super(props);
@@ -16,7 +18,17 @@ class SkillContainer extends React.Component {
         {
           this.props.character.skills.map(skill => {
             return(
-              <SkillItem key={skill._id} skill={skill} character={this.props.character}/>
+              <SkillItem
+                key={skill._id}
+                skill={skill}
+                character={this.props.character}
+                actions={
+                  {
+                    addSkill: this.props.addSkill,
+                    editSkill: this.props.putSkill
+                  }
+                }
+              />
             );
           })
         }
@@ -29,6 +41,9 @@ const mapStateToProps = state => ({
   character: state.defaultStateReducer.currentCharacter
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  addSkill: skill => dispatch(skillActions.postSkillRequest(skill)),
+  putSkill: skill => dispatch(skillActions.putSkillRequest(skill)),
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(SkillContainer);
