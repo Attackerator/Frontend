@@ -10,12 +10,13 @@ class CharacterItem extends React.Component {
   constructor(props){
     super(props);
 
+    this.changeTab = this.changeTab.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
-      tab: 'attacks',
+      tab: '',
       editForm: false,
       characterName: ''
     };
@@ -34,6 +35,13 @@ class CharacterItem extends React.Component {
   toggleEdit() {
     this.setState({
       editForm: !this.state.editForm
+    });
+  }
+
+  changeTab(e) {
+    e.preventDefault();
+    this.setState({
+      tab: e.target.id
     });
   }
 
@@ -62,21 +70,22 @@ class CharacterItem extends React.Component {
         </header>
         <nav className="resourceNav">
           <ul>
-            <li>Attacks</li>
-            <li>Saves</li>
-            <li>Skills</li>
-            <li>Spells</li>
+            <li><a id="Attacks" href="#" onClick={this.changeTab}>Attacks</a></li>
+            <li><a id="Saves" href="#" onClick={this.changeTab}>Saves</a></li>
+            <li><a id="Skills" href="#" onClick={this.changeTab}>Skills</a></li>
+            <li><a id="Spells" href="#" onClick={this.changeTab}>Spells</a></li>
+            <li><a id="Stats" href="#" onClick={this.changeTab}>Stats</a></li>
           </ul>
         </nav>
         <div className="resources">
           {
-            this.state.tab === 'attacks' ?
+            this.state.tab === 'Attacks' ?
               <AttackContainer/> :
-              this.state.tab === 'saves' ?
+              this.state.tab === 'Saves' ?
                 <SaveContainer/> :
-                this.state.tab === 'spells' ?
+                this.state.tab === 'Spells' ?
                   <SpellContainer/> :
-                  this.state.tab === 'skills' ?
+                  this.state.tab === 'Skills' ?
                     <SkillContainer/> :
                       <StatsContainer />
           }
