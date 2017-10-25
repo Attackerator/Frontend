@@ -9,6 +9,8 @@ import { get_cookie } from '../../lib/helper';
 class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
+
+    this.logOut=this.logOut.bind(this);
   }
 
   componentWillMount() {
@@ -20,6 +22,12 @@ class DashboardContainer extends React.Component {
         }
       });
   }
+
+  logOut(){
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'characterId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  }
+
 
   render(){
     return (

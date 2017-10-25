@@ -40,7 +40,7 @@ export const deleteCharacterRequest = (id) => dispatch => {
   return request.delete(`${API_URL}/api/character/${id}`)
     .set({ Authorization: `Bearer ${token}`})
     .then(res => {
-      document.cookie = `characterId=`;
+      document.cookie = 'characterId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       dispatch(setCurrentCharacter( {
         attacks: [],
         saves: [],
