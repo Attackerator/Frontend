@@ -18,8 +18,7 @@ module.exports = {
       {
         test: /\.scss$/, use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader','sass-loader'],
-          publicPath: '/'
+          use: ['css-loader','sass-loader']
         })
       },
       {
@@ -34,7 +33,6 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              publicPath: '/',
               outputPath: 'images/'
             }
           }
