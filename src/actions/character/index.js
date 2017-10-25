@@ -30,6 +30,7 @@ export const getCharacterRequest = (id) => dispatch => {
   return request.get(`${API_URL}/api/character/${id}`)
     .set({ Authorization: `Bearer ${token}`})
     .then(res => {
+      document.cookie = `characterId=${res.body._id}`;
       dispatch(setCurrentCharacter(res.body));
     });
 };
@@ -39,6 +40,7 @@ export const deleteCharacterRequest = (id) => dispatch => {
   return request.delete(`${API_URL}/api/character/${id}`)
     .set({ Authorization: `Bearer ${token}`})
     .then(res => {
+      document.cookie = `characterId=`;
       dispatch(setCurrentCharacter( {
         attacks: [],
         saves: [],
@@ -54,6 +56,7 @@ export const postCharacterRequest = (character) => dispatch => {
     .set({ Authorization: `Bearer ${token}`})
     .send(character)
     .then(res => {
+      document.cookie = `characterId=${res.body._id}`;
       dispatch(setCurrentCharacter(res.body));
     });
 };
@@ -64,6 +67,7 @@ export const putCharacterRequest = (id, character) => dispatch => {
     .set({ Authorization: `Bearer ${token}`})
     .send(character)
     .then(res => {
+      document.cookie = `characterId=${res.body._id}`;
       dispatch(setCurrentCharacter(res.body));
     });
 };
