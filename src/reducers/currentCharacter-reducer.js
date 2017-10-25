@@ -1,14 +1,10 @@
 const defaultState = {
-  auth: null,
-  user: {},
-  characters: [],
-  currentCharacter: {
-    attacks: [],
-    saves: [],
-    skills: [],
-    spells: []
-  }
+  attacks: [],
+  saves: [],
+  skills: [],
+  spells: []
 };
+
 const defaultAction = {};
 
 export default (state = defaultState,action = defaultAction) => {
