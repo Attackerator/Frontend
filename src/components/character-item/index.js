@@ -53,7 +53,8 @@ class CharacterItem extends React.Component {
   }
 
   handleDelete(){
-    this.props.putCharacterRequest(this.props.character._id);
+    this.props.deleteCharacterRequest(this.props.character._id)
+    .then(this.props.getCharacterListRequest());
   }
 
   render(){
@@ -109,10 +110,8 @@ const mapStateToProps = state => ({
   character: state.defaultStateReducer.currentCharacter
 });
 const mapDispatchToProps = dispatch => ({
-  getCharacter: (id) => dispatch(charActions.getCharacterRequest(id)),
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
   putCharacter: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
-  postCharacterRequest: (character) => dispatch(charActions.postCharacterRequest(character)),
   deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequests(id)),
 });
 

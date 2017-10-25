@@ -2,10 +2,23 @@ import './_dashboard.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import CharacterItem from '../character-item';
+import { BrowserRouter as Router,Route,Link } from 'react-router-dom';
+import * as charActions from '../../actions/character';
+import { get_cookie } from '../../lib/helper';
 
 class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
+  }
+
+  componentWillMount() {
+    let lastChar = get_cookie('characterId');
+    this.props.getCharacterList()
+      .then({
+        if(lastChar){
+          this.props.getCharacter(lastChar);
+        }
+      });
   }
 
   render(){
@@ -18,8 +31,8 @@ class DashboardContainer extends React.Component {
         <nav>
           <ul>
             <li>Profile</li>
-            <li>Log Out</li>
-            <li>New Character</li>
+            <li><Link to={'/home/signin'} onClick={this.logOut}>Log Out</Link></li>
+            <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
             {
               this.props.list.map(character => {
                 return(
@@ -38,6 +51,10 @@ class DashboardContainer extends React.Component {
 const mapStateToProps = state => ({
   list: state.defaultStateReducer.characters
 });
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = (dispatch) => ({
+  getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
+  getCharacter: (id) => dispatch(charActions.getCharacterRequest(id)),
+  postCharacter: (id,character) => dispatch(charActions.postCharacterRequest(character)),
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(DashboardContainer);
