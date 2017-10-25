@@ -118,9 +118,5 @@ const mapDispatchToProps = dispatch => ({
   putCharacter: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
   deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequests(id)),
 });
-<<<<<<< ba6d59abcbd17418fb5b56c1d73ef590bd025c8e
-=======
-const mapDispatchToProps = () => ({});
->>>>>>> more cleaning up
 
 export default connect(mapStateToProps,mapDispatchToProps)(CharacterItem);
