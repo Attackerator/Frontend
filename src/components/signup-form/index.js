@@ -24,11 +24,11 @@ class SignUpForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    //this.props.signUp(this.state);
+    this.props.signUp(this.state);
     this.setState({
       username: '',
       password: '',
-      email: 's'
+      email: ''
     });
   }
 

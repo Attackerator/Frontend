@@ -35,6 +35,5 @@ export const signUpRequest = signUpInfo =>
         document.cookie = `token=${res.text}`;
         dispatch(setToken(res.text));
         //initialize Characters
-        dispatch(character.getCharactersRequest(res.text));
       });
   };
