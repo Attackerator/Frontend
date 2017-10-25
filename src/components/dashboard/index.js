@@ -1,4 +1,5 @@
 import './_dashboard.scss';
+import img from '../../images/attackeratorLogo.png';
 import React from 'react';
 import {connect} from 'react-redux';
 import CharacterItem from '../character-item';
