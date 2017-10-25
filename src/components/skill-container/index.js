@@ -4,6 +4,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SkillItem from '../skill-item';
 
+import * as skillActions from '../../actions/skill';
+
 class SkillContainer extends React.Component {
   constructor(props){
     super(props);

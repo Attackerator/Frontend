@@ -16,9 +16,13 @@ class CharacterItem extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
+<<<<<<< a714a73b86bfaa6ef84d780f2393ac8295252f2b
       tab: '',
       editForm: false,
       characterName: ''
+=======
+      tab: 'skills'
+>>>>>>> started on skill api routes
     };
   }
 
