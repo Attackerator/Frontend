@@ -51,8 +51,7 @@ class DashboardContainer extends React.Component {
               })
             }
           </ul>
-          </nav>
-        </div>
+        </nav>
         <CharacterItem/>
       </div>
     );
