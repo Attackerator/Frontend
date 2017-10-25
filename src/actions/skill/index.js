@@ -3,7 +3,7 @@ import { get_cookie } from '../../lib/helper';
 
 const request = require('superagent');
 
-export const postSkillRequest = skill => {
+export const postSkillRequest = skill => dispatch => {
   let token = get_cookie('token');
   console.log(token);
   return request.post(`${API_URL}/api/skill`)
@@ -11,26 +11,28 @@ export const postSkillRequest = skill => {
     .send({ name: 'not medicine', stat: 'intelligence', bonus: 14 })
     .then(res => {
       console.log(res.body);
+
     });
 };
 
-export const putSkillRequest = (oldSkill,newSkill) => {
+export const putSkillRequest = (oldSkill,newSkill) => dispatch => {
   let token = get_cookie('token');
+  console.log({oldSkill,newSkill,token});
   return request.put(`${API_URL}/api/skill/${oldSkill._id}`)
     .set({Authorization: `Bearer ${token}`})
     .send(newSkill)
-    .then(res => dispatch => {
+    .then(res => {
       console.log(res.body);
-      dispatch(character.getCharacterListRequest(token));
+      dispatch(character.getCharacterRequest(token,oldSkill.characterId));
     });
 };
 
-export const deleteSkillRequest = (oldSkill,newSkill) => {
+export const deleteSkillRequest = (oldSkill,newSkill) => dispatch => {
   let token = get_cookie('token');
   return request.delete(`${API_URL}/api/skill/${oldSkill._id}`)
     .set({Authorization: `Bearer ${token}`})
     .then(res => dispatch => {
       console.log(res.body);
-      dispatch(character.getCharacterListRequest(token));
+      dispatch(character.getCharacterListRequest(oldSkill.characterId));
     });
 };
