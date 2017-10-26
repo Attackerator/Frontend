@@ -1,9 +1,19 @@
+import './_modal-roll-one.scss';
+
 import React from 'react';
 import { randomRoll } from '../../lib/dice';
+import { connect } from 'react-redux';
+import { hideThisModal } from '../../actions/modal';
 
-export default class RollOne extends React.Component{
+class RollOne extends React.Component{
   constructor(props){
     super(props);
+
+    this.handleClick=this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    this.props.hideThisModal();
   }
 
   render(){
@@ -15,7 +25,18 @@ export default class RollOne extends React.Component{
         <div>Total: {roll+modifier+bonus}</div>
         <div>Roll: {roll}</div>
         <div>Bonuses: {modifier+bonus}</div>
+        <button className="closeModal" onClick={this.handleClick}>Close</button>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  character: state.currentCharacter
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  hideThisModal: () => dispatch(hideThisModal()),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(RollOne);
