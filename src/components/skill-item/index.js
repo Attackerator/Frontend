@@ -88,7 +88,8 @@ export default class SkillItem extends React.Component {
                       name="bonus"
                       value={this.state.bonus}
                       onChange={this.handleChange}
-                    /><input
+                    />
+                    <input
                       type="text"
                       name="stat"
                       value={this.state.stat}
@@ -96,10 +97,12 @@ export default class SkillItem extends React.Component {
                     />
                     <button type="submit">Submit Change</button>
                   </form> :
-                  <div></div>
+                  <div>
+                </div>
               }
             </div> :
-            <div></div>
+          <div>
+          </div>
         }
       </div>
     );
