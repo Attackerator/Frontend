@@ -1,5 +1,9 @@
 @import './../../style/lib/_vars.scss';
 
+.character{
+  background-color: $white;
+  grid-column: 1 / 5;
+}
 .character header{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

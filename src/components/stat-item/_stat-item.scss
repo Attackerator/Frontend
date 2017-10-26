@@ -1,5 +1,45 @@
+@import './../../style/lib/_vars.scss';
+
+.statItem-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column: 1 / 7;
+  background-color: $silver;
+}
 .statItem{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-row: auto;
   grid-column: 1 / 7;
+  padding: $gutter-sm;
+  font-family: $font-secondary;
+
+}
+.statItem button .roll{
+  grid-column: 1 / 2;
+  background-color: $blue;
+}
+.statItem h3{
+  grid-column: 2 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-primary;
+  font-size: $font-mobile-sm;
+}
+.statItem .value{
+  grid-column: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.statItem .modifier{
+  grid-column: 5 / 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.statItem button .edit{
+  grid-column: 6 / 7;
 }

@@ -1,0 +1,52 @@
+@import './../../style/lib/_vars.scss';
+
+.main {
+  grid-area: m;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-top: $gutter-sm;
+  padding-bottom: $gutter-sm;
+  background-color: $silver;
+}
+.main h3{
+  font-family: $font-primary;
+  grid-column: 3 / 6;
+  align-self: center;
+  justify-self: center;
+  font-size: $font-mobile-lg;
+
+}
+.fa{
+  grid-column: 6 / 7;
+  align-self: center;
+  font-size: $font-mobile-lg;
+
+}
+.content {
+  grid-area: c;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  font-family: $font-secondary;
+  font-size: $font-mobile-sm;
+  padding-top: $gutter-sm;
+  padding-bottom: $gutter-sm;
+  background-color: $silver;
+ }
+ .content ul{
+   grid-column: 1 / 7;
+   padding-top: $gutter-lg;
+   padding-bottom: $gutter-lg;
+ }
+.footer{
+  grid-area: f;
+ }
+
+.attackItem{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+		"m m m m"
+    "c c c c"
+    "c c c c"
+    "f f f f";
+}

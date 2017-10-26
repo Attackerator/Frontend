@@ -1,5 +1,6 @@
 body{
-  background-color: white;
+  //background-image: url("./../images/attackeratorLogo.png");
+  background-color: $blue;
 }
 a{
   text-decoration: none;
@@ -17,14 +18,14 @@ button {
   font-size: $font-mobile-lg;
   cursor: pointer;
   border: none;
-  background-color: $tertiary-color;
+  background-color: $gold;
   text-shadow: none;
   border-radius: $border-radius;
   font-family: $font-secondary;
 
 
   &.new {
-    background-color: $secondary-color;
+    background-color: $blue;
 
     &:hover{
       color:$white;
@@ -33,21 +34,21 @@ button {
 
   &.delete {
     color: $black;
-    background-color: $quaternary-color;
+    background-color: $orange;
     &:hover{
-      color: $grey;
+      color: $white;
     }
   }
   &.edit {
     color: $black;
     &:hover{
-      color: $grey;
+      color: $white;
     }
   }
   &.roll {
     color: $black;
     &:hover{
-      color: $grey;
+      color: $white;
     }
   }
 }

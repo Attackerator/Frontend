@@ -1,8 +1,14 @@
 @import './../../style/lib/_vars.scss';
 
+
+.dash-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .dash-head{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column: 1 / 7;
   padding-top: $gutter-lg;
   padding-bottom: $gutter-lg;
 }
@@ -13,6 +19,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
+  justify-content: center;
 }
 .dash-head h2{
   grid-column: 2 / 6;

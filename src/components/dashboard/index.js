@@ -73,26 +73,26 @@ class DashboardContainer extends React.Component {
       <div className='dashboard-container'>
         {
           this.props.list ?
-            (<div>
+            (<div className="dash-wrapper">
               <div className='dash-head'>
                 <div className="logo"></div>
+                <h2>Attackerator</h2>
+                <nav className="profile">
+                  <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+                  <ul className="showMe">
+                    <li>Profile</li>
+                    <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
+                    <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
+                    {
+                      this.props.list.map(character => {
+                        return(
+                          <li key={character.characterId}><a id={character.characterId} href="#" onClick={this.setCharacter}>{character.name}</a></li>
+                        );
+                      })
+                    }
+                  </ul>
+                </nav>
               </div>
-              <h2>Attackerator</h2>
-              <nav className="profile">
-                <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-                <ul className="showMe">
-                  <li>Profile</li>
-                  <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
-                  <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
-                  {
-                    this.props.list.map(character => {
-                      return(
-                        <li key={character.characterId}><a id={character.characterId} href="#" onClick={this.setCharacter}>{character.name}</a></li>
-                      );
-                    })
-                  }
-                </ul>
-              </nav>
               {
                 this.state.showNew ?
                 <form className="newCharacterForm" onSubmit={this.handleSubmit}>
