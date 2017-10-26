@@ -22,15 +22,54 @@ class SpellContainer extends React.Component {
       stat: ''
     };
 
+    this.handleToggleForm = this.handleToggleForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange =  this.handleChange.bind(this);
+  }
+
+  handleToggleForm(){
+    this.setState({ toggleForm: !this.state.toggleForm});
+  }
+
+  handleChange(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.addSpell(
+      this.props.character._id,
+      {
+        name: this.state.name,
+        description: this.state.description,
+        diceCount: this.state.diceCount,
+        diceType: this.state.diceType,
+        damageBonus: this.state.damageBonus,
+        damageType: this.state.damageType,
+        toHitBonus: this.state.toHitBonus,
+        stat: this.state.stat
+      }
+    );
+    this.setState({
+      toggleForm: false,
+      name: '',
+      description: '',
+      diceCount: '',
+      diceType: '',
+      damageBonus: '',
+      damageType: '',
+      toHitBonus: '',
+      stat: ''
+    });
   }
 
   render(){
     return(
       <div className="spells">
         <h2>Spells</h2>
-        <button className="new">New</button>
+        <button className="new" onClick={this.handleToggleForm}>New</button>
         {
           this.state.toggleForm ?
             <form onSubmit={this.handleSubmit}>
