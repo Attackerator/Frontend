@@ -40,6 +40,10 @@ const mapStateToProps = state => ({
   character: state.currentCharacter
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  addSave: save => dispatch(saveActions.postSaveRequest(skill)),
+  putSave: (oldSave, newSave) => dispatc(saveActions.putSaveRequest(oldSave,newSave)),
+  deleteSave: save => dispatch(saveActions.deleteSaveRequest(save))
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(SaveContainer);
