@@ -6,6 +6,7 @@ import SpellContainer from '../spell-container';
 import SkillContainer from '../skill-container';
 import StatsContainer from '../stat-container';
 import * as charActions from '../../actions/character';
+import { Redirect } from 'react-router-dom';
 
 import './_character-item.scss';
 
