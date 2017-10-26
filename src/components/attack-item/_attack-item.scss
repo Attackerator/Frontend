@@ -7,7 +7,6 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding-top: $gutter-sm;
   padding-bottom: $gutter-sm;
-  background-color: $silver;
 }
 .main button.roll{
   grid-column: 2 / 3;
@@ -35,6 +34,7 @@
   font-size: $font-mobile-sm;
   padding-top: $gutter-sm;
   padding-bottom: $gutter-sm;
+  background-color: $silver;
  }
  .content ul{
    grid-column: 2 / 5;

@@ -1,5 +1,6 @@
 body{
-  //background-image: url("../../images/attackeratorLogo.png");
+  //background-image: url("./../images/attackeratorLogo.png");
+  background-color: $blue;
 }
 a{
   text-decoration: none;
@@ -35,19 +36,19 @@ button {
     color: $black;
     background-color: $orange;
     &:hover{
-      color: $grey;
+      color: $white;
     }
   }
   &.edit {
     color: $black;
     &:hover{
-      color: $grey;
+      color: $white;
     }
   }
   &.roll {
     color: $black;
     &:hover{
-      color: $grey;
+      color: $white;
     }
   }
 }
