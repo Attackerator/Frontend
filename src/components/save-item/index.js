@@ -10,15 +10,17 @@ export default class SaveItem extends React.Component {
   render(){
     return(
       <div className="saveItem">
-        <button className="roll">Roll</button>
-        <h3>{this.props.save.type}</h3>
-        <div className="hideMe">
+        <div className="main">
+          <button className="roll"><i className="fa fa-bolt" aria-hidden="true"></i></button>
+          <h3>{this.props.save.type}</h3>
+        </div>
+        <div className="content">
           <ul>
             <li>Bonus: {this.props.save.bonus}</li>
             <li>{this.props.save.stat}</li>
           </ul>
-          <button className="edit">edit</button>
-          <button className="delete">delete</button>
+          <button className="edit"><i className="fa fa-pencil" aria-hidden="true"></i></button>
+          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
         </div>
       </div>
     );

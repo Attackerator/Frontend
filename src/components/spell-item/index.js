@@ -23,8 +23,8 @@ export default class SpellItem extends React.Component {
             <li>Hit Bonus: {this.props.spell.toHitBonus}</li>
             <li>{this.props.spell.stat}</li>
           </ul>
-          <button className="edit">edit</button>
-          <button className="delete">delete</button>
+          <button className="edit"><i className="fa fa-pencil" aria-hidden="true"></i></button>
+          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
         </div>
       </div>
     );
