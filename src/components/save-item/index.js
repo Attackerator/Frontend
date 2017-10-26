@@ -1,6 +1,7 @@
 import './_save-item.scss';
 
 import React from 'react';
+import RollButton from '../roll-button';
 
 export default class SaveItem extends React.Component {
   constructor(props){
@@ -11,7 +12,7 @@ export default class SaveItem extends React.Component {
     return(
       <div className="saveItem">
         <div className="main">
-          <button className="roll"><i className="fa fa-bolt" aria-hidden="true"></i></button>
+          <RollButton />
           <h3>{this.props.save.type}</h3>
         </div>
         <div className="content">
