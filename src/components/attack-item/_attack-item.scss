@@ -4,12 +4,11 @@
   grid-area: m;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  padding-top: $gutter-sm;
-  padding-bottom: $gutter-sm;
+  padding: $gutter-lg;
   background-color: $silver;
 }
 .main button.roll{
-  grid-column: 2 / 3;
+  grid-column: 1 / 3;
 }
 .main h3{
   font-family: $font-primary;
@@ -23,7 +22,12 @@
   grid-column: 6 / 7;
   align-self: center;
   font-size: $font-mobile-lg;
-
+}
+.content .edit{
+  grid-column: 1 / 4;
+}
+.content .delete{
+  grid-column: 4 / 7;
 }
 .content {
   grid-area: c;
@@ -31,17 +35,16 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   font-family: $font-secondary;
   font-size: $font-mobile-sm;
-  padding-top: $gutter-sm;
-  padding-bottom: $gutter-sm;
+  padding: $gutter-lg;
   background-color: $silver;
  }
  .content ul{
-   grid-column: 2 / 5;
-   padding-top: $gutter-lg;
-   padding-bottom: $gutter-lg;
-   align-self: center;
-   justify-self: start;
+   grid-column: 1 / 7;
  }
+ .content ul li:nth-child(1) {
+  font-style: italic;
+}
+
 .footer{
   grid-area: f;
  }
