@@ -12,8 +12,16 @@ class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
 
+    this.state = {
+      showNew: false,
+      characterName: ''
+    };
+
+    this.toggleNew=this.toggleNew.bind(this);
     this.setCharacter=this.setCharacter.bind(this);
     this.logOut=this.logOut.bind(this);
+    this.handleChange=this.handleChange.bind(this);
+    this.handleSubmit=this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -33,6 +41,29 @@ class DashboardContainer extends React.Component {
   setCharacter(e){
     this.props.getCharacter(e.target.id)
       .then(this.props.getLastCharacter(e.target.id));
+  }
+
+
+  toggleNew(e) {
+    e.preventDefault();
+    this.setState(function(state) {
+      return {
+        showNew: !this.state.showNew
+      };
+    });
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.setState({showNew: false});
+    return this.props.postCharacter({name: this.state.characterName})
+      .then(() => this.props.getCharacterList());
+  }
+
+  handleChange(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   render(){
@@ -61,6 +92,20 @@ class DashboardContainer extends React.Component {
                 </ul>
               </nav>
               {
+                this.state.showNew ?
+                <form className="newCharacterForm" onSubmit={this.handleSubmit}>
+                  <input
+                    type="text"
+                    name="characterName"
+                    value={this.state.characterName}
+                    placeholder="Character Name"
+                    onChange={this.handleChange}
+                  />
+                  <button type="submit">Submit</button>
+                </form>
+                : <div className="hideMe"></div>
+              }
+              {
                 this.props.lastChar ? <CharacterItem/> : <div className="hideMe"></div>
               }
             </div>)
@@ -82,7 +127,7 @@ const mapDispatchToProps = (dispatch) => ({
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
   getCharacter: (id) => dispatch(charActions.getCharacterRequest(id)),
   getLastCharacter: (id) => dispatch(charActions.getLastCharacter(id)),
-  postCharacter: (id,character) => dispatch(charActions.postCharacterRequest(character)),
+  postCharacter: (character) => dispatch(charActions.postCharacterRequest(character)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(DashboardContainer);

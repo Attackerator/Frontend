@@ -6,6 +6,7 @@ import SpellContainer from '../spell-container';
 import SkillContainer from '../skill-container';
 import StatsContainer from '../stat-container';
 import * as charActions from '../../actions/character';
+import { Redirect } from 'react-router-dom';
 
 import './_character-item.scss';
 
@@ -35,16 +36,16 @@ class CharacterItem extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.putCharacterRequest(this.props.character._id, {name: this.state.characterName})
-    .then(this.props.getCharacterListRequest());
-    this.setState({
-      editForm: false
-    });
+    this.setState({editForm: false});
+    return this.props.putCharacterRequest(this.props.character._id, {name: this.state.characterName})
+      .then(() => this.props.getCharacterList());
   }
 
   toggleEdit() {
-    this.setState({
-      editForm: !this.state.editForm
+    this.setState(function(state) {
+      return {
+        editForm: !this.state.editForm
+      };
     });
   }
 
@@ -56,20 +57,25 @@ class CharacterItem extends React.Component {
   }
 
   handleDelete(){
-    this.props.deleteCharacterRequest(this.props.character._id)
-    .then(this.props.getCharacterListRequest());
+    return this.props.deleteCharacterRequest(this.props.character._id)
+    .then(() => this.props.getCharacterList());
   }
 
   render(){
+    if(!this.props.character){
+      return(
+        <Redirect to='/'/>
+      );
+    }
     return(
       <div className="character">
         <header>
           <h1>{this.props.character.name}</h1>
           <button className="edit" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
+          <button className="delete" onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
           {
             this.state.editForm ?
-            <form className="characterForm">
+            <form className="characterForm" onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 name="characterName"
@@ -115,8 +121,8 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
-  putCharacter: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
-  deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequests(id)),
+  putCharacterRequest: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
+  deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequest(id)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(CharacterItem);

@@ -52,12 +52,7 @@ export const deleteCharacterRequest = (id) => dispatch => {
     .set({ Authorization: `Bearer ${token}`})
     .then(res => {
       document.cookie = 'characterId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      dispatch(setCurrentCharacter( {
-        attacks: [],
-        saves: [],
-        skills: [],
-        spells: []
-      }));
+      dispatch(setCurrentCharacter(null));
     });
 };
 
@@ -68,7 +63,7 @@ export const postCharacterRequest = (character) => dispatch => {
     .send(character)
     .then(res => {
       document.cookie = `characterId=${res.body._id}`;
-      dispatch(setCurrentCharacter(res.body));
+      dispatch(getCharacterRequest(res.body._id));
     });
 };
 
@@ -79,6 +74,6 @@ export const putCharacterRequest = (id, character) => dispatch => {
     .send(character)
     .then(res => {
       document.cookie = `characterId=${res.body._id}`;
-      dispatch(setCurrentCharacter(res.body));
+      dispatch(getCharacterRequest(res.body._id));
     });
 };
