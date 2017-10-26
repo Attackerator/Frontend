@@ -22,10 +22,20 @@ const defaultStateReducer = (state = defaultState) => {
   return state;
 };
 
-export default combineReducers({
+const appReducer = combineReducers({
   defaultStateReducer,
   auth,
   characters,
   currentCharacter,
   lastChar
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    state = undefined;
+  }
+
+  return appReducer(state, action);
+};
+
+export default rootReducer;

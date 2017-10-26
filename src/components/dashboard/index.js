@@ -17,12 +17,11 @@ class DashboardContainer extends React.Component {
 
   componentWillMount() {
     let lastChar = get_cookie('characterId');
-    this.props.getCharacterList()
-      .then({
-        if(lastChar){
-          this.props.getCharacter(lastChar);
-        }
-      });
+    this.props.getCharacterList();
+    if(lastChar){
+      console.log(lastChar);
+      this.props.getCharacter(lastChar);
+    }
   }
 
   logOut(){
@@ -38,28 +37,36 @@ class DashboardContainer extends React.Component {
   render(){
     return (
       <div className='dashboard-container'>
-        <div className='dash-head'>
-          <div className="logo"></div>
-        </div>
-        <h2>Attackerator</h2>
-        <nav className="profile">
-          <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-          <ul className="showMe">
-            <li>Profile</li>
-            <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
-            <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
-            {
-              this.props.list.map(character => {
-                return(
-                  <li key={character.characterId}><a id={character.characterId} href="#" onClick={this.setCharacter}>{character.name}</a></li>
-                );
-              })
-            }
-          </ul>
-        </nav>
         {
-          this.props.lastChar ? <CharacterItem/> : <div className="hideMe"></div>
+          this.props.list ?
+            (<div>
+              <div className='dash-head'>
+                <div className="logo"></div>
+              </div>
+              <h2>Attackerator</h2>
+              <nav className="profile">
+                <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+                <ul className="showMe">
+                  <li>Profile</li>
+                  <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
+                  <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
+                  {
+                    this.props.list.map(character => {
+                      return(
+                        <li key={character.characterId}><a id={character.characterId} href="#" onClick={this.setCharacter}>{character.name}</a></li>
+                      );
+                    })
+                  }
+                </ul>
+              </nav>
+              {
+                this.props.lastChar ? <CharacterItem/> : <div className="hideMe"></div>
+              }
+            </div>)
+            :
+            <h1>Loading</h1>
         }
+
       </div>
     );
   }
