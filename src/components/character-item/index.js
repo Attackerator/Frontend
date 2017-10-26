@@ -41,8 +41,10 @@ class CharacterItem extends React.Component {
   }
 
   toggleEdit() {
-    this.setState({
-      editForm: !this.state.editForm
+    this.setState(function(state) {
+      return {
+        editForm: !this.state.editForm
+      };
     });
   }
 
