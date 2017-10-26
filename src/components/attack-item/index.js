@@ -149,6 +149,7 @@ export default class AttackItem extends React.Component {
       </div>
     }
     </div>
+    </div>
     );
   }
 }
