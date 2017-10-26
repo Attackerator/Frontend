@@ -24,6 +24,7 @@ const userLogOut = () => {
 };
 
 export const logOutCleanup = () => dispatch => {
+  localStorage.removeItem('user');
   dispatch(userLogOut());
 };
 
