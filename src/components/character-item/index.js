@@ -35,11 +35,9 @@ class CharacterItem extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.putCharacterRequest(this.props.character._id, {name: this.state.characterName})
-    .then(this.props.getCharacterListRequest());
-    this.setState({
-      editForm: false
-    });
+    this.setState({editForm: false});
+    return this.props.putCharacterRequest(this.props.character._id, {name: this.state.characterName})
+      .then(() => this.props.getCharacterList());
   }
 
   toggleEdit() {
@@ -56,8 +54,8 @@ class CharacterItem extends React.Component {
   }
 
   handleDelete(){
-    this.props.deleteCharacterRequest(this.props.character._id)
-    .then(this.props.getCharacterListRequest());
+    return this.props.deleteCharacterRequest(this.props.character._id)
+    .then(() => this.props.getCharacterList());
   }
 
   render(){
@@ -69,7 +67,7 @@ class CharacterItem extends React.Component {
           <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
           {
             this.state.editForm ?
-            <form className="characterForm">
+            <form className="characterForm" onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 name="characterName"
@@ -115,7 +113,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
-  putCharacter: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
+  putCharacterRequest: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
   deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequests(id)),
 });
 

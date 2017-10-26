@@ -68,7 +68,7 @@ export const postCharacterRequest = (character) => dispatch => {
     .send(character)
     .then(res => {
       document.cookie = `characterId=${res.body._id}`;
-      dispatch(setCurrentCharacter(res.body));
+      dispatch(getCharacterRequest(res.body._id));
     });
 };
 
@@ -79,6 +79,6 @@ export const putCharacterRequest = (id, character) => dispatch => {
     .send(character)
     .then(res => {
       document.cookie = `characterId=${res.body._id}`;
-      dispatch(setCurrentCharacter(res.body));
+      dispatch(getCharacterRequest(res.body._id));
     });
 };
