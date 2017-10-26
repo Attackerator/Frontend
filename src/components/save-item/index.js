@@ -76,8 +76,8 @@ export default class SaveItem extends React.Component {
             <li>Bonus: {this.props.save.bonus}</li>
             <li>{this.props.save.stat}</li>
           </ul>
-          <button className="edit"><i className="fa fa-pencil" aria-hidden="true"></i></button>
-          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
+          <button className="edit" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+          <button className="delete" onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
           {
             this.state.edit ?
             <form onSubmit={this.handleSubmit}>
