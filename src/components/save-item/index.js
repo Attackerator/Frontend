@@ -78,8 +78,37 @@ export default class SaveItem extends React.Component {
           </ul>
           <button className="edit"><i className="fa fa-pencil" aria-hidden="true"></i></button>
           <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
-        </div>
+          {
+            this.state.edit ?
+            <form onSubmit={this.handleSubmit}>
+            <input
+            type="text"
+            name="type"
+            value={this.state.type}
+            onChange={this.handleChange}
+            />
+            <input
+            type="text"
+            name="bonus"
+            value={this.state.name}
+            onChange={this.handleChange}
+            />
+            <input
+            type="text"
+            name="stat"
+            value={this.state.name}
+            onChange={this.handleChange}
+            />
+            <button type="submit">Submit Change</button>
+            </form> :
+        <div>
       </div>
+    }
+      </div> :
+      <div>
+    </div>
+  }
+  </div>
     );
   }
 }
