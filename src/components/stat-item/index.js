@@ -17,7 +17,7 @@ export default class StatItem extends React.Component {
             if(['strength','dexterity','constitution','intelligence','wisdom','charisma'].indexOf(key) > -1){
               return(
                 <div key={key} className="statItem">
-                  <RollButton modalType={'ROLL_ONE'} modalProps={{modifer: Math.floor((this.props.stat[key]-10)/2)}} />
+                  <RollButton modalType={'ROLL_ONE'} modalProps={{modifer: Math.floor((this.props.stat[key]-10)/2), bonus: 0}} />
                   <h3>{key}</h3>
                   <span className="value">{this.props.stat[key]}</span>
                   <span className="modifier">{Math.floor((this.props.stat[key]-10)/2)}</span>

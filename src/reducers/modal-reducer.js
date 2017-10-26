@@ -5,7 +5,7 @@ const initialState = {
 const defaultAction = {};
 
 export default(state = initialState, action = defaultAction) => {
-  const { type,payload } = action;
+  const { type, payload } = action;
 
   switch (type) {
     case 'SHOW_MODAL':

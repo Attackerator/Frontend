@@ -12,7 +12,6 @@ class RollButton extends React.Component{
   }
 
   rollDice(){
-    console.log('Rolling Dice');
     this.props.showSpecificModal(this.props.modalType,this.props.modalProps);
   }
 
