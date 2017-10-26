@@ -4,7 +4,7 @@ import reducer from '../user-reducer';
 const defaultState = {};
 deepFreeze(defaultState);
 
-test('',() => {
+test('should set the user state',() => {
   let state = defaultState;
   let action = {
     type: 'USER_SET',
@@ -14,4 +14,15 @@ test('',() => {
 
   let res = reducer(state,action);
   expect(res).toEqual({ username: 'dustinyschild', email: 'dy@ex.com' });
+});
+
+test('should return the current state if the action is unknown',() => {
+  let state = defaultState;
+  let action = {
+    type: 'UNKNKOWN',
+  };
+  deepFreeze([state,action]);
+
+  let res = reducer(state,action);
+  expect(res).toEqual(defaultState);
 });
