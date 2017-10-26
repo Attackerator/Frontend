@@ -62,6 +62,14 @@ export default class SaveItem extends React.Component {
         <div className="main">
           <RollButton />
           <h3>{this.props.save.type}</h3>
+          <div onClick={this.handleExpand}>
+          {this.state.expand
+            ?
+            <i className="fa fa-minus-square-o" aria-hidden="true"></i>
+            :
+            <i className="fa fa-plus-square-o" aria-hidden="true"></i>
+          }
+          </div>
         </div>
         <div className="content">
           <ul>
