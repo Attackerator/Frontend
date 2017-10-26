@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import rollOne from '../model-roll-one';
-import rollTwo from '../model-roll-two';
+import RollOne from '../model-roll-one';
+import RollTwo from '../model-roll-two';
 
 const MODAL_COMPONENTS = {
-  ROLL_ONE: rollOne,
-  ROLL_TWO: rollTwo,
+  ROLL_ONE: RollOne,
+  ROLL_TWO: RollTwo,
 };
 
 class ModalContainer extends React.component{
