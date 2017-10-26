@@ -16,7 +16,11 @@ class SaveContainer extends React.Component {
         {
           this.props.character.saves.map(save => {
             return(
-              <SaveItem key={save._id} save={save} character={this.props.character}/>
+              <SaveItem
+               key={save._id}
+               save={save}
+               character={this.props.character}
+               />
             );
           })
         }
