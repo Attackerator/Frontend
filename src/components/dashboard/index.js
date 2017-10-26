@@ -30,13 +30,13 @@ class DashboardContainer extends React.Component {
   componentWillMount() {
     let lastChar = get_cookie('characterId');
     return this.props.getCharacterList()
-      .then(()=> this.props.setUser() )
-        .then(() => {
-          if(lastChar){
-            return this.props.getCharacter(lastChar)
-              .then(this.props.getLastCharacter(lastChar));
-          }
-        });
+      .then(()=> this.props.setUser())
+      .then(() => {
+        if(lastChar){
+          return this.props.getCharacter(lastChar)
+            .then(this.props.getLastCharacter(lastChar));
+        }
+      });
   }
 
   logOut(){

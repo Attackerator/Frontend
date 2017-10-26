@@ -1,15 +1,26 @@
 
-const showModal = action => {
+const showModal = modal => {
   return {
     type: 'SHOW_MODAL',
-    payload: action
+    payload: modal
+  };
+};
+
+const hideModal = () => {
+  return {
+    type: 'HIDE_MODAL',
+    payload: null
   };
 };
 
 export const showSpecificModal = (modalType, modalProps) => dispatch => {
-  let action = {
+  let modal = {
     modalType: modalType,
     modalProps: modalProps
   };
-  dispatch(showModal(action));
+  dispatch(showModal(modal));
+};
+
+export const hideThisModal = () => dispatch => {
+  dispatch(hideModal());
 };
