@@ -10,9 +10,12 @@ export default class SpellItem extends React.Component {
   render(){
     return(
       <div className="spellItem">
-        <button className="roll">Roll</button>
-        <h3>{this.props.spell.name}</h3>
-        <div className="hideMe">
+        <div className="main">
+          <button className="roll"><i className="fa fa-bolt" aria-hidden="true"></i></button>
+          <h3>{this.props.spell.name}</h3>
+          <i className="fa fa-plus-square-o" aria-hidden="true"></i>
+        </div>
+        <div className="hideMe" className="content">
           <ul>
             <li>{this.props.spell.description}</li>
             <li>Damage: {this.props.spell.diceCount}d{this.props.spell.diceType} + {this.props.spell.damageBonus}</li>

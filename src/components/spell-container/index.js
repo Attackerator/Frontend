@@ -13,6 +13,7 @@ class SpellContainer extends React.Component {
     return(
       <div className="spells">
         <h2>Spells</h2>
+        <button className="new">New</button>
         {
           this.props.character.spells.map(spell => {
             return(

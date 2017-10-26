@@ -1,0 +1,24 @@
+@import './../../style/lib/_vars.scss';
+
+.spells{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+		"m m m m m m m"
+    "c c c c c c c"
+    "c c c c c c c"
+    "f f f f f f f";
+}
+.spells h2{
+  font-family: $font-primary;
+  font-size: $font-mobile-lg;
+  grid-area: m;
+  grid-column: 2 / 4;
+  justify-self: start;
+}
+.spells .new{
+  grid-column: 4 / 6;
+}
+.spellItem{
+  grid-area: c;
+}
