@@ -59,12 +59,17 @@ class CharacterItem extends React.Component {
   }
 
   render(){
+    if(!this.props.character){
+      return(
+        <Redirect to='/'/>
+      );
+    }
     return(
       <div className="character">
         <header>
           <h1>{this.props.character.name}</h1>
           <button className="edit" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
+          <button className="delete" onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
           {
             this.state.editForm ?
             <form className="characterForm" onSubmit={this.handleSubmit}>
@@ -114,7 +119,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
   putCharacterRequest: (id,character) => dispatch(charActions.putCharacterRequest(id,character)),
-  deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequests(id)),
+  deleteCharacterRequest: (id) => dispatch(charActions.deleteCharacterRequest(id)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(CharacterItem);

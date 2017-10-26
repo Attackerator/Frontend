@@ -52,12 +52,7 @@ export const deleteCharacterRequest = (id) => dispatch => {
     .set({ Authorization: `Bearer ${token}`})
     .then(res => {
       document.cookie = 'characterId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      dispatch(setCurrentCharacter( {
-        attacks: [],
-        saves: [],
-        skills: [],
-        spells: []
-      }));
+      dispatch(setCurrentCharacter(null));
     });
 };
 
