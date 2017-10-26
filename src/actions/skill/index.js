@@ -3,7 +3,6 @@ import { get_cookie } from '../../lib/helper';
 
 const request = require('superagent');
 
-// TODO: test when creating modal!!
 export const postSkillRequest = (charId,skill) => dispatch => {
   let token = get_cookie('token');
   return request.post(`${API_URL}/api/skill/${charId}`)
