@@ -43,7 +43,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addSkill: skill => dispatch(skillActions.postSkillRequest(skill)),
-  putSkill: skill => dispatch(skillActions.putSkillRequest(skill)),
+  putSkill: (oldSkill,newSkill) => dispatch(skillActions.putSkillRequest(oldSkill,newSkill)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(SkillContainer);
