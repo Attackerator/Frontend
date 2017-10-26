@@ -26,3 +26,12 @@ test('should return the current state if the action is unknown',() => {
   let res = reducer(state,action);
   expect(res).toEqual(defaultState);
 });
+
+test('should reset the state if the state passed is undefined',() => {
+  let state = undefined;
+  let action = { type: 'ANY' };
+  deepFreeze([state,action]);
+
+  let res = reducer(state,action);
+  expect(res).toEqual(defaultState);
+});
