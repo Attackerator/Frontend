@@ -30,6 +30,6 @@ export const deleteAttackRequest = attack => dispatch => {
   return request.delete(`${API_URL}/api/attack/${attack._id}`)
   .set({Authorization: `Bearer ${token}`})
   .then(res => dispatch => {
-    dispatch(character.getCharacterListRequest(attack.characterId));
+    dispatch(character.getCharacterRequest(attack.characterId));
   });
 };

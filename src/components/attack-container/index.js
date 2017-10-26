@@ -46,7 +46,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addAttack: attack => dispatch(attackActions.postAttackRequest(attack)),
   putAttack: (oldAttack, newAttack) => dispatch(attackActions.putAttackRequest(oldAttack, newAttack)),
-  deleteAttack: attack => dispatch(attackActions.putAttackRequest(attack))
+  deleteAttack: attack => dispatch(attackActions.deleteAttackRequest(attack))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(AttackContainer);

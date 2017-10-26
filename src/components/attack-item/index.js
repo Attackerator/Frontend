@@ -92,8 +92,8 @@ export default class AttackItem extends React.Component {
               <li>Hit Bonus: {this.props.attack.toHitBonus}</li>
               <li>{this.props.attack.stat}</li>
             </ul>
-          <button className="edit"><i className="fa fa-pencil" aria-hidden="true"></i></button>
-          <button className="delete"><i className="fa fa-trash" aria-hidden="true"></i></button>
+          <button className="edit" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+          <button className="delete" onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
           {
             this.state.edit ?
               <form onSubmit={this.handleSubmit}>
