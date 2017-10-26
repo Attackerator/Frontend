@@ -4,6 +4,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AttackItem from '../attack-item';
 
+import * as attackActions from '../../actions/attack';
+
 class AttackContainer extends React.Component {
   constructor(props){
     super(props);
@@ -17,7 +19,18 @@ class AttackContainer extends React.Component {
         {
           this.props.character.attack.map(attack => {
             return(
-              <AttackItem key={attack._id} attack={attack} character={this.props.character}/>
+              <AttackItem
+                key={attack._id}
+                attack={attack}
+                character={this.props.character}
+                actions={
+                {
+                  addAttack: this.props.addAttack,
+                  editAttack: this.props.putAttack,
+                  deleteAttack: this.props.deleteAttack
+                }
+                }
+                />
             );
           })
         }
@@ -30,6 +43,10 @@ const mapStateToProps = state => ({
   character: state.currentCharacter
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  addAttack: attack => dispatch(attackActions.postAttackRequest(attack)),
+  putAttack: (oldAttack, newAttack) => dispatch(attackActions.putAttackRequest(oldAttack, newAttack)),
+  deleteAttack: attack => dispatch(attackActions.putAttackRequest(attack))
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(AttackContainer);
