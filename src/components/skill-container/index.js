@@ -34,10 +34,18 @@ class SkillContainer extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.addSkill({
-      name: this.state.name,
-      bonus: this.state.bonus,
-      stat: this.state.stat
+    this.props.addSkill(
+      this.props.character._id,
+      {
+        name: this.state.name,
+        bonus: this.state.bonus,
+        stat: this.state.stat
+      });
+    this.setState({
+      toggleForm: false,
+      name: '',
+      bonus: '',
+      stat: ''
     });
   }
 
@@ -98,7 +106,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addSkill: skill => dispatch(skillActions.postSkillRequest(skill)),
+  addSkill: (charId,skill) => dispatch(skillActions.postSkillRequest(charId,skill)),
   putSkill: (oldSkill,newSkill) => dispatch(skillActions.putSkillRequest(oldSkill,newSkill)),
   deleteSkill: oldSkill => dispatch(skillActions.deleteSkillRequest(oldSkill))
 });

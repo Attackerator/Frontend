@@ -4,13 +4,13 @@ import { get_cookie } from '../../lib/helper';
 const request = require('superagent');
 
 // TODO: test when creating modal!!
-export const postSkillRequest = skill => dispatch => {
+export const postSkillRequest = (charId,skill) => dispatch => {
   let token = get_cookie('token');
-  console.log(token);
-  return request.post(`${API_URL}/api/skill`)
+  return request.post(`${API_URL}/api/skill/${charId}`)
     .set({Authorization: `Bearer ${token}`})
     .send(skill)
     .then(res => {
+      console.log({skill});
       dispatch(character.getCharacterRequest(res.body.characterId));
     });
 };
@@ -30,7 +30,7 @@ export const deleteSkillRequest = skill => dispatch => {
   let token = get_cookie('token');
   return request.delete(`${API_URL}/api/skill/${skill._id}`)
     .set({Authorization: `Bearer ${token}`})
-    .then(res => dispatch => {
+    .then(res => {
       dispatch(character.getCharacterRequest(skill.characterId));
     });
 };
