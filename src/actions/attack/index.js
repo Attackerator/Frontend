@@ -8,8 +8,7 @@ export const postAttackRequest = attack => dispatch => {
   console.log(token);
   return request.post(`${API_URL}/api/attack`)
   .set({Authorization: `Bearer ${token}`})
-  .send({ name: 'Wham Wham', stat: 'strength', damageType: 'blunt', diceType: 20,
-    diceCount: 20, toHitBonus: 20, damageBonus: 200 })
+  .send(attack)
   .then(res => {
     dispatch(character.getCharacterRequest(res.body.characterId));
   });
