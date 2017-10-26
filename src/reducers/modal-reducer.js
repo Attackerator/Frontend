@@ -5,11 +5,13 @@ const initialState = {
 const defaultAction = {};
 
 export default(state = initialState, action = defaultAction) => {
-  switch (action.type) {
+  const { type,payload } = action;
+
+  switch (type) {
     case 'SHOW_MODAL':
       return {
-        modalType: action.modalType,
-        modalProps: action.modalProps
+        modalType: payload.modalType,
+        modalProps: payload.modalProps
       };
     case 'HIDE_MODAL':
       return initialState;

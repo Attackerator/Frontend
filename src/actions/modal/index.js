@@ -1,15 +1,15 @@
 
-const showModal = action => {
+const showModal = modal => {
   return {
     type: 'SHOW_MODAL',
-    payload: action
+    payload: modal
   };
 };
 
 export const showSpecificModal = (modalType, modalProps) => dispatch => {
-  let action = {
+  let modal = {
     modalType: modalType,
     modalProps: modalProps
   };
-  dispatch(showModal(action));
+  dispatch(showModal(modal));
 };
