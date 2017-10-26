@@ -10,17 +10,17 @@ export default class StatItem extends React.Component {
   render(){
 
     return(
-      <div>
+      <div className = "statItem-wrapper">
         {
           Object.keys(this.props.stat).map(key => {
             if(['strength','dexterity','constitution','intelligence','wisdom','charisma'].indexOf(key) > -1){
               return(
                 <div key={key} className="statItem">
-                  <button className='roll'>Roll</button>
+                  <button className='roll'><i className="fa fa-bolt" aria-hidden="true"></i></button>
                   <h3>{key}</h3>
                   <span className="value">{this.props.stat[key]}</span>
                   <span className="modifier">{Math.floor((this.props.stat[key]-10)/2)}</span>
-                  <button className='edit'>Edit</button>
+                  <button className='edit'><i className="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
               );
             }

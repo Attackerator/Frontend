@@ -13,7 +13,7 @@ class StatContainer extends React.Component {
     return(
       <div className="stats">
         <h2>Stats</h2>
-        <div>
+        <div className = "statContainer-wrapper">
           {
             this.props.character.stats.map(stat => {
               return(
