@@ -13,3 +13,14 @@ export const postSaveRequest = save => dispatch => {
     dispatch(character.getCharacterRequest(res.body.characterId));
   });
 };
+
+export const putSaveRequest = (oldSave,newSave) => dispatch => {
+  let token = get_cookie('token');
+  console.log({oldSave,newSave, token});
+  return request.put(`${API_URL}/api/save/${oldSave._id}`)
+  .set({Authorization: `Bearer ${token}`})
+  .send(newSave)
+  .then(res => {
+    dispatch(character.getCharacterRequest(oldSave.characterId));
+  });
+};
