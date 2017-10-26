@@ -3,6 +3,7 @@ import { get_cookie } from '../../lib/helper';
 
 const request = require('superagent');
 
+// TODO: test when creating modal!!
 export const postSkillRequest = skill => dispatch => {
   let token = get_cookie('token');
   console.log(token);
@@ -10,7 +11,7 @@ export const postSkillRequest = skill => dispatch => {
     .set({Authorization: `Bearer ${token}`})
     .send({ name: 'not medicine', stat: 'intelligence', bonus: 14 })
     .then(res => {
-      dispatch(character.getCharacterRequest(token,res.body.characterId));
+      dispatch(character.getCharacterRequest(res.body.characterId));
     });
 };
 
@@ -21,8 +22,7 @@ export const putSkillRequest = (oldSkill,newSkill) => dispatch => {
     .set({Authorization: `Bearer ${token}`})
     .send(newSkill)
     .then(res => {
-      console.log(res.body);
-      dispatch(character.getCharacterRequest(token,oldSkill.characterId));
+      dispatch(character.getCharacterRequest(oldSkill.characterId));
     });
 };
 
@@ -31,7 +31,6 @@ export const deleteSkillRequest = skill => dispatch => {
   return request.delete(`${API_URL}/api/skill/${skill._id}`)
     .set({Authorization: `Bearer ${token}`})
     .then(res => dispatch => {
-      console.log(res.body);
-      dispatch(character.getCharacterListRequest(oldSkill.characterId));
+      dispatch(character.getCharacterListRequest(skill.characterId));
     });
 };

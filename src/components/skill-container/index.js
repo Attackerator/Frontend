@@ -38,6 +38,7 @@ class SkillContainer extends React.Component {
   }
 }
 
+// TODO: remove 'defaultStateReducer' when current character is set properly
 const mapStateToProps = state => ({
   character: state.defaultStateReducer.currentCharacter
 });
