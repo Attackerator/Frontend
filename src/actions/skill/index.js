@@ -31,6 +31,6 @@ export const deleteSkillRequest = skill => dispatch => {
   return request.delete(`${API_URL}/api/skill/${skill._id}`)
     .set({Authorization: `Bearer ${token}`})
     .then(res => dispatch => {
-      dispatch(character.getCharacterListRequest(skill.characterId));
+      dispatch(character.getCharacterRequest(skill.characterId));
     });
 };
