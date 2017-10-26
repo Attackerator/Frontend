@@ -82,6 +82,7 @@ export default class AttackItem extends React.Component {
             <i className="fa fa-plus-square-o" aria-hidden="true"></i>
           }
           </div>
+          </div>
         {
         this.state.expand ?
         <div className="content">
@@ -154,7 +155,6 @@ export default class AttackItem extends React.Component {
       <div>
       </div>
     }
-    </div>
     </div>
     );
   }
