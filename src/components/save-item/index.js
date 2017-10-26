@@ -14,8 +14,14 @@ export default class SaveItem extends React.Component {
       edit: false,
       expand: false
     };
+
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleExpand = this.handleExpand.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
-  
+
   render(){
     return(
       <div className="saveItem">
