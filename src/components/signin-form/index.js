@@ -52,7 +52,7 @@ class SignInForm extends React.Component {
           placeholder="password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign In</button>
+        <button className="submitSignIn" type="submit">Sign In</button>
       </form>
     );
   }
