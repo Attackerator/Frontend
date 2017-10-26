@@ -1,6 +1,7 @@
 import './_skill-item.scss';
 
 import React from 'react';
+import RollButton from '../roll-button';
 
 export default class SkillItem extends React.Component {
   constructor(props){
@@ -60,7 +61,7 @@ export default class SkillItem extends React.Component {
     return(
       <div className="skillItem">
         <div className="main">
-          <button className="roll"><i className="fa fa-bolt" aria-hidden="true"></i></button>
+          <RollButton/>
           <h3>{this.props.skill.name}</h3>
           <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
         </div>

@@ -118,7 +118,7 @@ class DashboardContainer extends React.Component {
                   : <div className="hideMe"></div>
               }
               {
-                this.props.lastChar ? <CharacterItem/> : <div className="hideMe"></div>
+                this.props.lastChar ? <CharacterItem/> : null
               }
             </div>)
             :

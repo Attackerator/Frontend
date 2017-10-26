@@ -1,6 +1,7 @@
 import './_attack-item.scss';
 
 import React from 'react';
+import RollButton from '../roll-button';
 
 export default class AttackItem extends React.Component {
   constructor(props){
@@ -11,7 +12,7 @@ export default class AttackItem extends React.Component {
     return(
       <div className="attackItem">
         <div className="main">
-          <button className="roll"><i className="fa fa-bolt" aria-hidden="true"></i></button>
+          <RollButton />
           <h3>{this.props.attack.name}</h3>
           <i className="fa fa-plus-square-o" aria-hidden="true"></i>
         </div>
