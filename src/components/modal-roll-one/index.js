@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class RollOne extends React.component{
+export default class RollOne extends React.Component{
   constructor(props){
     super(props);
   }
