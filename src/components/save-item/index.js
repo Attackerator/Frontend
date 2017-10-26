@@ -6,8 +6,16 @@ import RollButton from '../roll-button';
 export default class SaveItem extends React.Component {
   constructor(props){
     super(props);
-  }
 
+    this.state = {
+      type: this.props.save.type,
+      bonus: this.props.save.bonus,
+      stat: this.props.save.stat,
+      edit: false,
+      expand: false
+    };
+  }
+  
   render(){
     return(
       <div className="saveItem">
