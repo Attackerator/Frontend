@@ -15,7 +15,8 @@ class DashboardContainer extends React.Component {
 
     this.state = {
       showNew: false,
-      characterName: ''
+      characterName: '',
+      profileToggle: false
     };
 
     this.toggleNew=this.toggleNew.bind(this);
@@ -23,6 +24,7 @@ class DashboardContainer extends React.Component {
     this.logOut=this.logOut.bind(this);
     this.handleChange=this.handleChange.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
+    this.handleProfileToggle = this.handleProfileToggle.bind(this);
   }
 
   componentWillMount() {
@@ -68,6 +70,10 @@ class DashboardContainer extends React.Component {
     });
   }
 
+  handleProfileToggle(){
+    this.setState({profileToggle: !this.state.profileToggle});
+  }
+
   render(){
     return (
       <div className='dashboard-container'>
@@ -77,35 +83,39 @@ class DashboardContainer extends React.Component {
               <div className='dash-head'>
                 <div className="logo"></div>
                 <h2>Attackerator</h2>
-                <nav className="profile">
-                  <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-                  <ul className="showMe">
-                    <li>Profile</li>
-                    <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
-                    <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
-                    {
-                      this.props.list.map(character => {
-                        return(
-                          <li key={character.characterId}><a id={character.characterId} href="#" onClick={this.setCharacter}>{character.name}</a></li>
-                        );
-                      })
-                    }
-                  </ul>
-                </nav>
+                <i className="fa fa-user-circle-o" aria-hidden="true" onClick={this.handleProfileToggle}></i>
+                {
+                  this.state.profileToggle ?
+                    <nav className="profile">
+                      <ul className="showMe">
+                        <li>{this.props.user.username}</li>
+                        <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
+                        <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
+                        {
+                          this.props.list.map(character => {
+                            return(
+                              <li key={character.characterId}><a id={character.characterId} href="#" onClick={this.setCharacter}>{character.name}</a></li>
+                            );
+                          })
+                        }
+                      </ul>
+                    </nav> :
+                    <div></div>
+                }
               </div>
               {
                 this.state.showNew ?
-                <form className="newCharacterForm" onSubmit={this.handleSubmit}>
-                  <input
-                    type="text"
-                    name="characterName"
-                    value={this.state.characterName}
-                    placeholder="Character Name"
-                    onChange={this.handleChange}
-                  />
-                  <button type="submit">Submit</button>
-                </form>
-                : <div className="hideMe"></div>
+                  <form className="newCharacterForm" onSubmit={this.handleSubmit}>
+                    <input
+                      type="text"
+                      name="characterName"
+                      value={this.state.characterName}
+                      placeholder="Character Name"
+                      onChange={this.handleChange}
+                    />
+                    <button type="submit">Submit</button>
+                  </form>
+                  : <div className="hideMe"></div>
               }
               {
                 this.props.lastChar ? <CharacterItem/> : <div className="hideMe"></div>
@@ -122,7 +132,8 @@ class DashboardContainer extends React.Component {
 
 const mapStateToProps = state => ({
   list: state.characters,
-  lastChar: state.lastChar
+  lastChar: state.lastChar,
+  user: state.user
 });
 const mapDispatchToProps = (dispatch) => ({
   logOutCleanup: () => dispatch(logOutCleanup()),
