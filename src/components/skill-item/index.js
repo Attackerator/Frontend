@@ -11,11 +11,15 @@ export default class SkillItem extends React.Component {
       bonus: this.props.skill.bonus,
       stat: this.props.skill.stat,
       edit: false,
+      expand: false
     };
 
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleExpand = this.handleExpand.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+
   }
 
   toggleEdit(){
@@ -42,43 +46,58 @@ export default class SkillItem extends React.Component {
     this.setState({ edit: false });
   }
 
+  handleDelete(){
+    this.props.actions.deleteSkill(this.props.skill);
+  }
+
+  handleExpand(){
+    this.setState({
+      expand: !this.state.expand
+    });
+  }
+
   render(){
     return(
       <div className="skillItem">
         <button className="roll">Roll</button>
-        <h3>{this.props.skill.name}</h3>
-        <div className="hideMe">
-          <ul>
-            <li>{this.props.skill.bonus}</li>
-            <li>{this.props.skill.stat}</li>
-          </ul>
-          <button className="edit" onClick={this.toggleEdit}>edit</button>
-          {
-            this.state.edit ?
-              <form onSubmit={this.handleSubmit}>
-                <input
-                  type="text"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="bonus"
-                  value={this.state.bonus}
-                  onChange={this.handleChange}
-                /><input
-                  type="text"
-                  name="stat"
-                  value={this.state.stat}
-                  onChange={this.handleChange}
-                />
-                <button type="submit">Submit Change</button>
-              </form> :
-              <div></div>
-          }
-          <button className="delete" onClick={this.handleClick}>delete</button>
-        </div>
+        <span>{this.props.skill.name}</span>
+        <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
+        {
+          this.state.expand ?
+            <div>
+              <ul>
+                <li>{this.props.skill.bonus}</li>
+                <li>{this.props.skill.stat}</li>
+              </ul>
+              <button className="edit" onClick={this.toggleEdit}>edit</button>
+              <button className="delete" onClick={this.handleDelete}>delete</button>
+              {
+                this.state.edit ?
+                  <form onSubmit={this.handleSubmit}>
+                    <input
+                      type="text"
+                      name="name"
+                      value={this.state.name}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="text"
+                      name="bonus"
+                      value={this.state.bonus}
+                      onChange={this.handleChange}
+                    /><input
+                      type="text"
+                      name="stat"
+                      value={this.state.stat}
+                      onChange={this.handleChange}
+                    />
+                    <button type="submit">Submit Change</button>
+                  </form> :
+                  <div></div>
+              }
+            </div> :
+            <div></div>
+        }
       </div>
     );
   }

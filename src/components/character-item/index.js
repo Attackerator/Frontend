@@ -111,7 +111,7 @@ class CharacterItem extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  character: state.defaultStateReducer.currentCharacter
+  character: state.currentCharacter
 });
 const mapDispatchToProps = dispatch => ({
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),

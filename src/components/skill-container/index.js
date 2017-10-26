@@ -25,7 +25,8 @@ class SkillContainer extends React.Component {
                 actions={
                   {
                     addSkill: this.props.addSkill,
-                    editSkill: this.props.putSkill
+                    editSkill: this.props.putSkill,
+                    deleteSkill: this.props.deleteSkill
                   }
                 }
               />
@@ -37,13 +38,15 @@ class SkillContainer extends React.Component {
   }
 }
 
+// TODO: remove 'defaultStateReducer' when current character is set properly
 const mapStateToProps = state => ({
   character: state.defaultStateReducer.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({
   addSkill: skill => dispatch(skillActions.postSkillRequest(skill)),
-  putSkill: skill => dispatch(skillActions.putSkillRequest(skill)),
+  putSkill: (oldSkill,newSkill) => dispatch(skillActions.putSkillRequest(oldSkill,newSkill)),
+  deleteSkill: oldSkill => dispatch(skillActions.deleteSkillRequest(oldSkill))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(SkillContainer);
