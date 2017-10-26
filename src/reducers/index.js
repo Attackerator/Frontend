@@ -3,6 +3,7 @@ import auth from './auth-reducer';
 import characters from './character-reducer';
 import currentCharacter from './currentCharacter-reducer';
 import lastChar from './lastCharacter-reducer';
+import user from './user-reducer';
 
 const defaultState = {
   auth: null,
@@ -23,8 +24,8 @@ const defaultStateReducer = (state = defaultState) => {
 };
 
 const appReducer = combineReducers({
-  defaultStateReducer,
   auth,
+  user,
   characters,
   currentCharacter,
   lastChar
