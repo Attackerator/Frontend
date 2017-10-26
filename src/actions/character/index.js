@@ -16,6 +16,17 @@ const setCurrentCharacter = character => {
   };
 };
 
+const setLastCharacter = character => {
+  return {
+    type: 'LAST_CHARACTER__SET',
+    payload: character
+  };
+};
+
+export const getLastCharacter = (id) => dispatch => {
+  dispatch(setLastCharacter(id));
+};
+
 export const getCharacterListRequest = () => dispatch => {
   let token = get_cookie('token');
   return request.get(`${API_URL}/api/characters`)

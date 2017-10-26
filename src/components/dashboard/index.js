@@ -11,10 +11,7 @@ class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = {
-      thisCharacterId: ''
-    };
-
+    this.setCharacter=this.setCharacter.bind(this);
     this.logOut=this.logOut.bind(this);
   }
 
@@ -23,8 +20,7 @@ class DashboardContainer extends React.Component {
     this.props.getCharacterList()
       .then({
         if(lastChar){
-          this.props.getCharacter(lastChar)
-            .then(this.setState({thisCharacterId: lastChar}));
+          this.props.getCharacter(lastChar);
         }
       });
   }
@@ -34,6 +30,10 @@ class DashboardContainer extends React.Component {
     document.cookie = 'characterId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
   }
 
+  setCharacter(e){
+    this.props.getCharacter(e.target.id)
+      .then(this.props.getLastCharacter(e.target.id));
+  }
 
   render(){
     return (
@@ -44,21 +44,21 @@ class DashboardContainer extends React.Component {
         <h2>Attackerator</h2>
         <nav className="profile">
           <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-          <ul className="no">
+          <ul className="showMe">
             <li>Profile</li>
             <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
             <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
             {
               this.props.list.map(character => {
                 return(
-                  <li key={character.characterId}>{character.name}</li>
+                  <li key={character.characterId}><a id={character.characterId} href="#" onClick={this.setCharacter}>{character.name}</a></li>
                 );
               })
             }
           </ul>
         </nav>
         {
-          this.state.thisCharacterId ? <CharacterItem/> : <div className="hideMe"></div>
+          this.props.lastChar ? <CharacterItem/> : <div className="hideMe"></div>
         }
       </div>
     );
@@ -66,11 +66,13 @@ class DashboardContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  list: state.characters
+  list: state.characters,
+  lastChar: state.lastChar
 });
 const mapDispatchToProps = (dispatch) => ({
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
   getCharacter: (id) => dispatch(charActions.getCharacterRequest(id)),
+  getLastCharacter: (id) => dispatch(charActions.getLastCharacter(id)),
   postCharacter: (id,character) => dispatch(charActions.postCharacterRequest(character)),
 });
 
