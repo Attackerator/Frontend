@@ -6,6 +6,7 @@ import CharacterItem from '../character-item';
 import { BrowserRouter as Router,Route,Link } from 'react-router-dom';
 import * as charActions from '../../actions/character';
 import { get_cookie } from '../../lib/helper';
+import { logOutCleanup } from '../../actions/auth';
 
 class DashboardContainer extends React.Component {
   constructor(props){
@@ -19,7 +20,6 @@ class DashboardContainer extends React.Component {
     let lastChar = get_cookie('characterId');
     this.props.getCharacterList();
     if(lastChar){
-      console.log(lastChar);
       this.props.getCharacter(lastChar);
     }
   }
@@ -27,6 +27,7 @@ class DashboardContainer extends React.Component {
   logOut(){
     document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = 'characterId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    this.props.logOutCleanup();
   }
 
   setCharacter(e){
@@ -77,6 +78,7 @@ const mapStateToProps = state => ({
   lastChar: state.lastChar
 });
 const mapDispatchToProps = (dispatch) => ({
+  logOutCleanup: () => dispatch(logOutCleanup()),
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
   getCharacter: (id) => dispatch(charActions.getCharacterRequest(id)),
   getLastCharacter: (id) => dispatch(charActions.getLastCharacter(id)),

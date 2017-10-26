@@ -15,6 +15,17 @@ const setToken = token => {
   };
 };
 
+const userLogOut = () => {
+  return{
+    type: 'USER_LOGOUT',
+    payload: ''
+  };
+};
+
+export const logOutCleanup = () => dispatch => {
+  dispatch(userLogOut());
+};
+
 export const signInRequest = loginInfo =>
   dispatch => {
     const { username,password } = loginInfo;
