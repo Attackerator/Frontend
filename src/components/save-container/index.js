@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SaveItem from '../save-item';
 
-import * as skillActions from '../../actions/save';
+import * as saveActions from '../../actions/save';
 
 class SaveContainer extends React.Component {
   constructor(props){
@@ -43,8 +43,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addSave: save => dispatch(saveActions.postSaveRequest(skill)),
-  putSave: (oldSave, newSave) => dispatc(saveActions.putSaveRequest(oldSave,newSave)),
+  addSave: save => dispatch(saveActions.postSaveRequest(save)),
+  putSave: (oldSave, newSave) => dispatch(saveActions.putSaveRequest(oldSave,newSave)),
   deleteSave: save => dispatch(saveActions.deleteSaveRequest(save))
 });
 
