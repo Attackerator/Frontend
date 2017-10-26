@@ -15,7 +15,7 @@ class AttackContainer extends React.Component {
         <h2>Attacks</h2>
         <button className="new">New</button>
         {
-          this.props.character.attacks.map(attack => {
+          this.props.character.attack.map(attack => {
             return(
               <AttackItem key={attack._id} attack={attack} character={this.props.character}/>
             );
