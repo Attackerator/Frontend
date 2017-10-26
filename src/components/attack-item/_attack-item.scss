@@ -2,11 +2,11 @@
 
 .main {
   grid-area: m;
-  border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding-top: $gutter-sm;
   padding-bottom: $gutter-sm;
+  background-color: $silver;
 }
 .main button.roll{
   grid-column: 2 / 3;
@@ -27,7 +27,6 @@
 }
 .content {
   grid-area: c;
-  border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   font-family: $font-secondary;
@@ -45,8 +44,8 @@
  }
 .footer{
   grid-area: f;
-  border: 1px solid black;
  }
+
 .attackItem{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
