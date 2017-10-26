@@ -78,48 +78,56 @@ class SpellContainer extends React.Component {
                 name="name"
                 value={this.state.name}
                 onChange={this.handleChange}
+                placeholder="Spell Name"
               />
               <input
                 type="text"
                 name="description"
                 value={this.state.description}
                 onChange={this.handleChange}
+                placeholder="Description"
               />
               <input
                 type="text"
                 name="diceCount"
                 value={this.state.diceCount}
                 onChange={this.handleChange}
+                placeholder="Dice Count"
               />
               <input
                 type="text"
                 name="diceType"
                 value={this.state.diceType}
                 onChange={this.handleChange}
+                placeholder="Dice Type"
               />
               <input
                 type="text"
                 name="damageBonus"
                 value={this.state.damageBonus}
                 onChange={this.handleChange}
+                placeholder="Damage Bonus"
               />
               <input
                 type="text"
                 name="damageType"
                 value={this.state.damageType}
                 onChange={this.handleChange}
+                placeholder="Damage Type"
               />
               <input
                 type="text"
                 name="toHitBonus"
                 value={this.state.toHitBonus}
                 onChange={this.handleChange}
+                placeholder="To Hit Bonus"
               />
               <input
                 type="text"
                 name="stat"
                 value={this.state.stat}
                 onChange={this.handleChange}
+                placeholder="Stat"
               />
               <button type="submit" onSubmit={this.handleSubmit}>Submit Change</button>
             </form> :
