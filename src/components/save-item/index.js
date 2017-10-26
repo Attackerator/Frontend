@@ -22,6 +22,12 @@ export default class SaveItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
+  toggleEdit(){
+    this.setState({
+      edit: !this.state.edit
+    });
+  }
+
   render(){
     return(
       <div className="saveItem">
