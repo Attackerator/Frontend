@@ -161,7 +161,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addSpell: spell => dispatch(spellActions.postSpellRequest(spell)),
+  addSpell: (charId,spell) => dispatch(spellActions.postSpellRequest(charId,spell)),
   putSpell: (oldSpell,newSpell) => dispatch(spellActions.putSpellRequest(oldSpell,newSpell)),
   deleteSpell: oldSpell => dispatch(spellActions.deleteSpellRequest(oldSpell))
 });
