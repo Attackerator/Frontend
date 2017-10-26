@@ -20,6 +20,13 @@ class SaveContainer extends React.Component {
                key={save._id}
                save={save}
                character={this.props.character}
+               actions={
+               {
+                 addSave: this.props.addSave,
+                 editSave: this.props.putSave,
+                 deleteSkill: this.props.deleteSave
+               }
+              }
                />
             );
           })
