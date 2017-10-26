@@ -34,6 +34,18 @@ export default class SaveItem extends React.Component {
     });
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.actions.editSave(
+      this.props.skill,
+      {
+        type: this.state.name,
+        bonus: this.state.bonus,
+        stat: this.state.stat
+      });
+    this.setState({ edit: false});
+  }
+
   render(){
     return(
       <div className="saveItem">
