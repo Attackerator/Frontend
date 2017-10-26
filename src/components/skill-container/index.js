@@ -23,11 +23,11 @@ class SkillContainer extends React.Component {
                 skill={skill}
                 character={this.props.character}
                 actions={
-                  {
-                    addSkill: this.props.addSkill,
-                    editSkill: this.props.putSkill,
-                    deleteSkill: this.props.deleteSkill
-                  }
+                {
+                  addSkill: this.props.addSkill,
+                  editSkill: this.props.putSkill,
+                  deleteSkill: this.props.deleteSkill
+                }
                 }
               />
             );
@@ -40,7 +40,7 @@ class SkillContainer extends React.Component {
 
 // TODO: remove 'defaultStateReducer' when current character is set properly
 const mapStateToProps = state => ({
-  character: state.defaultStateReducer.currentCharacter
+  character: state.currentCharacter
 });
 
 const mapDispatchToProps = dispatch => ({

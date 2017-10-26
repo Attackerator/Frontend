@@ -3,6 +3,7 @@ import './_signin-form.scss';
 import React from 'react';
 import { connect } from 'react-redux';
 import * as authActions from '../../actions/auth';
+import { Redirect } from 'react-router-dom';
 
 class SignInForm extends React.Component {
   constructor(props){
@@ -10,7 +11,7 @@ class SignInForm extends React.Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,6 +30,11 @@ class SignInForm extends React.Component {
   }
 
   render(){
+    if(this.props.auth){
+      return(
+        <Redirect to='/'/>
+      );
+    }
     return(
       <form className="signin-form" onSubmit={this.handleSubmit}>
         <div className = "signIn" ><h1>Sign In Here</h1> </div>
@@ -52,7 +58,9 @@ class SignInForm extends React.Component {
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+  auth: state.auth
+});
 const mapDispatchToProps = dispatch => ({
   signIn: user => dispatch(authActions.signInRequest(user))
 });

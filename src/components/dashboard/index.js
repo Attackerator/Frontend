@@ -6,64 +6,82 @@ import CharacterItem from '../character-item';
 import { BrowserRouter as Router,Route,Link } from 'react-router-dom';
 import * as charActions from '../../actions/character';
 import { get_cookie } from '../../lib/helper';
+import { logOutCleanup } from '../../actions/auth';
 
 class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
 
+    this.setCharacter=this.setCharacter.bind(this);
     this.logOut=this.logOut.bind(this);
   }
 
   componentWillMount() {
     let lastChar = get_cookie('characterId');
-    this.props.getCharacterList()
-      .then({
-        if(lastChar){
-          this.props.getCharacter(lastChar);
-        }
-      });
+    this.props.getCharacterList();
+    if(lastChar){
+      this.props.getCharacter(lastChar);
+    }
   }
 
   logOut(){
     document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = 'characterId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    this.props.logOutCleanup();
   }
 
+  setCharacter(e){
+    this.props.getCharacter(e.target.id)
+      .then(this.props.getLastCharacter(e.target.id));
+  }
 
   render(){
     return (
       <div className='dashboard-container'>
-        <div className='dash-head'>
-          <div className="logo"></div>
-        </div>
-        <h2>Attackerator</h2>
-        <nav className="profile">
-          <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-          <ul className="hideMe">
-            <li>Profile</li>
-            <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
-            <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
-            {
-              this.props.list.map(character => {
-                return(
-                  <li key={character.characterId}>{character.name}</li>
-                );
-              })
-            }
-          </ul>
-        </nav>
-        <CharacterItem/>
+        {
+          this.props.list ?
+            (<div>
+              <div className='dash-head'>
+                <div className="logo"></div>
+              </div>
+              <h2>Attackerator</h2>
+              <nav className="profile">
+                <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+                <ul className="showMe">
+                  <li>Profile</li>
+                  <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
+                  <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
+                  {
+                    this.props.list.map(character => {
+                      return(
+                        <li key={character.characterId}><a id={character.characterId} href="#" onClick={this.setCharacter}>{character.name}</a></li>
+                      );
+                    })
+                  }
+                </ul>
+              </nav>
+              {
+                this.props.lastChar ? <CharacterItem/> : <div className="hideMe"></div>
+              }
+            </div>)
+            :
+            <h1>Loading</h1>
+        }
+
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  list: state.defaultStateReducer.characters
+  list: state.characters,
+  lastChar: state.lastChar
 });
 const mapDispatchToProps = (dispatch) => ({
+  logOutCleanup: () => dispatch(logOutCleanup()),
   getCharacterList: () => dispatch(charActions.getCharacterListRequest()),
   getCharacter: (id) => dispatch(charActions.getCharacterRequest(id)),
+  getLastCharacter: (id) => dispatch(charActions.getLastCharacter(id)),
   postCharacter: (id,character) => dispatch(charActions.postCharacterRequest(character)),
 });
 

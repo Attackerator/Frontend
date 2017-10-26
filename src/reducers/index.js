@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import auth from './auth-reducer';
 import characters from './character-reducer';
 import currentCharacter from './currentCharacter-reducer';
+import lastChar from './lastCharacter-reducer';
 
 const defaultState = {
   auth: null,
@@ -21,9 +22,20 @@ const defaultStateReducer = (state = defaultState) => {
   return state;
 };
 
-export default combineReducers({
+const appReducer = combineReducers({
   defaultStateReducer,
   auth,
   characters,
-  currentCharacter
+  currentCharacter,
+  lastChar
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    state = undefined;
+  }
+
+  return appReducer(state, action);
+};
+
+export default rootReducer;

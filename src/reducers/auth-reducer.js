@@ -1,4 +1,4 @@
-const initialState = {};
+const initialState = null;
 const defaultAction = {};
 
 export default (state = initialState,action = defaultAction) => {

@@ -2,7 +2,8 @@ const defaultState = {
   attacks: [],
   saves: [],
   skills: [],
-  spells: []
+  spells: [],
+  stats: []
 };
 
 const defaultAction = {};
