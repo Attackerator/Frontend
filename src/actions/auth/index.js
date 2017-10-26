@@ -1,4 +1,5 @@
 import * as character from '../character';
+import * as user from '../user';
 
 const request = require('superagent');
 
@@ -23,6 +24,7 @@ const userLogOut = () => {
 };
 
 export const logOutCleanup = () => dispatch => {
+  localStorage.removeItem('user');
   dispatch(userLogOut());
 };
 
@@ -34,6 +36,7 @@ export const signInRequest = loginInfo =>
       .then(res => {
         document.cookie = `token=${res.text}`;
         dispatch(setToken(res.text));
+        dispatch(user.setUser({ username }));
         dispatch(character.getCharacterListRequest(res.text));
       });
   };
@@ -45,6 +48,7 @@ export const signUpRequest = signUpInfo =>
       .then(res => {
         document.cookie = `token=${res.text}`;
         dispatch(setToken(res.text));
+        dispatch(user.setUser({ username: signUpInfo.username }));
         //initialize Characters
       });
   };

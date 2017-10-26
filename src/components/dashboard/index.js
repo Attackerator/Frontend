@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import CharacterItem from '../character-item';
 import { BrowserRouter as Router,Route,Link } from 'react-router-dom';
 import * as charActions from '../../actions/character';
+import * as userActions from '../../actions/user';
 import { get_cookie } from '../../lib/helper';
 import { logOutCleanup } from '../../actions/auth';
 
@@ -30,6 +31,7 @@ class DashboardContainer extends React.Component {
     if(lastChar){
       this.props.getCharacter(lastChar);
     }
+    this.props.setUser();
   }
 
   logOut(){
@@ -128,6 +130,7 @@ const mapDispatchToProps = (dispatch) => ({
   getCharacter: (id) => dispatch(charActions.getCharacterRequest(id)),
   getLastCharacter: (id) => dispatch(charActions.getLastCharacter(id)),
   postCharacter: (character) => dispatch(charActions.postCharacterRequest(character)),
+  setUser: () => dispatch(userActions.setUserState(JSON.parse(localStorage.getItem('user'))))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(DashboardContainer);
