@@ -59,18 +59,20 @@ export default class SkillItem extends React.Component {
   render(){
     return(
       <div className="skillItem">
-        <button className="roll">Roll</button>
-        <span>{this.props.skill.name}</span>
-        <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
+        <div className="main">
+          <button className="roll"><i className="fa fa-bolt" aria-hidden="true"></i></button>
+          <h3>{this.props.skill.name}</h3>
+          <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
+        </div>
         {
           this.state.expand ?
-            <div>
+            <div className="content">
               <ul>
                 <li>{this.props.skill.bonus}</li>
                 <li>{this.props.skill.stat}</li>
               </ul>
-              <button className="edit" onClick={this.toggleEdit}>edit</button>
-              <button className="delete" onClick={this.handleDelete}>delete</button>
+              <button className="edit" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+              <button className="delete" onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
               {
                 this.state.edit ?
                   <form onSubmit={this.handleSubmit}>

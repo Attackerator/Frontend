@@ -15,6 +15,7 @@ class SkillContainer extends React.Component {
     return(
       <div className="skills">
         <h2>Skills</h2>
+        <button className="new">New</button>
         {
           this.props.character.skills.map(skill => {
             return(
