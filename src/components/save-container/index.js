@@ -4,6 +4,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SaveItem from '../save-item';
 
+import * as skillActions from '../../actions/save';
+
 class SaveContainer extends React.Component {
   constructor(props){
     super(props);
