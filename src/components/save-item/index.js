@@ -50,6 +50,12 @@ export default class SaveItem extends React.Component {
     this.props.actions.deleteSave(this.props.save);
   }
 
+  handleExpand(){
+    this.setState({
+      expand: !this.state.expand
+    });
+  }
+
   render(){
     return(
       <div className="saveItem">
