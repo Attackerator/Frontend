@@ -25,7 +25,8 @@ class SkillContainer extends React.Component {
                 actions={
                   {
                     addSkill: this.props.addSkill,
-                    editSkill: this.props.putSkill
+                    editSkill: this.props.putSkill,
+                    deleteSkill: this.props.deleteSkill
                   }
                 }
               />
@@ -44,6 +45,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addSkill: skill => dispatch(skillActions.postSkillRequest(skill)),
   putSkill: (oldSkill,newSkill) => dispatch(skillActions.putSkillRequest(oldSkill,newSkill)),
+  deleteSkill: oldSkill => dispatch(skillActions.deleteSkillRequest(oldSkill))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(SkillContainer);

@@ -18,6 +18,8 @@ export default class SkillItem extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+
   }
 
   toggleEdit(){
@@ -44,6 +46,10 @@ export default class SkillItem extends React.Component {
     this.setState({ edit: false });
   }
 
+  handleDelete(){
+    this.props.actions.deleteSkill(this.props.skill);
+  }
+
   handleExpand(){
     this.setState({
       expand: !this.state.expand
@@ -64,7 +70,7 @@ export default class SkillItem extends React.Component {
                 <li>{this.props.skill.stat}</li>
               </ul>
               <button className="edit" onClick={this.toggleEdit}>edit</button>
-              <button className="delete" onClick={this.handleClick}>delete</button>
+              <button className="delete" onClick={this.handleDelete}>delete</button>
               {
                 this.state.edit ?
                   <form onSubmit={this.handleSubmit}>

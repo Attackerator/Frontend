@@ -10,8 +10,7 @@ export const postSkillRequest = skill => dispatch => {
     .set({Authorization: `Bearer ${token}`})
     .send({ name: 'not medicine', stat: 'intelligence', bonus: 14 })
     .then(res => {
-      console.log(res.body);
-
+      dispatch(character.getCharacterRequest(token,res.body.characterId));
     });
 };
 
@@ -27,9 +26,9 @@ export const putSkillRequest = (oldSkill,newSkill) => dispatch => {
     });
 };
 
-export const deleteSkillRequest = (oldSkill,newSkill) => dispatch => {
+export const deleteSkillRequest = skill => dispatch => {
   let token = get_cookie('token');
-  return request.delete(`${API_URL}/api/skill/${oldSkill._id}`)
+  return request.delete(`${API_URL}/api/skill/${skill._id}`)
     .set({Authorization: `Bearer ${token}`})
     .then(res => dispatch => {
       console.log(res.body);
