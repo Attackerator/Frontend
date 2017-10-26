@@ -9,7 +9,7 @@ export const postSkillRequest = skill => dispatch => {
   console.log(token);
   return request.post(`${API_URL}/api/skill`)
     .set({Authorization: `Bearer ${token}`})
-    .send({ name: 'not medicine', stat: 'intelligence', bonus: 14 })
+    .send(skill)
     .then(res => {
       dispatch(character.getCharacterRequest(res.body.characterId));
     });
