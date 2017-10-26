@@ -27,16 +27,16 @@ export default class LoginContainer extends React.Component {
         {
           this.state.signIn  ?
             (
-            <div>
-              <SignInForm/>
-              <span className="signUp"><a href="#" onClick={this.toggleSignIn}>Create an Account</a></span>
-            </div>
+              <div>
+                <SignInForm/>
+                <span className="signUp"><a href="#" onClick={this.toggleSignIn}>Create an Account</a></span>
+              </div>
             ) :
             (
-            <div>
-              <SignUpForm/>
-              <span className="signUp"><a href="#" onClick={this.toggleSignIn}>Use Existing Account</a></span>
-            </div>
+              <div>
+                <SignUpForm/>
+                <span className="signUp"><a href="#" onClick={this.toggleSignIn}>Use Existing Account</a></span>
+              </div>
             )
         }
       </div>

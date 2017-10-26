@@ -1,0 +1,42 @@
+@import './../../style/lib/_vars.scss';
+
+.signUp-form{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "t t t t t t"
+    "u u u u u u"
+    "p p p p p p"
+    "e e e e e e"
+    "b b b b b b"
+    "l l l l l l";
+  padding: 2em;
+
+  }
+
+  .signUpHead{
+    grid-area: t;
+    font-family: $font-primary;
+    font-size: 10vw;
+    justify-self: center;
+    padding-top: 5em;
+  }
+  .signUp-form input[name="username"]{
+    grid-area: u;
+    font-size: $font-mobile-lg;
+    font-family: $font-secondary;
+  }
+  .signUp-form input[name="password"]{
+    grid-area: p;
+    font-size: $font-mobile-lg;
+    font-family: $font-secondary;
+  }
+  .signUp-form input[name="email"]{
+    grid-area: e;
+    font-size: $font-mobile-lg;
+    font-family: $font-secondary;
+  }
+
+  .submitSignUp{
+    grid-area: b;
+  }
