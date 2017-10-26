@@ -42,18 +42,24 @@ export default class AttackItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.actions.editSkill(
-      this.props.skill,
+    this.props.actions.editAttack(
+      this.props.attack,
       {
         name: this.state.name,
-        bonus: this.state.bonus,
+        description: this.state.description,
         stat: this.state.stat,
+        damageType: this.state.damageType,
+        diceType: this.state.diceType,
+        diceCount: this.state.diceCount,
+        toHitBonus: this.state.toHitBonus,
+        damageBonus: this.state.damageBonus
+
       });
     this.setState({ edit: false });
   }
 
   handleDelete(){
-    this.props.actions.deleteSkill(this.props.skill);
+    this.props.actions.deleteAttack(this.props.attack);
   }
 
   handleExpand(){
