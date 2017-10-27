@@ -3,10 +3,10 @@ import { get_cookie } from '../../lib/helper';
 
 const request = require('superagent');
 
-export const postSaveRequest = save => dispatch => {
+export const postSaveRequest = (charId,save) => dispatch => {
   let token = get_cookie('token');
   console.log(token);
-  return request.post(`${API_URL}/api/save`)
+  return request.post(`${API_URL}/api/save/${charId}`)
   .set({Authorization: `Bearer ${token}`})
   .send(save)
   .then(res => {
