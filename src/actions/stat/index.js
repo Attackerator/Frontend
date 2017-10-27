@@ -12,3 +12,13 @@ export const putStatsRequest = (id,newStats) => dispatch => {
       dispatch(character.getCharacterRequest(res.body.characterId));
     });
 };
+
+export const postStatRequest = (charId,stat) => dispatch => {
+  let token = get_cookie('token');
+  return request.post(`${API_URL}/api/stats/${charId}`)
+    .set({Authorization: `Bearer ${token}`})
+    .send(stat)
+    .then(res => {
+      dispatch(character.getCharacterRequest(res.body.characterId));
+    });
+};
