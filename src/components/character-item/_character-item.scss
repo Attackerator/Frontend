@@ -49,6 +49,10 @@ header .delete{
   font-size: $font-mobile-lg;
   text-align: center;
   grid-column: 1 / 7;
+
+}
+.midIndex li{
+  border: 2px solid transparent;
 }
 .midIndex li:hover{
   background-color: $blue;

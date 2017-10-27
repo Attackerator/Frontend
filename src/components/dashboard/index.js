@@ -97,14 +97,19 @@ class DashboardContainer extends React.Component {
               <div className='dash-head'>
                 <div className="logo"></div>
                 <h2>Attackerator</h2>
-                <i className="fa fa-user-circle-o" aria-hidden="true" onClick={this.handleProfileToggle}></i>
+                <div className="profileMenu">
+                  <i className="fa fa-user-circle-o" aria-hidden="true" onClick={this.handleProfileToggle}></i>
+                </div>
                 {
                   this.state.profileToggle ?
                     <nav className="profile">
-                      <ul className="showMe">
-                        <li className="yourName">{this.props.user.username}</li>
+                      <ul className="midIndex">
+                        <li className="yourName noHover">{this.props.user.username}</li>
+                        <li className="noHover"><hr></hr></li>
                         <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
-                        <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
+                        <li><a id="newCharacter noHover" href="#" onClick={this.toggleNew}>New Character</a></li>
+                        <li className="noHover"><hr></hr></li>
+                        <li className="yourName noHover">Created Characters</li>
                         {
                           this.props.list.map(character => {
                             return(
