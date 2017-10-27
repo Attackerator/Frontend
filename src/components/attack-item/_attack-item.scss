@@ -33,13 +33,15 @@
   grid-area: c;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
   font-family: $font-secondary;
-  font-size: $font-mobile-sm;
+  font-size: $font-mobile-lg;
   padding: $gutter-lg;
   background-color: $silver;
  }
  .content ul{
    grid-column: 1 / 7;
+   font-size: $font-mobile-lg;
  }
  .content ul li:nth-child(1) {
   font-style: italic;

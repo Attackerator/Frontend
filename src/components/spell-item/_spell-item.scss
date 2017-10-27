@@ -26,6 +26,7 @@
   grid-area: c;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
   font-family: $font-secondary;
   font-size: $font-mobile-sm;
   padding-top: $gutter-sm;

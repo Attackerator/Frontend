@@ -21,10 +21,10 @@ class RollOne extends React.Component{
     let modifier = this.props.modalProps.modifer;
     let bonus = this.props.modalProps.bonus;
     return(
-      <div>
-        <div>Total: {roll+modifier+bonus}</div>
-        <div>Roll: {roll}</div>
-        <div>Bonuses: {modifier+bonus}</div>
+      <div className="rollModal">
+        <div className="total">Total: {roll+modifier+bonus}</div>
+        <div className="roll">Roll: {roll}</div>
+        <div className="bonus">Bonuses: {modifier+bonus}</div>
         <button className="closeModal" onClick={this.handleClick}>Close</button>
       </div>
     );

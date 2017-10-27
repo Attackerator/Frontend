@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import RollOne from '../modal-roll-one';
 import RollTwo from '../modal-roll-two';
 
+import './_modal-container.scss';
+
+
 const MODAL_COMPONENTS = {
   ROLL_ONE: RollOne,
   ROLL_TWO: RollTwo,
