@@ -75,87 +75,86 @@ export default class AttackItem extends React.Component {
           <RollButton />
           <h3>{this.props.attack.name}</h3>
           <div onClick={this.handleExpand}>
-          {this.state.expand
-            ?
-            <i className="fa fa-minus-square-o" aria-hidden="true"></i>
-            :
-            <i className="fa fa-plus-square-o" aria-hidden="true"></i>
-          }
+            {
+              this.state.expand
+                ?
+                <i className="fa fa-minus-square-o" aria-hidden="true"></i>
+                :
+                <i className="fa fa-plus-square-o" aria-hidden="true"></i>
+            }
           </div>
-          </div>
+        </div>
         {
-        this.state.expand ?
-        <div className="content">
-            <ul>
-              <li>{this.props.attack.description}</li>
-              <li>Damage: {this.props.attack.diceCount}d{this.props.attack.diceType} + {this.props.attack.damageBonus}</li>
-              <li>Damage Type: {this.props.attack.damageType}</li>
-              <li>Hit Bonus: {this.props.attack.toHitBonus}</li>
-              <li>{this.props.attack.stat}</li>
-            </ul>
-          <button className="edit" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
-          <button className="delete" onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
-          {
-            this.state.edit ?
-              <form onSubmit={this.handleSubmit}>
-                <input
-                  type="text"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="diceCount"
-                  value={this.state.diceCount}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="diceType"
-                  value={this.state.diceType}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="damageBonus"
-                  value={this.state.damageBonus}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="damageType"
-                  value={this.state.damageType}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="toHitBonus"
-                  value={this.state.toHitBonus}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="stat"
-                  value={this.state.stat}
-                  onChange={this.handleChange}
-                />
-                <button type="submit">Submit Change</button>
-              </form> :
-              <div>
-            </div>
-          }
-        </div> :
-      <div>
+          this.state.expand ?
+            <div className="content">
+              <ul>
+                <li>{this.props.attack.description}</li>
+                <li>Damage: {this.props.attack.diceCount}d{this.props.attack.diceType} + {this.props.attack.damageBonus}</li>
+                <li>Damage Type: {this.props.attack.damageType}</li>
+                <li>Hit Bonus: {this.props.attack.toHitBonus}</li>
+                <li>{this.props.attack.stat}</li>
+              </ul>
+              <button className="edit" onClick={this.toggleEdit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+              <button className="delete" onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
+              {
+                this.state.edit ?
+                  <form onSubmit={this.handleSubmit}>
+                    <input
+                      type="text"
+                      name="name"
+                      value={this.state.name}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="text"
+                      name="description"
+                      value={this.state.description}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="text"
+                      name="diceCount"
+                      value={this.state.diceCount}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="text"
+                      name="diceType"
+                      value={this.state.diceType}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="text"
+                      name="damageBonus"
+                      value={this.state.damageBonus}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="text"
+                      name="damageType"
+                      value={this.state.damageType}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="text"
+                      name="toHitBonus"
+                      value={this.state.toHitBonus}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="text"
+                      name="stat"
+                      value={this.state.stat}
+                      onChange={this.handleChange}
+                    />
+                    <button type="submit">Submit Change</button>
+                  </form> :
+                  <div></div>
+              }
+            </div> :
+            <div></div>
+        }
       </div>
-    }
-    </div>
     );
   }
 }

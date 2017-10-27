@@ -4,10 +4,10 @@ import { get_cookie } from '../../lib/helper';
 const request = require('superagent');
 
 // TODO: test when creating modal!!
-export const postSpellRequest = spell => dispatch => {
+export const postSpellRequest = (charId,spell) => dispatch => {
   let token = get_cookie('token');
   console.log(token);
-  return request.post(`${API_URL}/api/spell`)
+  return request.post(`${API_URL}/api/spell/${charId}`)
     .set({Authorization: `Bearer ${token}`})
     .send(spell)
     .then(res => {
@@ -30,7 +30,7 @@ export const deleteSpellRequest = spell => dispatch => {
   let token = get_cookie('token');
   return request.delete(`${API_URL}/api/spell/${spell._id}`)
     .set({Authorization: `Bearer ${token}`})
-    .then(res => dispatch => {
+    .then(res => {
       dispatch(character.getCharacterRequest(spell.characterId));
     });
 };
