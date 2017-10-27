@@ -95,7 +95,7 @@ class AttackContainer extends React.Component {
                 placeholder="Dice Count"
               />
               <input
-                type="numberr"
+                type="number"
                 name="diceType"
                 value={this.state.diceType}
                 onChange={this.handleChange}
