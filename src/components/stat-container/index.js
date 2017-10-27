@@ -63,7 +63,57 @@ class StatContainer extends React.Component {
     return(
       <div className="stats">
         <h2>Stats</h2>
+        <button className="new" onClick={this.handleToggleForm}>New</button>
         <div className = "statContainer-wrapper">
+          {
+            this.state.toggleForm ?
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  type="text"
+                  name="strength"
+                  value={this.state.strength}
+                  onChange={this.handleChange}
+                  placeholder="Strength"
+                />
+                <input
+                  type="text"
+                  name="dexterity"
+                  value={this.state.dexterity}
+                  onChange={this.handleChange}
+                  placeholder="Dexterity"
+                />
+                <input
+                  type="text"
+                  name="constitution"
+                  value={this.state.constitution}
+                  onChange={this.handleChange}
+                  placeholder="Constitution"
+                />
+                <input
+                  type="text"
+                  name="intelligence"
+                  value={this.state.intelligence}
+                  onChange={this.handleChange}
+                  placeholder="Intelligence"
+                />
+                <input
+                  type="text"
+                  name="charisma"
+                  value={this.state.charisma}
+                  onChange={this.handleChange}
+                  placeholder="Charisma"
+                />
+                <input
+                  type="text"
+                  name="wisdom"
+                  value={this.state.wisdom}
+                  onChange={this.handleChange}
+                  placeholder="Wisdom"
+                />
+                <button type="submit">Submit Stats</button>
+              </form> :
+              <div></div>
+          }
           {
             this.props.character.stats.map(stat => {
               return(
