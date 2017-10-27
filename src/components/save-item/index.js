@@ -71,6 +71,8 @@ export default class SaveItem extends React.Component {
           }
           </div>
         </div>
+        {
+        this.state.expand ?
         <div className="content">
           <ul>
             <li>Bonus: {this.props.save.bonus}</li>
