@@ -74,7 +74,8 @@ label{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   font-family: $font-primary;
-  font-size: $font-mobile-lg;
+  font-size: $font-mobile-sm;
+  padding: $gutter-sm;
 }
 label input, select{
   grid-column: 3 / 7;
