@@ -60,7 +60,7 @@ export default class SaveItem extends React.Component {
     return(
       <div className="saveItem">
         <div className="main">
-          <RollButton />
+          <RollButton modalType={'ROLL_ONE'} modalProps={{modifer: Math.floor((this.props.character.stats[0][this.props.save.stat]-10)/2), bonus: this.props.save.bonus}} />
           <h3>{this.props.save.type}</h3>
           <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
         </div>
