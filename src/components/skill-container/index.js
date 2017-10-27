@@ -65,7 +65,7 @@ class SkillContainer extends React.Component {
                 placeholder="Name"
               />
               <input
-                type="text"
+                type="number"
                 name="bonus"
                 value={this.state.bonus}
                 onChange={this.handleChange}
