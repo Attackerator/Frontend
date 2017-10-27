@@ -82,24 +82,26 @@ class SaveContainer extends React.Component {
             </form> :
             <div></div>
         }
-        {
-          this.props.character.saves.map(save => {
-            return(
-              <SaveItem
-               key={save._id}
-               save={save}
-               character={this.props.character}
-               actions={
-               {
-                 addSave: this.props.addSave,
-                 editSave: this.props.putSave,
-                 deleteSave: this.props.deleteSave
-               }
-              }
-               />
-            );
-          })
-        }
+        <div className="wrapper">
+          {
+            this.props.character.saves.map(save => {
+              return(
+                <SaveItem
+                  key={save._id}
+                  save={save}
+                  character={this.props.character}
+                  actions={
+                    {
+                      addSave: this.props.addSave,
+                      editSave: this.props.putSave,
+                      deleteSave: this.props.deleteSave
+                    }
+                  }
+                />
+              );
+            })
+          }
+        </div>
       </div>
     );
   }
