@@ -65,55 +65,57 @@ class StatContainer extends React.Component {
         <h2>Stats</h2>
         <button className="new" onClick={this.handleToggleForm}>New</button>
         <div className = "statContainer-wrapper">
-          {
-            this.state.toggleForm ?
-              <form onSubmit={this.handleSubmit}>
-                <input
-                  type="number"
-                  name="strength"
-                  value={this.state.strength}
-                  onChange={this.handleChange}
-                  placeholder="Strength"
-                />
-                <input
-                  type="number"
-                  name="dexterity"
-                  value={this.state.dexterity}
-                  onChange={this.handleChange}
-                  placeholder="Dexterity"
-                />
-                <input
-                  type="number"
-                  name="constitution"
-                  value={this.state.constitution}
-                  onChange={this.handleChange}
-                  placeholder="Constitution"
-                />
-                <input
-                  type="number"
-                  name="intelligence"
-                  value={this.state.intelligence}
-                  onChange={this.handleChange}
-                  placeholder="Intelligence"
-                />
-                <input
-                  type="number"
-                  name="charisma"
-                  value={this.state.charisma}
-                  onChange={this.handleChange}
-                  placeholder="Charisma"
-                />
-                <input
-                  type="number"
-                  name="wisdom"
-                  value={this.state.wisdom}
-                  onChange={this.handleChange}
-                  placeholder="Wisdom"
-                />
-                <button type="submit">Submit Stats</button>
-              </form> :
-              <div></div>
-          }
+          <div className="formWrap">
+            {
+              this.state.toggleForm ?
+                <form onSubmit={this.handleSubmit}>
+                  <input
+                    type="number"
+                    name="strength"
+                    value={this.state.strength}
+                    onChange={this.handleChange}
+                    placeholder="Strength"
+                  />
+                  <input
+                    type="number"
+                    name="dexterity"
+                    value={this.state.dexterity}
+                    onChange={this.handleChange}
+                    placeholder="Dexterity"
+                  />
+                  <input
+                    type="number"
+                    name="constitution"
+                    value={this.state.constitution}
+                    onChange={this.handleChange}
+                    placeholder="Constitution"
+                  />
+                  <input
+                    type="number"
+                    name="intelligence"
+                    value={this.state.intelligence}
+                    onChange={this.handleChange}
+                    placeholder="Intelligence"
+                  />
+                  <input
+                    type="number"
+                    name="charisma"
+                    value={this.state.charisma}
+                    onChange={this.handleChange}
+                    placeholder="Charisma"
+                  />
+                  <input
+                    type="number"
+                    name="wisdom"
+                    value={this.state.wisdom}
+                    onChange={this.handleChange}
+                    placeholder="Wisdom"
+                  />
+                  <button type="submit">Submit Stats</button>
+                </form> :
+                <div></div>
+            }
+          </div>
           {
             this.props.character.stats.map(stat => {
               return(
