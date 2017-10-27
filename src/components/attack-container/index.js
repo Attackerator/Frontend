@@ -133,24 +133,26 @@ class AttackContainer extends React.Component {
             </form> :
             <div></div>
         }
-        {
-          this.props.character.attack.map(attack => {
-            return(
-              <AttackItem
-                key={attack._id}
-                attack={attack}
-                character={this.props.character}
-                actions={
-                  {
-                    addAttack: this.props.addAttack,
-                    editAttack: this.props.putAttack,
-                    deleteAttack: this.props.deleteAttack
+        <div className="wrapper">
+          {
+            this.props.character.attack.map(attack => {
+              return(
+                <AttackItem
+                  key={attack._id}
+                  attack={attack}
+                  character={this.props.character}
+                  actions={
+                    {
+                      addAttack: this.props.addAttack,
+                      editAttack: this.props.putAttack,
+                      deleteAttack: this.props.deleteAttack
+                    }
                   }
-                }
-              />
-            );
-          })
-        }
+                />
+              );
+            })
+          }
+        </div>
       </div>
     );
   }

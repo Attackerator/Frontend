@@ -41,8 +41,7 @@
 .footer{
   grid-area: f;
  }
-
-.attackItem{
+.spellItem{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
@@ -50,4 +49,12 @@
     "c c c c"
     "c c c c"
     "f f f f";
+  grid-template-columns: 1 / 7;
+  grid-row: auto;
+}
+.spellItem{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-row: auto;
+  grid-column: 1 / 7;
 }

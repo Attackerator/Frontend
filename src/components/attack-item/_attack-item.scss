@@ -4,6 +4,7 @@
   grid-area: m;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-rows: auto;
   padding: $gutter-lg;
   background-color: $silver;
 }
@@ -51,6 +52,12 @@
   grid-area: f;
  }
 
+.attackItem{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-row: auto;
+  grid-column: 1 / 7;
+}
 .attackItem{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
