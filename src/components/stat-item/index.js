@@ -9,7 +9,7 @@ export default class StatItem extends React.Component {
 
     this.state = {
       strength: {
-        edit: true,
+        edit: false,
         strength: this.props.stat.strength,
         new: this.props.stat.strength
       },
@@ -77,6 +77,38 @@ export default class StatItem extends React.Component {
         wisdom: this.state.wisdom.new,
         charisma: this.state.charisma.new
       });
+    this.setState({
+      strength: {
+        edit: false,
+        strength: this.props.stat.strength,
+        new: this.props.stat.strength
+      },
+      dexterity: {
+        edit: false,
+        dexterity: this.props.stat.dexterity,
+        new: this.props.stat.dexterity
+      },
+      constitution: {
+        edit: false,
+        constitution: this.props.stat.constitution,
+        new: this.props.stat.constitution
+      },
+      intelligence: {
+        edit: false,
+        intelligence: this.props.stat.intelligence,
+        newI: this.props.stat.intelligence
+      },
+      wisdom: {
+        edit: false,
+        wisdom: this.props.stat.wisdom,
+        new: this.props.stat.wisdom
+      },
+      charisma: {
+        edit: false,
+        charisma: this.props.stat.charisma,
+        new: this.props.stat.charisma
+      }
+    });
   }
 
   render(){
