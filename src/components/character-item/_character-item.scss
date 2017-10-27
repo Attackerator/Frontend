@@ -41,15 +41,16 @@ header .delete{
   display: grid;
   grid-column: 1 / 7;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  padding-top: $gutter-lg;
-  padding-bottom: $gutter-lg;
+  padding: $gutter-lg;
   font-size: 3vw;
   font-family: $font-secondary;
 }
-.resourceNav ul{
-  grid-column: 6 / 7;
-
+.midIndex{
+  font-size: $font-mobile-lg;
+  text-align: center;
+  grid-column: 1 / 7;
 }
-.hideMe{
-  display: none;
+.midIndex li:hover{
+  background-color: $blue;
+  border: 2px solid black;
 }
