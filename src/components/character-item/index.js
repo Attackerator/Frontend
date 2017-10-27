@@ -105,25 +105,34 @@ class CharacterItem extends React.Component {
         <nav className="resourceNav">
           <ul>
             <li><a href="#" onClick={this.toggleResource}><i className="fa fa-bars" aria-hidden="true"></i></a></li>
-            {this.state.showResource ? <li><a id="Attacks" href="#" onClick={this.changeTab}>Attacks</a></li> : null}
-            {this.state.showResource ? <li><a id="Saves" href="#" onClick={this.changeTab}>Saves</a></li> : null}
-            {this.state.showResource ? <li><a id="Skills" href="#" onClick={this.changeTab}>Skills</a></li> : null}
-            {this.state.showResource ? <li><a id="Spells" href="#" onClick={this.changeTab}>Spells</a></li> : null}
-            {this.state.showResource ? <li><a id="Stats" href="#" onClick={this.changeTab}>Stats</a></li> : null}
           </ul>
-        </nav>
-        <div className="resources">
           {
-            this.state.tab === 'Attacks' ?
-              <AttackContainer/> :
-              this.state.tab === 'Saves' ?
-                <SaveContainer/> :
-                this.state.tab === 'Spells' ?
-                  <SpellContainer/> :
-                  this.state.tab === 'Skills' ?
-                    <SkillContainer/> : <StatsContainer />
+            this.state.showResource ?
+              <ul className="midIndex">
+                <li><a id="Attacks" href="#" onClick={this.changeTab}>Attacks</a></li>
+                <li><a id="Saves" href="#" onClick={this.changeTab}>Saves</a></li>
+                <li><a id="Skills" href="#" onClick={this.changeTab}>Skills</a></li>
+                <li><a id="Spells" href="#" onClick={this.changeTab}>Spells</a></li>
+                <li><a id="Stats" href="#" onClick={this.changeTab}>Stats</a></li>
+              </ul>
+              : null
           }
-        </div>
+        </nav>
+        {
+          !this.state.showResource ?
+            <div className="resources">
+              {
+                this.state.tab === 'Attacks' ?
+                  <AttackContainer/> :
+                  this.state.tab === 'Saves' ?
+                    <SaveContainer/> :
+                    this.state.tab === 'Spells' ?
+                      <SpellContainer/> :
+                      this.state.tab === 'Skills' ?
+                        <SkillContainer/> : <StatsContainer />
+              }
+            </div>: null 
+        }
       </div>
     );
   }
