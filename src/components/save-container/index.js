@@ -32,6 +32,23 @@ class SaveContainer extends React.Component {
     });
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.addSave(
+      this.props.character._id,
+      {
+        name: this.state.type,
+        bonus: this.state.bonus,
+        stat: this.state.stat
+      });
+    this.setState({
+      toggleForm: false,
+      type: '',
+      bonus: '',
+      stat: ''
+    });
+  }
+
   render(){
     return(
       <div className="saves">
