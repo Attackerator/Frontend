@@ -142,7 +142,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  editStats: (id,stats) => dispatch(statActions.putStatsRequest(id,stats))
+  editStats: (id,stats) => dispatch(statActions.putStatsRequest(id,stats)),
+  addStat: (charId, stat) => dispatch(statActions.postStatRequest(charId, stat))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(StatContainer);
