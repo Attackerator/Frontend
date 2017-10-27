@@ -124,7 +124,7 @@ class StatContainer extends React.Component {
                   actions={
                     {
                       addStat: this.props.addStat,
-                      editStat: this.props.putStat,
+                      editStats: this.props.editStats,
                       deleteStat: this.props.deleteStat
                     }
                   }/>
