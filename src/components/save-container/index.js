@@ -22,6 +22,10 @@ class SaveContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleToggleForm(){
+    this.setState({ toggleForm: !this.state.toggleForm});
+  }
+
   render(){
     return(
       <div className="saves">
