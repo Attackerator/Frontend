@@ -104,37 +104,37 @@ export default class AttackItem extends React.Component {
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="diceCount"
                       value={this.state.diceCount}
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="diceType"
                       value={this.state.diceType}
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="damageBonus"
                       value={this.state.damageBonus}
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="damageType"
                       value={this.state.damageType}
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="toHitBonus"
                       value={this.state.toHitBonus}
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="stat"
                       value={this.state.stat}
                       onChange={this.handleChange}
