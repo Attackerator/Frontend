@@ -81,3 +81,11 @@ label input, select{
   grid-column: 3 / 7;
   font-size: $font-mobile-lg;
 }
+.formWrap{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column: 1 / 7;
+}
+.formWrap form{
+  grid-column: 1 / 7;
+}
