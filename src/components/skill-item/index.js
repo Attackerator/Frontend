@@ -61,7 +61,7 @@ export default class SkillItem extends React.Component {
     return(
       <div className="skillItem">
         <div className="main">
-          <RollButton/>
+          <RollButton modalType={'ROLL_ONE'} modalProps={{modifer: Math.floor((this.props.character.stats[0][this.props.skill.stat]-10)/2), bonus: this.props.skill.bonus}} />
           <h3>{this.props.skill.name}</h3>
           <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
         </div>

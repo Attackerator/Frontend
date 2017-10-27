@@ -71,7 +71,7 @@ export default class SpellItem extends React.Component {
     return(
       <div className="spellItem">
         <div className="main">
-          <RollButton/>
+          <RollButton />
           <h3>{this.props.spell.name}</h3>
           <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
         </div>
