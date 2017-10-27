@@ -104,7 +104,7 @@ class StatContainer extends React.Component {
                   placeholder="Charisma"
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="wisdom"
                   value={this.state.wisdom}
                   onChange={this.handleChange}
