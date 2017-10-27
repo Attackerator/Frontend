@@ -73,68 +73,84 @@ class SpellContainer extends React.Component {
         {
           this.state.toggleForm ?
             <form onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleChange}
-                placeholder="Spell Name"
-              />
-              <input
-                type="text"
-                name="description"
-                value={this.state.description}
-                onChange={this.handleChange}
-                placeholder="Description"
-              />
-              <input
-                type="number"
-                name="diceCount"
-                value={this.state.diceCount}
-                onChange={this.handleChange}
-                placeholder="Dice Count"
-              />
-              <input
-                type="number"
-                name="diceType"
-                value={this.state.diceType}
-                onChange={this.handleChange}
-                placeholder="Dice Type"
-              />
-              <input
-                type="number"
-                name="damageBonus"
-                value={this.state.damageBonus}
-                onChange={this.handleChange}
-                placeholder="Damage Bonus"
-              />
-              <input
-                type="text"
-                name="damageType"
-                value={this.state.damageType}
-                onChange={this.handleChange}
-                placeholder="Damage Type"
-              />
-              <input
-                type="number"
-                name="toHitBonus"
-                value={this.state.toHitBonus}
-                onChange={this.handleChange}
-                placeholder="To Hit Bonus"
-              />
-              <select
-                name="stat"
-                value={this.state.stat}
-                onChange={this.handleChange}
-                placeholder="stat"
-              >
-                <option name="strength" value="strength">Strength</option>
-                <option name="dexterity" value="dexterity">Dexterity</option>
-                <option name="constitution" value="constitution">Constitution</option>
-                <option name="intelligence" value="intelligence">Intelligence</option>
-                <option name="charisma" value="charisma">Charisma</option>
-                <option name="wisdom" value="wisdom">Wisdom</option>
-              </select>
+              <label>Name:
+                <input
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                  placeholder="Spell Name"
+                />
+              </label>
+              <label>Description:
+                <input
+                  type="text"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.handleChange}
+                  placeholder="Description"
+                />
+              </label>
+              <label>Dmg Dice Count:
+                <input
+                  type="number"
+                  name="diceCount"
+                  value={this.state.diceCount}
+                  onChange={this.handleChange}
+                  placeholder="Dice Count"
+                />
+              </label>
+              <label>Dmg Dice Type:
+                <input
+                  type="number"
+                  name="diceType"
+                  value={this.state.diceType}
+                  onChange={this.handleChange}
+                  placeholder="Dice Type"
+                />
+              </label>
+              <label>Dmg Bonus:
+                <input
+                  type="number"
+                  name="damageBonus"
+                  value={this.state.damageBonus}
+                  onChange={this.handleChange}
+                  placeholder="Damage Bonus"
+                />
+              </label>
+              <label>Dmg Type:
+                <input
+                  type="text"
+                  name="damageType"
+                  value={this.state.damageType}
+                  onChange={this.handleChange}
+                  placeholder="Damage Type"
+                />
+              </label>
+              <label>Hit Bonus:
+                <input
+                  type="number"
+                  name="toHitBonus"
+                  value={this.state.toHitBonus}
+                  onChange={this.handleChange}
+                  placeholder="To Hit Bonus"
+                />
+              </label>
+              <label>Stat:
+                <select
+                  name="stat"
+                  value={this.state.stat}
+                  onChange={this.handleChange}
+                  placeholder="stat"
+                >
+                  <option name="strength" value="strength">Strength</option>
+                  <option name="dexterity" value="dexterity">Dexterity</option>
+                  <option name="constitution" value="constitution">Constitution</option>
+                  <option name="intelligence" value="intelligence">Intelligence</option>
+                  <option name="charisma" value="charisma">Charisma</option>
+                  <option name="wisdom" value="wisdom">Wisdom</option>
+                </select>
+              </label>
               <button type="submit" onSubmit={this.handleSubmit}>Submit Change</button>
             </form> :
             <div></div>

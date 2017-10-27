@@ -16,8 +16,8 @@ export default class App extends React.Component {
     return(
       <div className="app">
         <ModalContainer />
-          <Route exact path='/login' component={LoginContainer}/>
-          <Route exact path='/' render={() => (isloggedIn() ?  (<DashboardContainer />) : (<Redirect to='/login'/>))}/>
+        <Route exact path='/login' component={LoginContainer}/>
+        <Route exact path='/' render={() => (isloggedIn() ?  (<DashboardContainer />) : (<Redirect to='/login'/>))}/>
       </div>
     );
   }

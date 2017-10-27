@@ -57,33 +57,39 @@ class SaveContainer extends React.Component {
         {
           this.state.toggleForm ?
             <form onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                name="type"
-                value={this.state.type}
-                onChange={this.handleChange}
-                placeholder="Type"
-              />
-              <input
-                type="text"
-                name="bonus"
-                value={this.state.bonus}
-                onChange={this.handleChange}
-                placeholder="Bonus"
-              />
-              <select
-                name="stat"
-                value={this.state.stat}
-                onChange={this.handleChange}
-                placeholder="stat"
-              >
-                <option name="strength" value="strength">Strength</option>
-                <option name="dexterity" value="dexterity">Dexterity</option>
-                <option name="constitution" value="constitution">Constitution</option>
-                <option name="intelligence" value="intelligence">Intelligence</option>
-                <option name="charisma" value="charisma">Charisma</option>
-                <option name="wisdom" value="wisdom">Wisdom</option>
-              </select>
+              <label>Type:
+                <input
+                  type="text"
+                  name="type"
+                  value={this.state.type}
+                  onChange={this.handleChange}
+                  placeholder="Type"
+                />
+              </label>
+              <label>Bonus:
+                <input
+                  type="text"
+                  name="bonus"
+                  value={this.state.bonus}
+                  onChange={this.handleChange}
+                  placeholder="Bonus"
+                />
+              </label>
+              <label>Stat:
+                <select
+                  name="stat"
+                  value={this.state.stat}
+                  onChange={this.handleChange}
+                  placeholder="stat"
+                >
+                  <option name="strength" value="strength">Strength</option>
+                  <option name="dexterity" value="dexterity">Dexterity</option>
+                  <option name="constitution" value="constitution">Constitution</option>
+                  <option name="intelligence" value="intelligence">Intelligence</option>
+                  <option name="charisma" value="charisma">Charisma</option>
+                  <option name="wisdom" value="wisdom">Wisdom</option>
+                </select>
+              </label>
               <button type="submit">Submit Change</button>
             </form> :
             <div></div>
