@@ -26,7 +26,7 @@ class SaveContainer extends React.Component {
                {
                  addSave: this.props.addSave,
                  editSave: this.props.putSave,
-                 deleteSkill: this.props.deleteSave
+                 deleteSave: this.props.deleteSave
                }
               }
                />
