@@ -4,6 +4,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import StatItem from '../stat-item';
 
+import * as statActions from '../../actions/stat';
+
 class StatContainer extends React.Component {
   constructor(props){
     super(props);
@@ -17,7 +19,7 @@ class StatContainer extends React.Component {
           {
             this.props.character.stats.map(stat => {
               return(
-                <StatItem key={stat._id} stat={stat} />
+                <StatItem key={stat._id} stat={stat} editStats={this.props.editStats}/>
               );
             })
           }
@@ -31,6 +33,8 @@ const mapStateToProps = state => ({
   character: state.currentCharacter
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  editStats: (id,stats) => dispatch(statActions.putStatsRequest(id,stats))
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(StatContainer);

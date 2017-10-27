@@ -6,7 +6,6 @@ const request = require('superagent');
 // TODO: test when creating modal!!
 export const postSpellRequest = (charId,spell) => dispatch => {
   let token = get_cookie('token');
-  console.log(token);
   return request.post(`${API_URL}/api/spell/${charId}`)
     .set({Authorization: `Bearer ${token}`})
     .send(spell)
