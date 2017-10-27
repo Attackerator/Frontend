@@ -125,13 +125,15 @@ class DashboardContainer extends React.Component {
               {
                 this.state.showNew && !this.state.profileToggle ?
                   <form className="newCharacterForm" onSubmit={this.handleSubmit}>
-                    <input
-                      type="text"
-                      name="characterName"
-                      value={this.state.characterName}
-                      placeholder="Character Name"
-                      onChange={this.handleChange}
-                    />
+                    <label>Character Name:
+                      <input
+                        type="text"
+                        name="characterName"
+                        value={this.state.characterName}
+                        placeholder="Character Name"
+                        onChange={this.handleChange}
+                      />
+                    </label>
                     <button type="submit">Submit</button>
                   </form>
                   : <div className="hideMe"></div>

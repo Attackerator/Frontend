@@ -90,13 +90,15 @@ class CharacterItem extends React.Component {
           {
             this.state.editForm ?
               <form className="characterForm" onSubmit={this.handleSubmit}>
-                <input
-                  type="text"
-                  name="characterName"
-                  value={this.state.characterName}
-                  placeholder={this.props.character.name}
-                  onChange={this.handleChange}
-                />
+                <label>Character Name:
+                  <input
+                    type="text"
+                    name="characterName"
+                    value={this.state.characterName}
+                    placeholder={this.props.character.name}
+                    onChange={this.handleChange}
+                  />
+                </label>
                 <button type="submit">Submit</button>
               </form>
               : null
@@ -131,7 +133,7 @@ class CharacterItem extends React.Component {
                       this.state.tab === 'Skills' ?
                         <SkillContainer/> : <StatsContainer />
               }
-            </div>: null 
+            </div>: null
         }
       </div>
     );
