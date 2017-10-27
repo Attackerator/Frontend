@@ -109,7 +109,7 @@ class AttackContainer extends React.Component {
                 placeholder="Damage Bonus"
               />
               <input
-                type="number"
+                type="text"
                 name="damageType"
                 value={this.state.damageType}
                 onChange={this.handleChange}

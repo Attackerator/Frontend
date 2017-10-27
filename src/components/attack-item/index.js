@@ -122,7 +122,7 @@ export default class AttackItem extends React.Component {
                       onChange={this.handleChange}
                     />
                     <input
-                      type="number"
+                      type="text"
                       name="damageType"
                       value={this.state.damageType}
                       onChange={this.handleChange}
