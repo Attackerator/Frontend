@@ -61,7 +61,7 @@ export default class SkillItem extends React.Component {
     return(
       <div className="skillItem">
         <div className="main">
-          <RollButton modalType={'ROLL_ONE'} modalProps={{modifer: Math.floor((this.props.character.stats[0][this.props.skill.stat]-10)/2), bonus: this.props.skill.bonus}} />
+          <RollButton modalType={'ROLL_ONE'} modalProps={{modifer: Math.floor((this.props.character.stats[0][this.props.skill.stat.toLowerCase()]-10)/2), bonus: this.props.skill.bonus}} />
           <h3>{this.props.skill.name}</h3>
           <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
         </div>
@@ -96,13 +96,9 @@ export default class SkillItem extends React.Component {
                       onChange={this.handleChange}
                     />
                     <button type="submit">Submit Change</button>
-                  </form> :
-                  <div>
-                </div>
+                  </form> : null
               }
-            </div> :
-          <div>
-          </div>
+            </div> : null
         }
       </div>
     );
