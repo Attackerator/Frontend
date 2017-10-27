@@ -133,24 +133,26 @@ class SpellContainer extends React.Component {
             </form> :
             <div></div>
         }
-        {
-          this.props.character.spells.map(spell => {
-            return(
-              <SpellItem
-                key={spell._id}
-                spell={spell}
-                character={this.props.character}
-                actions={
-                  {
-                    addSpell: this.props.addSpell,
-                    editSpell: this.props.putSpell,
-                    deleteSpell: this.props.deleteSpell
+        <div className="wrapper">
+          {
+            this.props.character.spells.map(spell => {
+              return(
+                <SpellItem
+                  key={spell._id}
+                  spell={spell}
+                  character={this.props.character}
+                  actions={
+                    {
+                      addSpell: this.props.addSpell,
+                      editSpell: this.props.putSpell,
+                      deleteSpell: this.props.deleteSpell
+                    }
                   }
-                }
-              />
-            );
-          })
-        }
+                />
+              );
+            })
+          }
+        </div>
       </div>
     );
   }

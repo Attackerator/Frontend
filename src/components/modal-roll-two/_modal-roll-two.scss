@@ -1,0 +1,67 @@
+@import './../../style/lib/_vars.scss';
+
+
+.rollModal2{
+  background-color: white;
+  position: fixed;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "ht ht ht ht ht ht"
+    "hr hr hr hb hb hb"
+    "dt dt dt dt dt dt"
+    "dr dr dr db db db"
+    "s s s s s s";
+  grid-row: auto;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 150;
+	left: 0;
+	right: 0;
+	bottom: 150;
+	overflow-y: auto;
+	overflow-x: hidden;
+  border-radius: 12px;
+  border: 10px solid $blue;
+  font-family: $font-primary;
+}
+.closeModal{
+  grid-area: s;
+  grid-column: 2 / 6;
+}
+.hit-total{
+  grid-area: ht;
+  font-size: 12vw;
+  grid-column: 2 / 6;
+}
+.hit-roll{
+  grid-area: hr;
+  font-size: $font-mobile-sm;
+  grid-column: 2 / 4;
+
+}
+.hit-bonus{
+  grid-area: hb;
+  font-size: $font-mobile-sm;
+  grid-column: 4 / 7;
+
+}
+.dmg-total{
+  grid-area: dt;
+  font-size: 12vw;
+  grid-column: 2 / 6;
+}
+.dmg-roll{
+  grid-area: dr;
+  font-size: $font-mobile-sm;
+  grid-column: 2 / 4;
+
+}
+.dmg-bonus{
+  grid-area: db;
+  font-size: $font-mobile-sm;
+  grid-column: 4 / 7;
+
+}
