@@ -92,13 +92,13 @@ export default class SaveItem extends React.Component {
             <input
             type="text"
             name="bonus"
-            value={this.state.name}
+            value={this.state.bonus}
             onChange={this.handleChange}
             />
             <input
             type="text"
             name="stat"
-            value={this.state.name}
+            value={this.state.stat}
             onChange={this.handleChange}
             />
             <button type="submit">Submit Change</button>
