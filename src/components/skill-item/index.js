@@ -84,7 +84,7 @@ export default class SkillItem extends React.Component {
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="bonus"
                       value={this.state.bonus}
                       onChange={this.handleChange}
