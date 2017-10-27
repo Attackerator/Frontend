@@ -19,7 +19,7 @@ class AttackContainer extends React.Component {
       damageBonus: '',
       damageType: '',
       toHitBonus: '',
-      stat: ''
+      stat: 'strength'
     };
 
     this.handleToggleForm = this.handleToggleForm.bind(this);
@@ -32,6 +32,7 @@ class AttackContainer extends React.Component {
   }
 
   handleChange(e){
+    console.log(e.target);
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -88,21 +89,21 @@ class AttackContainer extends React.Component {
                 placeholder="Description"
               />
               <input
-                type="text"
+                type="number"
                 name="diceCount"
                 value={this.state.diceCount}
                 onChange={this.handleChange}
                 placeholder="Dice Count"
               />
               <input
-                type="text"
+                type="number"
                 name="diceType"
                 value={this.state.diceType}
                 onChange={this.handleChange}
                 placeholder="Dice Type"
               />
               <input
-                type="text"
+                type="number"
                 name="damageBonus"
                 value={this.state.damageBonus}
                 onChange={this.handleChange}
@@ -116,19 +117,25 @@ class AttackContainer extends React.Component {
                 placeholder="Damage Type"
               />
               <input
-                type="text"
+                type="number"
                 name="toHitBonus"
                 value={this.state.toHitBonus}
                 onChange={this.handleChange}
                 placeholder="Hit Bonus"
               />
-              <input
-                type="text"
+              <select
                 name="stat"
                 value={this.state.stat}
                 onChange={this.handleChange}
                 placeholder="stat"
-              />
+              >
+                <option name="strength" value="strength">Strength</option>
+                <option name="dexterity" value="dexterity">Dexterity</option>
+                <option name="constitution" value="constitution">Constitution</option>
+                <option name="intelligence" value="intelligence">Intelligence</option>
+                <option name="charisma" value="charisma">Charisma</option>
+                <option name="wisdom" value="wisdom">Wisdom</option>
+              </select>
               <button type="submit">Submit Change</button>
             </form> :
             <div></div>

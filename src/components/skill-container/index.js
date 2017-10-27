@@ -14,7 +14,7 @@ class SkillContainer extends React.Component {
       toggleForm: false,
       name: '',
       bonus: '',
-      stat: ''
+      stat: 'strength'
     };
 
     this.handleToggleForm = this.handleToggleForm.bind(this);
@@ -65,19 +65,25 @@ class SkillContainer extends React.Component {
                 placeholder="Name"
               />
               <input
-                type="text"
+                type="number"
                 name="bonus"
                 value={this.state.bonus}
                 onChange={this.handleChange}
                 placeholder="Bonus"
               />
-              <input
-                type="text"
+              <select
                 name="stat"
                 value={this.state.stat}
                 onChange={this.handleChange}
-                placeholder="Stat"
-              />
+                placeholder="stat"
+              >
+                <option name="strength" value="strength">Strength</option>
+                <option name="dexterity" value="dexterity">Dexterity</option>
+                <option name="constitution" value="constitution">Constitution</option>
+                <option name="intelligence" value="intelligence">Intelligence</option>
+                <option name="charisma" value="charisma">Charisma</option>
+                <option name="wisdom" value="wisdom">Wisdom</option>
+              </select>
               <button type="submit">Submit Change</button>
             </form> :
             <div></div>
@@ -90,11 +96,11 @@ class SkillContainer extends React.Component {
                 skill={skill}
                 character={this.props.character}
                 actions={
-                {
-                  addSkill: this.props.addSkill,
-                  editSkill: this.props.putSkill,
-                  deleteSkill: this.props.deleteSkill
-                }
+                  {
+                    addSkill: this.props.addSkill,
+                    editSkill: this.props.putSkill,
+                    deleteSkill: this.props.deleteSkill
+                  }
                 }
               />
             );

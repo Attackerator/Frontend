@@ -69,42 +69,42 @@ class StatContainer extends React.Component {
             this.state.toggleForm ?
               <form onSubmit={this.handleSubmit}>
                 <input
-                  type="text"
+                  type="number"
                   name="strength"
                   value={this.state.strength}
                   onChange={this.handleChange}
                   placeholder="Strength"
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="dexterity"
                   value={this.state.dexterity}
                   onChange={this.handleChange}
                   placeholder="Dexterity"
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="constitution"
                   value={this.state.constitution}
                   onChange={this.handleChange}
                   placeholder="Constitution"
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="intelligence"
                   value={this.state.intelligence}
                   onChange={this.handleChange}
                   placeholder="Intelligence"
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="charisma"
                   value={this.state.charisma}
                   onChange={this.handleChange}
                   placeholder="Charisma"
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="wisdom"
                   value={this.state.wisdom}
                   onChange={this.handleChange}
