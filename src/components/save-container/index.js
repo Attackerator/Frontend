@@ -9,6 +9,14 @@ import * as saveActions from '../../actions/save';
 class SaveContainer extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      toggleForm: false,
+      type: '',
+      bonus: '',
+      stat: ''
+    };
+    
   }
 
   render(){
