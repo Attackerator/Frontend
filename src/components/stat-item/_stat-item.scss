@@ -12,8 +12,10 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-row: auto;
   grid-column: 1 / 7;
-  padding: $gutter-sm;
+  padding: $gutter-lg;
   font-family: $font-secondary;
+  font-size: $font-mobile-lg;
+  border: 2px solid black;
 
 }
 .statItem button .roll{

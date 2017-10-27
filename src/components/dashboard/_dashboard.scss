@@ -15,7 +15,7 @@
 .dash-head .logo{
   grid-column: 1 / 2;
   background-image: url("../../images/attackeratorLogo.png");
-  height: 12vw;
+  height: 15vw;
   background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
@@ -28,16 +28,27 @@
   align-self: center;
   text-align: center;
 }
-.profile {
-  grid-column: 6 / 7;
-  align-self: center;
+.profile{
+  display: grid;
+  grid-column: 1 / 7;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding: $gutter-lg;
   font-size: 3vw;
   font-family: $font-secondary;
 }
-.profile .fa{
-  font-size: 10vw;
+.profileMenu{
+  grid-column: 6 / 7;
+  align-self: center;
+}
+.profileMenu .fa{
+  font-size: 12vw;
 }
 .yourName{
-  font-size: 3.5vw;
+  font-size: 10vw;
   font-family: $font-primary;
+}
+.midIndex .noHover:hover{
+  background-color: transparent;
+  border: 2px solid transparent;
+
 }
