@@ -1,8 +1,12 @@
 body{
-  //background-image: url("./../images/background.jpg");
-  background-color: $blue;
-  padding-top: 2em;
-
+  background-image: url("./../images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bigwrap{
+  background-color: rgba(68, 132, 206, 0.75);
+  min-height: 100vh;
 }
 
 a{
