@@ -28,7 +28,7 @@ export const putSaveRequest = (oldSave,newSave) => dispatch => {
 export const deleteSaveRequest = save => dispatch => {
   let token = get_cookie('token');
   console.log(save);
-  return request.delete(`${API_URL}/api/save/${save.id}`)
+  return request.delete(`${API_URL}/api/save/${save._id}`)
   .set({Authorization: `Bearer ${token}`})
   .then(res => dispatch => {
     dispatch(character.getCharacterRequest(save.characterId));
