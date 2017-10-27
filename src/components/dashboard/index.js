@@ -91,7 +91,7 @@ class DashboardContainer extends React.Component {
                   this.state.profileToggle ?
                     <nav className="profile">
                       <ul className="showMe">
-                        <li>{this.props.user.username}</li>
+                        <li className="yourName">{this.props.user.username}</li>
                         <li><Link to={'/login'} onClick={this.logOut}>Log Out</Link></li>
                         <li><a id="newCharacter" href="#" onClick={this.toggleNew}>New Character</a></li>
                         {

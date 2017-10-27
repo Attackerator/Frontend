@@ -43,6 +43,8 @@ header .delete{
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding-top: $gutter-lg;
   padding-bottom: $gutter-lg;
+  font-size: 3vw;
+  font-family: $font-secondary;
 }
 .resourceNav ul{
   grid-column: 6 / 7;
