@@ -72,7 +72,7 @@ export default class AttackItem extends React.Component {
     return(
       <div className="attackItem">
         <div className="main">
-          <RollButton modalType={'ROLL_TWO'} modalProps={{hitModifier: Math.floor((this.props.character.stats[0][this.props.attack.stat]-10)/2), hitBonus: this.props.attack.toHitBonus, diceType: this.props.attack.diceType, diceCount: this.props.attack.diceCount, dmgBonus: this.props.attack.damageBonus,}} />
+          <RollButton modalType={'ROLL_TWO'} modalProps={{hitModifier: Math.floor((this.props.character.stats[0][this.props.attack.stat.toLowerCase()]-10)/2), hitBonus: this.props.attack.toHitBonus, diceType: this.props.attack.diceType, diceCount: this.props.attack.diceCount, dmgBonus: this.props.attack.damageBonus,}} />
           <h3>{this.props.attack.name}</h3>
           <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
         </div>

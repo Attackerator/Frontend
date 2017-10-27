@@ -71,7 +71,7 @@ export default class SpellItem extends React.Component {
     return(
       <div className="spellItem">
         <div className="main">
-          <RollButton modalType={'ROLL_TWO'} modalProps={{hitModifier: Math.floor((this.props.character.stats[0][this.props.spell.stat]-10)/2), hitBonus: this.props.spell.toHitBonus, diceType: this.props.spell.diceType, diceCount: this.props.spell.diceCount, dmgBonus: this.props.spell.damageBonus,}} />
+          <RollButton modalType={'ROLL_TWO'} modalProps={{hitModifier: Math.floor((this.props.character.stats[0][this.props.spell.stat.toLowerCase()]-10)/2), hitBonus: this.props.spell.toHitBonus, diceType: this.props.spell.diceType, diceCount: this.props.spell.diceCount, dmgBonus: this.props.spell.damageBonus,}} />
           <h3>{this.props.spell.name}</h3>
           <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
         </div>
@@ -142,8 +142,7 @@ export default class SpellItem extends React.Component {
                   </form> :
                   <div></div>
               }
-            </div> :
-            <div></div>
+            </div> : null
         }
       </div>
     );
