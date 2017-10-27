@@ -9,6 +9,16 @@ import * as statActions from '../../actions/stat';
 class StatContainer extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      toggleForm: false,
+      strength: '',
+      dexterity: '',
+      wisdom: '',
+      intelligence: '',
+      charisma: '',
+      constitution: ''
+    };
   }
 
   render(){
