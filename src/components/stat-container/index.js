@@ -117,7 +117,17 @@ class StatContainer extends React.Component {
           {
             this.props.character.stats.map(stat => {
               return(
-                <StatItem key={stat._id} stat={stat} editStats={this.props.editStats}/>
+                <StatItem
+                  key={stat._id}
+                  stat={stat}
+                  character={this.props.character}
+                  actions={
+                    {
+                      addStat: this.props.addStat,
+                      editStat: this.props.putStat,
+                      deleteStat: this.props.deleteStat
+                    }
+                  }/>
               );
             })
           }
