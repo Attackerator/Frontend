@@ -29,6 +29,12 @@ class StatContainer extends React.Component {
     this.setState({ toggleForm: !this.state.toggleForm});
   }
 
+  handleChange(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
 
   render(){
     return(
