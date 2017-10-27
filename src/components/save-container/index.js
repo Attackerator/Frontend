@@ -37,7 +37,7 @@ class SaveContainer extends React.Component {
     this.props.addSave(
       this.props.character._id,
       {
-        name: this.state.type,
+        type: this.state.type,
         bonus: this.state.bonus,
         stat: this.state.stat
       });
@@ -60,7 +60,7 @@ class SaveContainer extends React.Component {
               <input
                 type="text"
                 name="type"
-                value={this.state.name}
+                value={this.state.type}
                 onChange={this.handleChange}
                 placeholder="Type"
               />
