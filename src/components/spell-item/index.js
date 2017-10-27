@@ -103,19 +103,19 @@ export default class SpellItem extends React.Component {
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="diceCount"
                       value={this.state.diceCount}
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="diceType"
                       value={this.state.diceType}
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="damageBonus"
                       value={this.state.damageBonus}
                       onChange={this.handleChange}
@@ -127,7 +127,7 @@ export default class SpellItem extends React.Component {
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="toHitBonus"
                       value={this.state.toHitBonus}
                       onChange={this.handleChange}
