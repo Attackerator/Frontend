@@ -13,7 +13,7 @@ export const putStatsRequest = (id,newStats) => dispatch => {
 export const postStatRequest = (charId,stat) => dispatch => {
   let token = get_cookie('token');
   console.log(token);
-  return request.post(`${API_URL}/api/stat/${charId}`)
+  return request.post(`${API_URL}/api/stats/${charId}`)
     .set({Authorization: `Bearer ${token}`})
     .send(stat)
 >>>>>>> added post route for stats
