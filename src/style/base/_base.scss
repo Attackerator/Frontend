@@ -60,3 +60,23 @@ button {
     }
   }
 }
+.content form{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column: 1 / 7;
+  padding: $gutter-sm;
+}
+.content form button{
+  grid-column:  1 / 7;
+}
+label{
+  grid-column: 1 / 7;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  font-family: $font-primary;
+  font-size: $font-mobile-lg;
+}
+label input, select{
+  grid-column: 3 / 7;
+  font-size: $font-mobile-lg;
+}
