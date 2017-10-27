@@ -48,6 +48,10 @@ class DashboardContainer extends React.Component {
   setCharacter(e){
     this.props.getCharacter(e.target.id)
       .then(this.props.getLastCharacter(e.target.id));
+    this.setState({
+      profileToggle: false,
+      showNew: false
+    });
   }
 
 
@@ -57,6 +61,9 @@ class DashboardContainer extends React.Component {
       return {
         showNew: !this.state.showNew
       };
+    });
+    this.setState({
+      profileToggle: false,
     });
   }
 
@@ -74,7 +81,11 @@ class DashboardContainer extends React.Component {
   }
 
   handleProfileToggle(){
-    this.setState({profileToggle: !this.state.profileToggle});
+    this.setState(function (state){
+      return {
+        profileToggle: !state.profileToggle
+      };
+    });
   }
 
   render(){
@@ -107,7 +118,7 @@ class DashboardContainer extends React.Component {
                 }
               </div>
               {
-                this.state.showNew ?
+                this.state.showNew && !this.state.profileToggle ?
                   <form className="newCharacterForm" onSubmit={this.handleSubmit}>
                     <input
                       type="text"
@@ -121,7 +132,7 @@ class DashboardContainer extends React.Component {
                   : <div className="hideMe"></div>
               }
               {
-                this.props.lastChar ? <CharacterItem/> : null
+                this.props.lastChar && !this.state.profileToggle &&!this.state.showNew ? <CharacterItem/> : null
               }
             </div>)
             :
