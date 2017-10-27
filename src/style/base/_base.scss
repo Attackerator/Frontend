@@ -1,7 +1,10 @@
 body{
-  //background-image: url("./../images/attackeratorLogo.png");
+  //background-image: url("./../images/background.jpg");
   background-color: $blue;
+  padding-top: 2em;
+
 }
+
 a{
   text-decoration: none;
   color: $black;
@@ -17,11 +20,12 @@ button {
   font-weight: bold;
   font-size: $font-mobile-lg;
   cursor: pointer;
-  border: none;
+  border: 2px solid black;
   background-color: $gold;
   text-shadow: none;
   border-radius: $border-radius;
   font-family: $font-secondary;
+
 
 
   &.new {

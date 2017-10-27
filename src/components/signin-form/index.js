@@ -37,7 +37,7 @@ class SignInForm extends React.Component {
     }
     return(
       <form className="signin-form" onSubmit={this.handleSubmit}>
-        <div className = "signIn" ><h1>Sign In Here</h1> </div>
+        <div className = "signInHead" ><h1>Sign In Here</h1> </div>
         <input
           type="text"
           name="username"
@@ -52,7 +52,7 @@ class SignInForm extends React.Component {
           placeholder="password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign In</button>
+        <button className="submitSignIn" type="submit">Sign In</button>
       </form>
     );
   }

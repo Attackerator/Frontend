@@ -1,0 +1,47 @@
+@import './../../style/lib/_vars.scss';
+
+.rollModal{
+  background-color: white;
+  position: fixed;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "t t t t t t"
+    "r r r b b b"
+    "s s s s s s";
+  grid-row: auto;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 200;
+	left: 50;
+	right: 50;
+	bottom: 200;
+	overflow-y: auto;
+	overflow-x: hidden;
+  border-radius: 12px;
+  border: 10px solid $blue;
+  font-family: $font-primary;
+}
+.closeModal{
+  grid-area: s;
+  grid-column: 2 / 6;
+}
+.total{
+  grid-area: t;
+  font-size: 12vw;
+  grid-column: 2 / 6;
+}
+.rollModal .roll{
+  grid-area: r;
+  font-size: $font-mobile-sm;
+  grid-column: 2 / 4;
+
+}
+.bonus{
+  grid-area: b;
+  font-size: $font-mobile-sm;
+  grid-column: 4 / 7;
+
+}

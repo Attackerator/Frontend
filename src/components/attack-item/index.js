@@ -74,15 +74,7 @@ export default class AttackItem extends React.Component {
         <div className="main">
           <RollButton modalType={'ROLL_TWO'} modalProps={{hitModifier: Math.floor((this.props.character.stats[0][this.props.attack.stat]-10)/2), hitBonus: this.props.attack.toHitBonus, diceType: this.props.attack.diceType, diceCount: this.props.attack.diceCount, dmgBonus: this.props.attack.damageBonus,}} />
           <h3>{this.props.attack.name}</h3>
-          <div onClick={this.handleExpand}>
-            {
-              this.state.expand
-                ?
-                <i className="fa fa-minus-square-o" aria-hidden="true"></i>
-                :
-                <i className="fa fa-plus-square-o" aria-hidden="true"></i>
-            }
-          </div>
+          <button onClick={this.handleExpand}>{this.state.expand ? '-' : '+' }</button>
         </div>
         {
           this.state.expand ?
@@ -149,10 +141,12 @@ export default class AttackItem extends React.Component {
                     />
                     <button type="submit">Submit Change</button>
                   </form> :
-                  <div></div>
+                  <div>
+                  </div>
               }
             </div> :
-            <div></div>
+            <div>
+            </div>
         }
       </div>
     );
