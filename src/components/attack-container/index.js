@@ -161,7 +161,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addAttack: (charId,attack) => dispatch(attackActions.postAttackRequest((charId,attack))),
+  addAttack: (charId,attack) => dispatch(attackActions.postAttackRequest(charId,attack)),
   putAttack: (oldAttack, newAttack) => dispatch(attackActions.putAttackRequest(oldAttack, newAttack)),
   deleteAttack: attack => dispatch(attackActions.deleteAttackRequest(attack))
 });

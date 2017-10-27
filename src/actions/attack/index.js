@@ -4,8 +4,8 @@ import { get_cookie } from '../../lib/helper';
 const request = require('superagent');
 
 export const postAttackRequest = (charId,attack) => dispatch => {
+  console.log({charId,attack});
   let token = get_cookie('token');
-  console.log(token);
   return request.post(`${API_URL}/api/attack/${charId}`)
     .set({Authorization: `Bearer ${token}`})
     .send(attack)
