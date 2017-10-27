@@ -19,18 +19,17 @@ class RollTwo extends React.Component{
   render(){
     let hitRoll = randomRoll(20);
     let hitModifier = this.props.modalProps.hitModifier;
-    let hitBbonus = this.props.modalProps.hitBbonus;
+    let hitBonus = this.props.modalProps.hitBonus;
     let dmgRoll = rollManyDice(this.props.modalProps.diceCount, this.props.modalProps.diceType);
-    let dmgModifier = this.props.modalProps.dmgModifier;
-    let dmgBbonus = this.props.modalProps.dmgBbonus;
+    let dmgBonus = this.props.modalProps.dmgBonus;
     return(
       <div>
-        <div>Hit Total: {hitRoll+hitModifier+hitBbonus}</div>
+        <div>Hit Total: {hitRoll+hitModifier+hitBonus}</div>
         <div>Hit Roll: {hitRoll}</div>
-        <div>Hit Bonuses: {hitModifier+hitBbonus}</div>
-        <div>Dmg Total: </div>
-        <div>Dmg Roll: </div>
-        <div>Dmg Bonuses: </div>
+        <div>Hit Bonuses: {hitModifier+hitBonus}</div>
+        <div>Dmg Total: {dmgRoll+dmgBonus}</div>
+        <div>Dmg Roll: {dmgRoll}</div>
+        <div>Dmg Bonuses: {dmgBonus}</div>
         <button className="closeModal" onClick={this.handleClick}>Close</button>
       </div>
     );

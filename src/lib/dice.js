@@ -4,7 +4,7 @@ export const rollManyDice = (num, sides) => {
   let total = 0;
   let rolls = num;
   for(var i=0; i < rolls; i++){
-    randomRoll(sides);
+    total = total+randomRoll(sides);
   }
   return total;
 };
