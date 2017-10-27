@@ -37,7 +37,7 @@ export default class SaveItem extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.props.actions.editSave(
-      this.props.skill,
+      this.props.save,
       {
         type: this.state.name,
         bonus: this.state.bonus,
