@@ -67,7 +67,7 @@ export default class StatItem extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.editStats(
+    this.props.actions.editStats(
       this.props.stat._id,
       {
         strength: this.state.strength.new,
