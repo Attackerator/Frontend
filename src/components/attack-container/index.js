@@ -123,7 +123,7 @@ class AttackContainer extends React.Component {
                 placeholder="Hit Bonus"
               />
               <input
-                type="number"
+                type="text"
                 name="stat"
                 value={this.state.stat}
                 onChange={this.handleChange}
