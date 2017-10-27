@@ -43,7 +43,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addSave: save => dispatch(saveActions.postSaveRequest(save)),
+  addSave: (charId, save) => dispatch(saveActions.postSaveRequest(charId, save)),
   putSave: (oldSave, newSave) => dispatch(saveActions.putSaveRequest(oldSave,newSave)),
   deleteSave: save => dispatch(saveActions.deleteSaveRequest(save))
 });
