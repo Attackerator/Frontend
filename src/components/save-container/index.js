@@ -53,6 +53,35 @@ class SaveContainer extends React.Component {
     return(
       <div className="saves">
         <h2>Saves</h2>
+        <button className="new" onClick={this.handleToggleForm}>New</button>
+        {
+          this.state.toggleForm ?
+            <form onSubmit={this.handleSubmit}>
+              <input
+                type="text"
+                name="type"
+                value={this.state.name}
+                onChange={this.handleChange}
+                placeholder="Type"
+              />
+              <input
+                type="text"
+                name="bonus"
+                value={this.state.bonus}
+                onChange={this.handleChange}
+                placeholder="Bonus"
+              />
+              <input
+                type="text"
+                name="stat"
+                value={this.state.stat}
+                onChange={this.handleChange}
+                placeholder="Stat"
+              />
+              <button type="submit">Submit Change</button>
+            </form> :
+            <div></div>
+        }
         {
           this.props.character.saves.map(save => {
             return(
