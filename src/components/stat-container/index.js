@@ -35,6 +35,29 @@ class StatContainer extends React.Component {
     });
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.addStat(
+      this.props.character._id,
+      {
+        strength: this.state.strength,
+        dexterity: this.state.dexterity,
+        constitution: this.state.constitution,
+        intelligence: this.state.intelligence,
+        charisma: this.state.charisma,
+        wisdom: this.state.wisdom,
+      });
+    this.setState({
+      toggleForm: false,
+      strength: '',
+      dexterity: '',
+      wisdom: '',
+      intelligence: '',
+      charisma: '',
+      constitution: ''
+    });
+  }
+
 
   render(){
     return(
