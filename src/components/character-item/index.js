@@ -20,11 +20,13 @@ class CharacterItem extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.toggleResource = this.toggleResource.bind(this);
 
     this.state = {
       tab: '',
       editForm: false,
-      characterName: ''
+      characterName: '',
+      showResource: false
     };
   }
 
@@ -44,21 +46,33 @@ class CharacterItem extends React.Component {
   toggleEdit() {
     this.setState(function(state) {
       return {
-        editForm: !this.state.editForm
+        editForm: !state.editForm
+      };
+    });
+  }
+
+  toggleResource(e) {
+    e.preventDefault();
+    this.setState(function(state) {
+      return {
+        showResource: !state.showResource
       };
     });
   }
 
   changeTab(e) {
     e.preventDefault();
-    this.setState({
-      tab: e.target.id
+    this.setState({tab: e.target.id});
+    this.setState(function(state) {
+      return {
+        showResource: !state.showResource,
+      };
     });
   }
 
   handleDelete(){
     return this.props.deleteCharacterRequest(this.props.character._id)
-    .then(() => this.props.getCharacterList());
+      .then(() => this.props.getCharacterList());
   }
 
   render(){
@@ -75,27 +89,27 @@ class CharacterItem extends React.Component {
           <button className="delete" onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
           {
             this.state.editForm ?
-            <form className="characterForm" onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                name="characterName"
-                value={this.state.characterName}
-                placeholder={this.props.character.name}
-                onChange={this.handleChange}
-              />
-              <button type="submit">Submit</button>
-            </form>
-            : <div className="hideMe"></div>
+              <form className="characterForm" onSubmit={this.handleSubmit}>
+                <input
+                  type="text"
+                  name="characterName"
+                  value={this.state.characterName}
+                  placeholder={this.props.character.name}
+                  onChange={this.handleChange}
+                />
+                <button type="submit">Submit</button>
+              </form>
+              : null
           }
         </header>
         <nav className="resourceNav">
           <ul>
-            <li><i className="fa fa-bars" aria-hidden="true"></i></li>
-            <li><a id="Attacks" href="#" onClick={this.changeTab}>Attacks</a></li>
-            <li><a id="Saves" href="#" onClick={this.changeTab}>Saves</a></li>
-            <li><a id="Skills" href="#" onClick={this.changeTab}>Skills</a></li>
-            <li><a id="Spells" href="#" onClick={this.changeTab}>Spells</a></li>
-            <li><a id="Stats" href="#" onClick={this.changeTab}>Stats</a></li>
+            <li><a href="#" onClick={this.toggleResource}><i className="fa fa-bars" aria-hidden="true"></i></a></li>
+            {this.state.showResource ? <li><a id="Attacks" href="#" onClick={this.changeTab}>Attacks</a></li> : null}
+            {this.state.showResource ? <li><a id="Saves" href="#" onClick={this.changeTab}>Saves</a></li> : null}
+            {this.state.showResource ? <li><a id="Skills" href="#" onClick={this.changeTab}>Skills</a></li> : null}
+            {this.state.showResource ? <li><a id="Spells" href="#" onClick={this.changeTab}>Spells</a></li> : null}
+            {this.state.showResource ? <li><a id="Stats" href="#" onClick={this.changeTab}>Stats</a></li> : null}
           </ul>
         </nav>
         <div className="resources">
@@ -107,8 +121,7 @@ class CharacterItem extends React.Component {
                 this.state.tab === 'Spells' ?
                   <SpellContainer/> :
                   this.state.tab === 'Skills' ?
-                    <SkillContainer/> :
-                      <StatsContainer />
+                    <SkillContainer/> : <StatsContainer />
           }
         </div>
       </div>
